@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ANFViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *myLabel;
 
+- (IBAction)buttonPush:(id)sender;
 @end
