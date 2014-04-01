@@ -79,7 +79,7 @@
     brkpedal.frame = CGRectMake(190, 230, 10, 10);
     [brkpedal setTitle:@"X" forState:UIControlStateNormal];
     
-    [brkpedal addTarget:self action:@selector(pressGasPedal) forControlEvents:UIControlEventTouchUpInside];
+    [brkpedal addTarget:self action:@selector(pressBrake) forControlEvents:UIControlEventTouchUpInside];
     
     frontBumper.length = 4;
     frontBumper.shape = @"round";
@@ -124,7 +124,7 @@
     starter.frame = CGRectMake(190, 200, 15, 15);
     [starter setTitle:@"Start" forState:UIControlStateNormal];
     
-    [starter addTarget:self action:@selector(pressGasPedal) forControlEvents:UIControlEventTouchUpInside];
+    [starter addTarget:self action:@selector(pressStarter) forControlEvents:UIControlEventTouchUpInside];
     
     
     [self.view addSubview:passWindow];
@@ -147,6 +147,16 @@
 - (void)pressGasPedal
 {
     NSLog(@"pressed gas");
+}
+
+- (void)pressBrake
+{
+    NSLog(@"pressed brake");
+}
+
+- (void)pressStarter;
+{
+    NSLog(@"pressed starter");
 }
 
 
