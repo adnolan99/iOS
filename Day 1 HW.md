@@ -20,76 +20,76 @@
 ####Design- Sleek designer, use of geo-tracking to see where your driver is located 
 
 ##3. Pandora
-####Flow- search format 
+####Flow- search format is easy to use
 
 ####Navigation- basically automated once you have your preferences set
 
-####Buttons
+####Buttons- artists names in rectangular space, along with the tabs for stations, feed, profile, and settings
 
-####Design
+####Design- artist selection brings up artist channel page
 
 ##4. Instagram
-####Flow
+####Flow- fluid, easy to scroll through and customize stream
 
-####Navigation
+####Navigation- scrolling main page 
 
-####Buttons
+####Buttons- minimalist button pictures w/ no labels
 
-####Design
+####Design- large photos with small comment text 
 
 ##5. facebook
-####Flow
+####Flow-  one main feed with slide out that allows multiple options
 
-####Navigation
+####Navigation- various pages that scroll
 
-####Buttons
+####Buttons- minimalist picture
 
-####Design
+####Design- main focus is mixture of photo and text updates
 
 ##6. Entrepreneur
-####Flow
+####Flow- main sroll bar of the home feed
 
-####Navigation
+####Navigation- slide out allows you to drill down into categories
 
-####Buttons
+####Buttons- main buttons are preview snippits of the article with a picture that you click on
 
-####Design
+####Design- two page design, one main page and one category page 
 
 ##7. ESPN
-####Flow
+####Flow- Allows customization to see the info you want to see
 
-####Navigation
+####Navigation- mixture of news, score updates, and videos
 
-####Buttons
+####Buttons- tabs and wide rectangular buttons
 
-####Design
+####Design- light background with three main sections, (scores, videosn, now)
 
 ##8. The WeatherUnderground
-####Flow
+####Flow- Allows customization of different sections
 
-####Navigation
+####Navigation- One main page
 
-####Buttons
+####Buttons-minimal buttons
 
-####Design
+####Design- dark background, one main page 
 
 ##9. reason
-####Flow
+####Flow- magazine style layout with different categories
 
-####Navigation
+####Navigation- a lot of content packed into tabs 
 
-####Buttons
+####Buttons- vertical scroll under different category tabs
 
-####Design
+####Design- different style content grouped together (videos, blog entries, articles, etc.)
 
 ##10. Wells Fargo
-####Flow
+####Flow- sign in for security
 
-####Navigation
+####Navigation- tab navigation
 
-####Buttons
+####Buttons= simple, mstly rectangular shaped
 
-####Design
+####Design- very simple with a table view and backgroundonce your signed in
 
 
 

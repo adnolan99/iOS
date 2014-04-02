@@ -14,11 +14,6 @@
 #import "Brake.h"
 #import "Wheel.h"
 
-
-@interface CarRootViewController ()
-
-@end
-
 @implementation CarRootViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,16 +28,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    //Initialized each instance/variable
+    [self createJeep];
+    
+}
+
+
+- (void)createJeep
+{
     Window *passWindow = [[Window alloc] init];
     Window *backPassWindow = [[Window alloc] init];
     Window *windsheild = [[Window alloc] init];
     Window *backWindow = [[Window alloc] init];
-    
     Brake *brkpedal = [[Brake alloc] init];
     Bumper *frontBumper = [[Bumper alloc] init];
-    GasPedal *gsPedal = [[GasPedal alloc] init];
     Wheel *rim1 = [[Wheel alloc] init];
     Wheel *rim2 = [[Wheel alloc] init];
     Wheel *rim3 = [[Wheel alloc] init];
@@ -50,9 +50,7 @@
     Wheel *spare = [[Wheel alloc] init];
     Ignition *starter = [[Ignition alloc] init];
     
-    
-    
-    
+    //Setting Properties on all instances
     passWindow.width = 1;
     passWindow.tinted = YES;
     passWindow.typeMaterial = @"glass";
@@ -84,14 +82,6 @@
     frontBumper.length = 4;
     frontBumper.shape = @"round";
     frontBumper.color = @"chrome";
-    
-    gsPedal.resistance = @"heavy";
-    gsPedal.length = 5;
-    gsPedal.color = @"black";
-    gsPedal.frame = CGRectMake(190, 250, 10, 10);
-    [gsPedal setTitle:@"G" forState:UIControlStateNormal];
-    
-    [gsPedal addTarget:self action:@selector(pressGasPedal) forControlEvents:UIControlEventTouchUpInside];
     
     rim1.rimSize = 18;
     rim1.flat = NO;
@@ -126,22 +116,33 @@
     
     [starter addTarget:self action:@selector(pressStarter) forControlEvents:UIControlEventTouchUpInside];
     
-    
+    //Using view controller (aka paintbrush) to add your views (aka paint) onto your window (aka canvas)
     [self.view addSubview:passWindow];
     [self.view addSubview:backPassWindow];
     [self.view addSubview:windsheild];
     [self.view addSubview:backWindow];
     [self.view addSubview:brkpedal];
     [self.view addSubview:frontBumper];
-    [self.view addSubview:gsPedal];
+    
     [self.view addSubview:rim1];
     [self.view addSubview:rim2];
     [self.view addSubview:rim3];
     [self.view addSubview:rim4];
     [self.view addSubview:spare];
     [self.view addSubview:starter];
-
+    
+    // Gas Pedal: Create, Modify, Paint!!!
+    GasPedal *gsPedal = [[GasPedal alloc] init];
+    gsPedal.resistance = @"heavy";
+    gsPedal.length = 5;
+    gsPedal.color = @"black";
+    gsPedal.frame = CGRectMake(190, 250, 10, 10);
+    [gsPedal setTitle:@"G" forState:UIControlStateNormal];
+    [gsPedal addTarget:self action:@selector(pressGasPedal) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:gsPedal];
+    
 }
+
 
 
 - (void)pressGasPedal
@@ -160,22 +161,10 @@
 }
 
 
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

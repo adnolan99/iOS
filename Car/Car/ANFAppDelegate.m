@@ -17,6 +17,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    //UIViewController that we create and assign to be our root entry point
     CarRootViewController *carVC =[[CarRootViewController alloc] init];
     self.window.rootViewController = carVC;
     
