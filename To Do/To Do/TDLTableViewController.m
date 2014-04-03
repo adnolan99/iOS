@@ -90,6 +90,7 @@
 //                       ];
         
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
+        self.tableView.rowHeight = 100;
         
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
@@ -182,30 +183,19 @@
 {
     TDLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
-//    if (cell == nil)
-//    {
-//        cell = [[TDLTableViewCell alloc] init];
-//        cell.backgroundColor = [uicolor clearColor];
-//        
-//    }
     
     if (cell == nil) cell = [[ TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     
     
     int index = [indexPath row];
     
-    
-    
-    
-//    cell.textLabel.text = listItems[index];
-//    cell.imageView.image = listImages[index];
-    
     NSDictionary * listItem = listItems[index];
     
+    cell.profileInfo = listItem;
     
 
-    cell.textLabel.text = listItem[@"name"];
-    cell.imageView.image =  listItem[@"image"];
+//    cell.textLabel.text = listItem[@"name"];
+//    cell.imageView.image =  listItem[@"image"];
 
     
     return cell;

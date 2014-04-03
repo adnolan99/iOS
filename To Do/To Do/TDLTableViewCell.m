@@ -11,10 +11,6 @@
 
 @implementation TDLTableViewCell
 
-//Synthesization happens behind the scenes with an @property
-@synthesize profileInfo=_profileInfo;
-
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -25,23 +21,23 @@
     return self;
 }
 
-
-- (NSDictionary *)profileInfo
-{
-    if (_profileInfo == nil)
-    {
-        _profileInfo = @{@"name":@"Default Name",@"image":[UIImage imageNamed:@"default"]};
-    
-    }
-    return _profileInfo;
-}
-
-
-
 -(void)setProfileInfo:(NSDictionary *)profileInfo
 {
- if(profileInfo != nil) _profileInfo = profileInfo;
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 60, 60)];
+    
+    imageView.image = profileInfo [@"image"];
+    imageView.layer.cornerRadius = 30;
+    imageView.layer.masksToBounds = YES;
+    
+    
+    [self.contentView addSubview:imageView];
+    
+    _profileInfo = profileInfo;
 }
+
+
+
 
 
 
