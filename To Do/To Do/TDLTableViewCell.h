@@ -12,5 +12,4 @@
 
 @property (nonatomic) NSDictionary * profileInfo;
 
-
 @end
