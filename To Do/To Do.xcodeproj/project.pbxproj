@@ -35,6 +35,7 @@
 		D5F9BAC618EC8B2100E249DE /* ashby.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F9BAB918EC8B2100E249DE /* ashby.png */; };
 		D5F9BAC918EC8ED000E249DE /* austinnolan.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F9BAC818EC8ED000E249DE /* austinnolan.png */; };
 		D5F9BACB18EC8ED900E249DE /* edsalter.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F9BACA18EC8ED900E249DE /* edsalter.png */; };
+		D5F9BACE18EDA73400E249DE /* TDLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BACD18EDA73400E249DE /* TDLTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		D5F9BAB918EC8B2100E249DE /* ashby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ashby.png; sourceTree = "<group>"; };
 		D5F9BAC818EC8ED000E249DE /* austinnolan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = austinnolan.png; sourceTree = "<group>"; };
 		D5F9BACA18EC8ED900E249DE /* edsalter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edsalter.png; sourceTree = "<group>"; };
+		D5F9BACC18EDA73400E249DE /* TDLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLTableViewCell.h; sourceTree = "<group>"; };
+		D5F9BACD18EDA73400E249DE /* TDLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,13 +143,13 @@
 		D5F9BA7F18EC4ADA00E249DE /* To Do */ = {
 			isa = PBXGroup;
 			children = (
+				D5F9BAD018EDA7D900E249DE /* TableView */,
+				D5F9BACF18EDA7B700E249DE /* Controllers */,
 				D5F9BAC718EC8B3D00E249DE /* Images */,
 				D5F9BA8818EC4ADA00E249DE /* TDLAppDelegate.h */,
 				D5F9BA8918EC4ADA00E249DE /* TDLAppDelegate.m */,
 				D5F9BA8B18EC4ADA00E249DE /* Images.xcassets */,
 				D5F9BA8018EC4ADA00E249DE /* Supporting Files */,
-				D5F9BAA818EC4C7200E249DE /* TDLTableViewController.h */,
-				D5F9BAA918EC4C7200E249DE /* TDLTableViewController.m */,
 			);
 			path = "To Do";
 			sourceTree = "<group>";
@@ -200,6 +203,24 @@
 				D5F9BAB818EC8B2100E249DE /* justagirlcoding.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		D5F9BACF18EDA7B700E249DE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D5F9BAA818EC4C7200E249DE /* TDLTableViewController.h */,
+				D5F9BAA918EC4C7200E249DE /* TDLTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D5F9BAD018EDA7D900E249DE /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				D5F9BACC18EDA73400E249DE /* TDLTableViewCell.h */,
+				D5F9BACD18EDA73400E249DE /* TDLTableViewCell.m */,
+			);
+			name = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F9BACE18EDA73400E249DE /* TDLTableViewCell.m in Sources */,
 				D5F9BAAA18EC4C7200E249DE /* TDLTableViewController.m in Sources */,
 				D5F9BA8618EC4ADA00E249DE /* main.m in Sources */,
 				D5F9BA8A18EC4ADA00E249DE /* TDLAppDelegate.m in Sources */,

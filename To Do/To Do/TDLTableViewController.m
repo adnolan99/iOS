@@ -8,12 +8,12 @@
 
 #import "TDLTableViewController.h"
 
+#import "TDLTableViewCell.h"
 
 @implementation TDLTableViewController
 
 {
     NSArray *listItems;
-    NSArray *listImages;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -21,45 +21,73 @@
     self = [super initWithStyle:style];
     if (self)
     {
-        listItems = @[@"Ed Salter",
-                      @"Austin Nolan",
-                      @"Jisha Obukwelu",
-                      @"John Yam",
-                      @"Austen Johnson",
-                      @"Ashby",
-                      @"Savitha Reddy",
-                      @"Jeff King",
-                      @"Ali Houshmand",
-                      @"Jon Fox",
-                      @"Teddy Conyers",
-                      @"Jeffery Moulds",
-                      @"Derek Weber",
-                      @"T.J. Mercer",
-                      @"Just a Girl Coding",
+        
+        
+        //NSDictionary * list = [NSDictionary alloc] initWithObjects:<#(NSArray *)#> forKeys:<#(NSArray *)#>;
+        
+        //NSDictionary * lsit = @{
+        //                        @"name" : @"Savitha Redding", @"image" : [UIImage imageNamed:@"savitharedding"]
+        //
+        //                        };
+        
+        listItems = @[
+                      @{@"name":@"Ed Salter", @"image" : [UIImage imageNamed:@"edsalter"]},
+                      @{@"name":@"Austin Nolan", @"image" : [UIImage imageNamed:@"austinnolan"]},
+                      @{@"name":@"Jisha Obukwelu", @"image" : [UIImage imageNamed:@"jishaobukwelu"]},
+                      @{@"name":@"John Yam", @"image" : [UIImage imageNamed:@"johnyam"]},
+                      @{@"name":@"Austen Johnson", @"image" : [UIImage imageNamed:@"austenjohnson"]},
+                      @{@"name":@"Ashby", @"image" : [UIImage imageNamed:@"ashby"]},
+                      @{@"name":@"Savitha Reddy", @"image" : [UIImage imageNamed:@"savithareddy"]},
+                      @{@"name" : @"Jeff King", @"image" : [UIImage imageNamed:@"jeffking"]},
+                      @{@"name" : @"Ali Houshmand", @"image" : [UIImage imageNamed:@"alihoushmand"]},
+                      @{@"name" : @"Jon Fox", @"image" : [UIImage imageNamed:@"jonfox"]},
+                      @{@"name" : @"Teddy Conyers", @"image" : [UIImage imageNamed:@"teddyconyers"]},
+                      @{@"name" : @"Jeffery Moulds", @"image" : [UIImage imageNamed:@"jefferymoulds"]},
+                      @{@"name" : @"Derek Weber", @"image" : [UIImage imageNamed:@"derekweber"]},
+                      @{@"name" : @"T.J. Mercer", @"image" : [UIImage imageNamed:@"tjmercer"]},
+                      @{@"name" : @"Just a Girl Coding", @"image" : [UIImage imageNamed:@"justagirlcoding"]},
                       ];
-                      
+
+        
+//        listItems = @[@"Ed Salter",
+//                      @"Austin Nolan",
+//                      @"Jisha Obukwelu",
+//                      @"John Yam",
+//                      @"Austen Johnson",
+//                      @"Ashby",
+//                      @"Savitha Reddy",
+//                      @"Jeff King",
+//                      @"Ali Houshmand",
+//                      @"Jon Fox",
+//                      @"Teddy Conyers",
+//                      @"Jeffery Moulds",
+//                      @"Derek Weber",
+//                      @"T.J. Mercer",
+//                      @"Just a Girl Coding",
+//                      ];
+        
                       
                       
                       //@"Ali Houshmand", @"Jeffery Moulds", @"Savitha Reddy", @"Jeff King", @"Derek Weber", @"Ashby", @"Austin Nolan", @"Austen Johnson", @"Jon Fox", @"Teddy Conyers", @"T.J. Mercer", @"Just a Girl Coding", @"John Yam", @"Ed Salter", @"Jisha Obukwelu"
                       
-                      
-        listImages = @[
-                       [UIImage imageNamed:@"edsalter"],
-                       [UIImage imageNamed:@"austinnolan"],
-                       [UIImage imageNamed:@"jishaobukwelu"],
-                       [UIImage imageNamed:@"johnyam"],
-                       [UIImage imageNamed:@"austenjohnson"],
-                       [UIImage imageNamed:@"ashby"],
-                       [UIImage imageNamed:@"savithareddy"],
-                       [UIImage imageNamed:@"jeffking"],
-                       [UIImage imageNamed:@"alihoushmand"],
-                       [UIImage imageNamed:@"jonfox"],
-                       [UIImage imageNamed:@"teddyconyers"],
-                       [UIImage imageNamed:@"jefferymoulds"],
-                       [UIImage imageNamed:@"derekweber"],
-                       [UIImage imageNamed:@"tjmercer"],
-                       [UIImage imageNamed:@"justagirlcoding"],
-                       ];
+//                      
+//        listImages = @[
+//                       [UIImage imageNamed:@"edsalter"],
+//                       [UIImage imageNamed:@"austinnolan"],
+//                       [UIImage imageNamed:@"jishaobukwelu"],
+//                       [UIImage imageNamed:@"johnyam"],
+//                       [UIImage imageNamed:@"austenjohnson"],
+//                       [UIImage imageNamed:@"ashby"],
+//                       [UIImage imageNamed:@"savithareddy"],
+//                       [UIImage imageNamed:@"jeffking"],
+//                       [UIImage imageNamed:@"alihoushmand"],
+//                       [UIImage imageNamed:@"jonfox"],
+//                       [UIImage imageNamed:@"teddyconyers"],
+//                       [UIImage imageNamed:@"jefferymoulds"],
+//                       [UIImage imageNamed:@"derekweber"],
+//                       [UIImage imageNamed:@"tjmercer"],
+//                       [UIImage imageNamed:@"justagirlcoding"],
+//                       ];
         
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
         
@@ -152,18 +180,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    TDLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] init];
-        
-    }
+//    if (cell == nil)
+//    {
+//        cell = [[TDLTableViewCell alloc] init];
+//        cell.backgroundColor = [uicolor clearColor];
+//        
+//    }
+    
+    if (cell == nil) cell = [[ TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    
     
     int index = [indexPath row];
-    cell.textLabel.text = listItems[index];
-    cell.imageView.image = listImages[index];
     
+    
+    
+    
+//    cell.textLabel.text = listItems[index];
+//    cell.imageView.image = listImages[index];
+    
+    NSDictionary * listItem = listItems[index];
+    
+    
+
+    cell.textLabel.text = listItem[@"name"];
+    cell.imageView.image =  listItem[@"image"];
+
     
     return cell;
 }
