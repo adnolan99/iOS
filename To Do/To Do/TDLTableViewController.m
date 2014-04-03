@@ -95,7 +95,7 @@
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 20, 0, 20);
         
         
-        UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 75)];
+        UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
         
         header.backgroundColor = [UIColor darkGrayColor];
         
@@ -103,18 +103,9 @@
         
         
         
-//        UILabel * titleHeader = [[UILabel alloc] initWithFrame:
-//                                 CGRectMake(120, 10, 300, 30)];
-//        
-//        titleHeader.text = @"Contacts";
-//        titleHeader.textColor = [UIColor whiteColor];
-//        
-//        [header addSubview:titleHeader];
         
         
-        
-        
-        UITextField * nameField = [[UITextField alloc] initWithFrame:(CGRectMake(20, 20, 160, 30))];
+        UITextField * nameField = [[UITextField alloc] initWithFrame:(CGRectMake(20, 60, 160, 30))];
         
         nameField.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.1];
         nameField.layer.cornerRadius = 6;
@@ -125,12 +116,21 @@
         
         [header addSubview:nameField];
         
-        UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(180, 20, 120, 30)];
+        UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 60, 90, 30)];
         [submitButton setTitle:@"New User" forState:UIControlStateNormal];
         submitButton.titleLabel.font = [UIFont systemFontOfSize:18];
-        submitButton.backgroundColor = [UiColorWithRed: ]
-        
+        submitButton.backgroundColor = [UIColor colorWithRed:127/255 green:255/255 blue:0/255 alpha:1.0];
+        submitButton.layer.cornerRadius = 6;
         [header addSubview:submitButton];
+        
+        
+        
+        UILabel * titleHeader = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 280, 30)];
+        titleHeader.text = @"Contacts";
+        titleHeader.textColor = [UIColor whiteColor];
+        titleHeader.font = [UIFont fontWithName:@"Noteworthy-Bold" size:26];
+
+        [header addSubview:titleHeader];
         
         
         UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];

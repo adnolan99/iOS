@@ -31,7 +31,7 @@
         profileName = [[UILabel alloc] initWithFrame:(CGRectMake(100, 20, 200, 30))];
         
         profileName.textColor = [UIColor darkGrayColor];
-        profileName.font = [UIFont systemFontOfSize:30];
+        profileName.font = [UIFont systemFontOfSize:26];
         
         [self.contentView addSubview:profileName];
         
