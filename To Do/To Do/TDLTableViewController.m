@@ -14,6 +14,7 @@
 
 {
     NSMutableArray *listItems;
+    UITextField * nameField;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -21,14 +22,7 @@
     self = [super initWithStyle:style];
     if (self)
     {
-        
-        
-        //NSDictionary * list = [NSDictionary alloc] initWithObjects:<#(NSArray *)#> forKeys:<#(NSArray *)#>;
-        
-        //NSDictionary * lsit = @{
-        //                        @"name" : @"Savitha Redding", @"image" : [UIImage imageNamed:@"savitharedding"]
-        //
-        //                        };
+    
         
         listItems = [@[
                       @{@"name":@"Ed Salter", @"image" : [UIImage imageNamed:@"edsalter"], @"github":@"https://github.com/MadArkitekt"},
@@ -36,7 +30,7 @@
                       @{@"name":@"Jisha Obukwelu", @"image" : [UIImage imageNamed:@"jishaobukwelu"], @"github":@"https://github.com/Jiobu"},
                       @{@"name":@"John Yam", @"image" : [UIImage imageNamed:@"johnyam"], @"github":@"https://github.com/yamski"},
                       @{@"name":@"Austen Johnson", @"image" : [UIImage imageNamed:@"austenjohnson"], @"github":@"https://github.com/ajohnson21"},
-                      @{@"name":@"Ashby", @"image" : [UIImage imageNamed:@"ashby"], @"github":@"https://github.com/athornwell"},
+                      @{@"name":@"Ashby Thornwell", @"image" : [UIImage imageNamed:@"ashby"], @"github":@"https://github.com/athornwell"},
                       @{@"name":@"Savitha Reddy", @"image" : [UIImage imageNamed:@"savithareddy"], @"github":@"https://github.com/savithareddy"},
                       @{@"name" : @"Jeff King", @"image" : [UIImage imageNamed:@"jeffking"], @"github":@"https://github.com/rampis"},
                       @{@"name" : @"Ali Houshmand", @"image" : [UIImage imageNamed:@"alihoushmand"], @"github":@"https://github.com/HoushmandA06"},
@@ -45,48 +39,10 @@
                       @{@"name" : @"Jeffery Moulds", @"image" : [UIImage imageNamed:@"jefferymoulds"], @"github":@"https://github.com/jdmgithub"},
                       @{@"name" : @"Derek Weber", @"image" : [UIImage imageNamed:@"derekweber"], @"github":@"https://github.com/dweber03"},
                       @{@"name" : @"T.J. Mercer", @"image" : [UIImage imageNamed:@"tjmercer"], @"github":@"https://github.com/gwanunig14"},
-                      @{@"name" : @"Just a Girl Coding", @"image" : [UIImage imageNamed:@"justagirlcoding"], @"github":@"https://github.com/justagirlcoding"},
+                      @{@"name" : @"Heidi Proske", @"image" : [UIImage imageNamed:@"justagirlcoding"], @"github":@"https://github.com/justagirlcoding"},
                       ] mutableCopy];
         
         
-        
-
-        
-//        listItems = @[@"Ed Salter",
-//                      @"Austin Nolan",
-//                      @"Jisha Obukwelu",
-//                      @"John Yam",
-//                      @"Austen Johnson",
-//                      @"Ashby",
-//                      @"Savitha Reddy",
-//                      @"Jeff King",
-//                      @"Ali Houshmand",
-//                      @"Jon Fox",
-//                      @"Teddy Conyers",
-//                      @"Jeffery Moulds",
-//                      @"Derek Weber",
-//                      @"T.J. Mercer",
-//                      @"Just a Girl Coding",
-//                      ];
-        
-        
-//        listImages = @[
-//                       [UIImage imageNamed:@"edsalter"],
-//                       [UIImage imageNamed:@"austinnolan"],
-//                       [UIImage imageNamed:@"jishaobukwelu"],
-//                       [UIImage imageNamed:@"johnyam"],
-//                       [UIImage imageNamed:@"austenjohnson"],
-//                       [UIImage imageNamed:@"ashby"],
-//                       [UIImage imageNamed:@"savithareddy"],
-//                       [UIImage imageNamed:@"jeffking"],
-//                       [UIImage imageNamed:@"alihoushmand"],
-//                       [UIImage imageNamed:@"jonfox"],
-//                       [UIImage imageNamed:@"teddyconyers"],
-//                       [UIImage imageNamed:@"jefferymoulds"],
-//                       [UIImage imageNamed:@"derekweber"],
-//                       [UIImage imageNamed:@"tjmercer"],
-//                       [UIImage imageNamed:@"justagirlcoding"],
-//                       ];
         
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
         self.tableView.rowHeight = 100;
@@ -94,52 +50,52 @@
         
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
-        header.backgroundColor = [UIColor darkGrayColor];
+        header.backgroundColor = [UIColor colorWithRed:153/255.0 green:178/255.0 blue:183/255.0 alpha:1.0];
         UILabel * titleHeader = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 280, 30)];
-        titleHeader.text = @"Contacts";
-        titleHeader.textColor = [UIColor colorWithRed:127/255 green:255/255 blue:0/255 alpha:1.0];
+        titleHeader.text = @"iOS Class";
+        titleHeader.textColor = [UIColor colorWithRed:122/255.0 green:106/255.0 blue:83/255.0 alpha:1.0];
         titleHeader.font = [UIFont fontWithName:@"Noteworthy-Bold" size:26];
         [header addSubview:titleHeader];
         self.tableView.tableHeaderView = header;
         
         
-        UITextField * nameField = [[UITextField alloc] initWithFrame:(CGRectMake(20, 60, 160, 30))];
-        nameField.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.1];
+        nameField = [[UITextField alloc] initWithFrame:(CGRectMake(20, 60, 160, 30))];
+        nameField.backgroundColor = [UIColor colorWithRed:213/255.0 green:222/255.0 blue:217/255.0 alpha:1.0];
         nameField.layer.cornerRadius = 6;
-        nameField.textColor = [UIColor colorWithRed:127/255 green:255/255 blue:0/255 alpha:1.0];
+        nameField.textColor = [UIColor colorWithRed:122/255.0 green:106/255.0 blue:83/255.0 alpha:1.0];
         nameField.font = [UIFont fontWithName:@"Noteworthy-Bold" size:20];
         nameField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
         nameField.leftViewMode = UITextFieldViewModeAlways;
         [header addSubview:nameField];
-        
-        //nameField.placeholder = [NSString @"Type New User Here"]
+        nameField.delegate = self;
+        nameField.placeholder = @"Type Here..";
+        //nameField.placeholder.
         
         
         UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 60, 90, 30)];
         [submitButton setTitle:@"New User" forState:UIControlStateNormal];
-        submitButton.titleLabel.font = [UIFont systemFontOfSize:18];
-        submitButton.backgroundColor = [UIColor colorWithRed:127/255 green:255/255 blue:0/255 alpha:1.0];
+        submitButton.titleLabel.font = [UIFont fontWithName:@"Noteworthy-Bold" size:18];
+        submitButton.backgroundColor = [UIColor colorWithRed:213/255.0 green:222/255.0 blue:217/255.0 alpha:1.0];
+        submitButton.titleLabel.textColor = [UIColor colorWithRed:122/255.0 green:106/255.0 blue:83/255.0 alpha:1.0];
         submitButton.layer.cornerRadius = 6;
         [submitButton addTarget:self action:@selector(newUser) forControlEvents:UIControlEventTouchUpInside];
         [header addSubview:submitButton];
         
         
         UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
-        footer.backgroundColor = [UIColor darkGrayColor];
+        footer.backgroundColor = [UIColor colorWithRed:213/255.0 green:222/255.0 blue:217/255.0 alpha:1.0];
         UILabel * titleFooter = [[UILabel alloc] initWithFrame:
                                  CGRectMake(80, 10, 300, 30)];
-        titleFooter.text = @"ATL iOS Class 2014";
-        titleFooter.textColor = [UIColor whiteColor];
+        titleFooter.text = @"Atlanta 2014";
+        titleFooter.textColor = [UIColor colorWithRed:106/255.0 green:122/255.0 blue:83/255.0 alpha:1.0];
+        titleFooter.font = [UIFont fontWithName:@"Noteworthy-Bold" size:22];
         [footer addSubview:titleFooter];
         self.tableView.tableFooterView = footer;
         
 
     }
         
-        
-        
-        
-        
+
         //long way to create array
         //listItems = [[NSArray alloc] initWithObjects:@"Monday", @"Tuesday", @"Wednesday",nil];
 
@@ -153,17 +109,37 @@
 
 - (void)newUser
 {
-    [listItems addObject:@{@"name" : @"New User",
+    
+    NSString * username = nameField.text;
+    nameField.text = @"";
+    
+    [listItems addObject:@{@"name" : username,
                            //@"image" : [UIImage imageNamed:@"new_user"],
-                           @"github":@"https://github.com/new_user"}];
+                           @"github":[NSString stringWithFormat:@"https://github.com/%@", username]}
+                            ];
+    [nameField resignFirstResponder];
     
     [self.tableView reloadData];
     
-    
-    NSLog(@"listItems Count : %d", [listItems count]);
-
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    
+    [self newUser];
+    
+    return YES;
+}
+
+- (void) textFieldDidBeginEditing:(UITextField *)textField
+{
+    textField.placeholder = @"";
+}
+
+- (void) textFieldDidEndEditing:(UITextField *)textField
+{
+    textField.placeholder = @"Type Here..";
+}
 
 
 
@@ -204,9 +180,16 @@
 {
     TDLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) cell = [[ TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    int index = [indexPath row];
-    NSDictionary * listItem = listItems[index];
-    cell.profileInfo = listItem;
+    
+//    int index = indexPath.row;
+//    
+//    NSArray * reverseArray = [[listItems reverseObjectEnumerator] allObjects];
+//    
+//    NSDictionary * listItem = reverseArray[index];
+    
+//    NSDictionary * listItem = [self getListItem:indexPath.row];
+    
+    cell.profileInfo = [self getListItem:indexPath.row];
     
 
    //cell.textLabel.text = listItem[@"name"];
@@ -216,54 +199,23 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    
+    NSDictionary * listItem = [self getListItem:indexPath.row];
+    
+    NSLog(@"%@", listItem);
+    
+    
+    
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSDictionary *)getListItem: (NSInteger)row
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    NSArray * reverseArray = [[listItems reverseObjectEnumerator] allObjects];
+    return reverseArray[row];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

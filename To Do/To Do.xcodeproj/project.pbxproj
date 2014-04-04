@@ -36,6 +36,7 @@
 		D5F9BAC918EC8ED000E249DE /* austinnolan.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F9BAC818EC8ED000E249DE /* austinnolan.png */; };
 		D5F9BACB18EC8ED900E249DE /* edsalter.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F9BACA18EC8ED900E249DE /* edsalter.png */; };
 		D5F9BACE18EDA73400E249DE /* TDLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BACD18EDA73400E249DE /* TDLTableViewCell.m */; };
+		D5F9BAD218EF332400E249DE /* GitHubFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F9BAD118EF332400E249DE /* GitHubFlow.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		D5F9BACA18EC8ED900E249DE /* edsalter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edsalter.png; sourceTree = "<group>"; };
 		D5F9BACC18EDA73400E249DE /* TDLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLTableViewCell.h; sourceTree = "<group>"; };
 		D5F9BACD18EDA73400E249DE /* TDLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLTableViewCell.m; sourceTree = "<group>"; };
+		D5F9BAD118EF332400E249DE /* GitHubFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GitHubFlow.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				D5F9BA8918EC4ADA00E249DE /* TDLAppDelegate.m */,
 				D5F9BA8B18EC4ADA00E249DE /* Images.xcassets */,
 				D5F9BA8018EC4ADA00E249DE /* Supporting Files */,
+				D5F9BAD118EF332400E249DE /* GitHubFlow.storyboard */,
 			);
 			path = "To Do";
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				D5F9BABE18EC8B2100E249DE /* jeffking.png in Resources */,
 				D5F9BAC118EC8B2100E249DE /* teddyconyers.png in Resources */,
 				D5F9BAC018EC8B2100E249DE /* jonfox.png in Resources */,
+				D5F9BAD218EF332400E249DE /* GitHubFlow.storyboard in Resources */,
 				D5F9BAC518EC8B2100E249DE /* justagirlcoding.png in Resources */,
 				D5F9BAC418EC8B2100E249DE /* tjmercer.png in Resources */,
 				D5F9BABF18EC8B2100E249DE /* alihoushmand.png in Resources */,
