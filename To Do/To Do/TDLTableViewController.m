@@ -13,7 +13,7 @@
 @implementation TDLTableViewController
 
 {
-    NSArray *listItems;
+    NSMutableArray *listItems;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -30,7 +30,7 @@
         //
         //                        };
         
-        listItems = @[
+        listItems = [@[
                       @{@"name":@"Ed Salter", @"image" : [UIImage imageNamed:@"edsalter"], @"github":@"https://github.com/MadArkitekt"},
                       @{@"name":@"Austin Nolan", @"image" : [UIImage imageNamed:@"austinnolan"], @"github":@"https://github.com/adnolan99"},
                       @{@"name":@"Jisha Obukwelu", @"image" : [UIImage imageNamed:@"jishaobukwelu"], @"github":@"https://github.com/Jiobu"},
@@ -46,7 +46,10 @@
                       @{@"name" : @"Derek Weber", @"image" : [UIImage imageNamed:@"derekweber"], @"github":@"https://github.com/dweber03"},
                       @{@"name" : @"T.J. Mercer", @"image" : [UIImage imageNamed:@"tjmercer"], @"github":@"https://github.com/gwanunig14"},
                       @{@"name" : @"Just a Girl Coding", @"image" : [UIImage imageNamed:@"justagirlcoding"], @"github":@"https://github.com/justagirlcoding"},
-                      ];
+                      ] mutableCopy];
+        
+        
+        
 
         
 //        listItems = @[@"Ed Salter",
@@ -66,11 +69,7 @@
 //                      @"Just a Girl Coding",
 //                      ];
         
-                      
-                      
-                      //@"Ali Houshmand", @"Jeffery Moulds", @"Savitha Reddy", @"Jeff King", @"Derek Weber", @"Ashby", @"Austin Nolan", @"Austen Johnson", @"Jon Fox", @"Teddy Conyers", @"T.J. Mercer", @"Just a Girl Coding", @"John Yam", @"Ed Salter", @"Jisha Obukwelu"
-                      
-//                      
+        
 //        listImages = @[
 //                       [UIImage imageNamed:@"edsalter"],
 //                       [UIImage imageNamed:@"austinnolan"],
@@ -91,60 +90,47 @@
         
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
         self.tableView.rowHeight = 100;
-        
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 20, 0, 20);
         
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
-        
         header.backgroundColor = [UIColor darkGrayColor];
-        
-         self.tableView.tableHeaderView = header;
-        
-        
-        
+        UILabel * titleHeader = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 280, 30)];
+        titleHeader.text = @"Contacts";
+        titleHeader.textColor = [UIColor colorWithRed:127/255 green:255/255 blue:0/255 alpha:1.0];
+        titleHeader.font = [UIFont fontWithName:@"Noteworthy-Bold" size:26];
+        [header addSubview:titleHeader];
+        self.tableView.tableHeaderView = header;
         
         
         UITextField * nameField = [[UITextField alloc] initWithFrame:(CGRectMake(20, 60, 160, 30))];
-        
         nameField.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.1];
         nameField.layer.cornerRadius = 6;
         nameField.textColor = [UIColor colorWithRed:127/255 green:255/255 blue:0/255 alpha:1.0];
         nameField.font = [UIFont fontWithName:@"Noteworthy-Bold" size:20];
         nameField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
         nameField.leftViewMode = UITextFieldViewModeAlways;
-        
         [header addSubview:nameField];
+        
+        //nameField.placeholder = [NSString @"Type New User Here"]
+        
         
         UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 60, 90, 30)];
         [submitButton setTitle:@"New User" forState:UIControlStateNormal];
         submitButton.titleLabel.font = [UIFont systemFontOfSize:18];
         submitButton.backgroundColor = [UIColor colorWithRed:127/255 green:255/255 blue:0/255 alpha:1.0];
         submitButton.layer.cornerRadius = 6;
+        [submitButton addTarget:self action:@selector(newUser) forControlEvents:UIControlEventTouchUpInside];
         [header addSubview:submitButton];
         
         
-        
-        UILabel * titleHeader = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 280, 30)];
-        titleHeader.text = @"Contacts";
-        titleHeader.textColor = [UIColor whiteColor];
-        titleHeader.font = [UIFont fontWithName:@"Noteworthy-Bold" size:26];
-
-        [header addSubview:titleHeader];
-        
-        
         UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
-        
         footer.backgroundColor = [UIColor darkGrayColor];
-        
         UILabel * titleFooter = [[UILabel alloc] initWithFrame:
                                  CGRectMake(80, 10, 300, 30)];
-        
         titleFooter.text = @"ATL iOS Class 2014";
         titleFooter.textColor = [UIColor whiteColor];
-        
         [footer addSubview:titleFooter];
-        
         self.tableView.tableFooterView = footer;
         
 
@@ -164,6 +150,23 @@
     
     return self;
 }
+
+- (void)newUser
+{
+    [listItems addObject:@{@"name" : @"New User",
+                           //@"image" : [UIImage imageNamed:@"new_user"],
+                           @"github":@"https://github.com/new_user"}];
+    
+    [self.tableView reloadData];
+    
+    
+    NSLog(@"listItems Count : %d", [listItems count]);
+
+}
+
+
+
+
 
 - (void)viewDidLoad
 {
@@ -200,15 +203,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TDLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
-    
     if (cell == nil) cell = [[ TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    
-    
     int index = [indexPath row];
-    
     NSDictionary * listItem = listItems[index];
-    
     cell.profileInfo = listItem;
     
 
