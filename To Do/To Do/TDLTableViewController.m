@@ -50,7 +50,7 @@
         
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
-        header.backgroundColor = [UIColor colorWithRed:153/255.0 green:178/255.0 blue:183/255.0 alpha:1.0];
+        header.backgroundColor = [UIColor colorWithRed:217/255.0 green:206/255.0 blue:178/255.0 alpha:1.0];
         UILabel * titleHeader = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 280, 30)];
         titleHeader.text = @"iOS Class";
         titleHeader.textColor = [UIColor colorWithRed:122/255.0 green:106/255.0 blue:83/255.0 alpha:1.0];
@@ -69,7 +69,6 @@
         [header addSubview:nameField];
         nameField.delegate = self;
         nameField.placeholder = @"Type Here..";
-        //nameField.placeholder.
         
         
         UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 60, 90, 30)];
@@ -84,8 +83,7 @@
         
         UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
         footer.backgroundColor = [UIColor colorWithRed:213/255.0 green:222/255.0 blue:217/255.0 alpha:1.0];
-        UILabel * titleFooter = [[UILabel alloc] initWithFrame:
-                                 CGRectMake(80, 10, 300, 30)];
+        UILabel * titleFooter = [[UILabel alloc] initWithFrame:CGRectMake(80, 10, 300, 30)];
         titleFooter.text = @"Atlanta 2014";
         titleFooter.textColor = [UIColor colorWithRed:106/255.0 green:122/255.0 blue:83/255.0 alpha:1.0];
         titleFooter.font = [UIFont fontWithName:@"Noteworthy-Bold" size:22];
@@ -131,17 +129,17 @@
     return YES;
 }
 
+
 - (void) textFieldDidBeginEditing:(UITextField *)textField
 {
     textField.placeholder = @"";
 }
 
+
 - (void) textFieldDidEndEditing:(UITextField *)textField
 {
     textField.placeholder = @"Type Here..";
 }
-
-
 
 
 - (void)viewDidLoad
@@ -154,6 +152,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -207,6 +206,19 @@
     
     NSLog(@"%@", listItem);
     
+    UIViewController * webController = [[UIViewController alloc] init];
+    
+    UIWebView * webView = [[UIWebView alloc] init];
+    
+    webController.view = webView;
+    
+    UIWindow * window = [[UIApplication sharedApplication] .windows firstObject];
+    
+    UINavigationController * navController = (UINavigationController *)window.rootViewController;
+    
+    [navController pushViewController:webController animated:YES];
+    
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:listItem[@"github"]]]];
     
     
 }
@@ -215,6 +227,7 @@
 {
     NSArray * reverseArray = [[listItems reverseObjectEnumerator] allObjects];
     return reverseArray[row];
+    
 }
 
 
