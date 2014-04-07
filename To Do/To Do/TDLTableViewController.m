@@ -10,6 +10,8 @@
 
 #import "TDLTableViewCell.h"
 
+#import "TDLGitHubRequest.h"
+
 @implementation TDLTableViewController
 
 {
@@ -24,23 +26,25 @@
     {
     
         
-        listItems = [@[
-                      @{@"name":@"Ed Salter", @"image" : [UIImage imageNamed:@"edsalter"], @"github":@"https://github.com/MadArkitekt"},
-                      @{@"name":@"Austin Nolan", @"image" : [UIImage imageNamed:@"austinnolan"], @"github":@"https://github.com/adnolan99"},
-                      @{@"name":@"Jisha Obukwelu", @"image" : [UIImage imageNamed:@"jishaobukwelu"], @"github":@"https://github.com/Jiobu"},
-                      @{@"name":@"John Yam", @"image" : [UIImage imageNamed:@"johnyam"], @"github":@"https://github.com/yamski"},
-                      @{@"name":@"Austen Johnson", @"image" : [UIImage imageNamed:@"austenjohnson"], @"github":@"https://github.com/ajohnson21"},
-                      @{@"name":@"Ashby Thornwell", @"image" : [UIImage imageNamed:@"ashby"], @"github":@"https://github.com/athornwell"},
-                      @{@"name":@"Savitha Reddy", @"image" : [UIImage imageNamed:@"savithareddy"], @"github":@"https://github.com/savithareddy"},
-                      @{@"name" : @"Jeff King", @"image" : [UIImage imageNamed:@"jeffking"], @"github":@"https://github.com/rampis"},
-                      @{@"name" : @"Ali Houshmand", @"image" : [UIImage imageNamed:@"alihoushmand"], @"github":@"https://github.com/HoushmandA06"},
-                      @{@"name" : @"Jon Fox", @"image" : [UIImage imageNamed:@"jonfox"], @"github":@"https://github.com/FoxJon"},
-                      @{@"name" : @"Teddy Conyers", @"image" : [UIImage imageNamed:@"teddyconyers"], @"github":@"https://github.com/talented76"},
-                      @{@"name" : @"Jeffery Moulds", @"image" : [UIImage imageNamed:@"jefferymoulds"], @"github":@"https://github.com/jdmgithub"},
-                      @{@"name" : @"Derek Weber", @"image" : [UIImage imageNamed:@"derekweber"], @"github":@"https://github.com/dweber03"},
-                      @{@"name" : @"T.J. Mercer", @"image" : [UIImage imageNamed:@"tjmercer"], @"github":@"https://github.com/gwanunig14"},
-                      @{@"name" : @"Heidi Proske", @"image" : [UIImage imageNamed:@"justagirlcoding"], @"github":@"https://github.com/justagirlcoding"},
-                      ] mutableCopy];
+//        listItems = [@[
+//                      @{@"name":@"Ed Salter", @"image" : [UIImage imageNamed:@"edsalter"], @"github":@"https://github.com/MadArkitekt"},
+//                      @{@"name":@"Austin Nolan", @"image" : [UIImage imageNamed:@"austinnolan"], @"github":@"https://github.com/adnolan99"},
+//                      @{@"name":@"Jisha Obukwelu", @"image" : [UIImage imageNamed:@"jishaobukwelu"], @"github":@"https://github.com/Jiobu"},
+//                      @{@"name":@"John Yam", @"image" : [UIImage imageNamed:@"johnyam"], @"github":@"https://github.com/yamski"},
+//                      @{@"name":@"Austen Johnson", @"image" : [UIImage imageNamed:@"austenjohnson"], @"github":@"https://github.com/ajohnson21"},
+//                      @{@"name":@"Ashby Thornwell", @"image" : [UIImage imageNamed:@"ashby"], @"github":@"https://github.com/athornwell"},
+//                      @{@"name":@"Savitha Reddy", @"image" : [UIImage imageNamed:@"savithareddy"], @"github":@"https://github.com/savithareddy"},
+//                      @{@"name" : @"Jeff King", @"image" : [UIImage imageNamed:@"jeffking"], @"github":@"https://github.com/rampis"},
+//                      @{@"name" : @"Ali Houshmand", @"image" : [UIImage imageNamed:@"alihoushmand"], @"github":@"https://github.com/HoushmandA06"},
+//                      @{@"name" : @"Jon Fox", @"image" : [UIImage imageNamed:@"jonfox"], @"github":@"https://github.com/FoxJon"},
+//                      @{@"name" : @"Teddy Conyers", @"image" : [UIImage imageNamed:@"teddyconyers"], @"github":@"https://github.com/talented76"},
+//                      @{@"name" : @"Jeffery Moulds", @"image" : [UIImage imageNamed:@"jefferymoulds"], @"github":@"https://github.com/jdmgithub"},
+//                      @{@"name" : @"Derek Weber", @"image" : [UIImage imageNamed:@"derekweber"], @"github":@"https://github.com/dweber03"},
+//                      @{@"name" : @"T.J. Mercer", @"image" : [UIImage imageNamed:@"tjmercer"], @"github":@"https://github.com/gwanunig14"},
+//                      @{@"name" : @"Heidi Proske", @"image" : [UIImage imageNamed:@"justagirlcoding"], @"github":@"https://github.com/justagirlcoding"},
+//                      ]
+        
+        listItems = [@[] mutableCopy];
         
         
         
@@ -111,12 +115,16 @@
     NSString * username = nameField.text;
     nameField.text = @"";
     
-    [listItems addObject:@{@"name" : username,
-                           //@"image" : [UIImage imageNamed:@"new_user"],
-                           @"github":[NSString stringWithFormat:@"https://github.com/%@", username]}
-                            ];
-    [nameField resignFirstResponder];
+//    [listItems addObject:@{@"name" : username,
+//                           //@"image" : [UIImage imageNamed:@"new_user"],
+//                           @"github":[NSString stringWithFormat:@"https://github.com/%@", username]}
+//                            ];
     
+    NSDictionary * userInfo = [TDLGitHubRequest getUserWithUsername:username];
+    
+    [listItems addObject:userInfo];
+    
+    [nameField resignFirstResponder];
     [self.tableView reloadData];
     
 }
@@ -212,13 +220,20 @@
     
     webController.view = webView;
     
-    UIWindow * window = [[UIApplication sharedApplication] .windows firstObject];
+    UIWindow * window = [[UIApplication sharedApplication].windows firstObject];
     
     UINavigationController * navController = (UINavigationController *)window.rootViewController;
     
     [navController pushViewController:webController animated:YES];
     
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:listItem[@"github"]]]];
+    NSURL * url = [NSURL URLWithString:listItem[@"github"]];
+    
+    NSURLRequest * request = [NSURLRequest requestWithURL:url];
+    
+    [webView loadRequest:request];
+    
+    
+//    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:listItem[@"github"]]]];
     
     
 }
