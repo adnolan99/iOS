@@ -23,7 +23,8 @@
     
     self.window.rootViewController = navController;
     
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor colorWithRed:153/255.0 green:178/255.0 blue:183/255.0 alpha:1.0];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

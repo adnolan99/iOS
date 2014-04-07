@@ -22,6 +22,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
+        self.backgroundColor = [UIColor colorWithRed:153/255.0 green:178/255.0 blue:183/255.0 alpha:.25];
     
         profileImage = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 60, 60)];
         profileImage.layer.cornerRadius = 30;
@@ -43,12 +44,14 @@
 
 -(void)setProfileInfo:(NSDictionary *)profileInfo
 {
-//    
-//    NSData * imageData = [NSData dataWithContentsOfURL:profileInfo[@"image"]];
-//    UIImage *image = [UIImage imageWithData:imageData];
-//    
-//    profileImage.image = image;
+
+    NSURL *imageUrl = [NSURL URLWithString:profileInfo[@"image"]];
     
+    NSData * imageData = [NSData dataWithContentsOfURL:imageUrl];
+
+    UIImage *image = [UIImage imageWithData:imageData];
+    
+    profileImage.image = image;
     profileName.text = profileInfo[@"name"];
     profileURL.text = profileInfo[@"github"];
 

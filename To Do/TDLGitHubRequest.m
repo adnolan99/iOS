@@ -14,7 +14,7 @@
 {
 
 
-    NSDictionary * userInfo = @{};
+    NSMutableDictionary * userInfo = [@{} mutableCopy];
     
     NSString * github = [NSString stringWithFormat:@"https://api.github.com/users/%@",username];
     
@@ -50,12 +50,23 @@
 //        <#statements#>
 //    }
     
-    userInfo = @{
-                  @"name": githubProfile[@"name"],
-                  @"image": githubProfile[@"avatar_url"],
-                  @"github": githubProfile[@"html_url"]
-                  };
+    NSLog(@"%@", githubProfile);
+//    
+//    if (githubProfile[@"name"] != nil) [userInfo setObject:githubProfile[@"name"] forKey:@"name"];
+//    if (githubProfile[@"avatar_url"] != nil) [userInfo setObject:githubProfile[@"avatar_url"] forKey:@"image"];
+//    if (githubProfile[@"html_url"] != nil) [userInfo setObject:githubProfile[@"html_url"] forKey:@"github"];
+
     
+    if (githubProfile[@"name"] != nil) userInfo[@"name"] = githubProfile[@"name"];
+    if (githubProfile[@"avatar_url"] != nil) userInfo[@"image"] = githubProfile[@"avatar_url"];
+    if (githubProfile[@"html_url"] != nil) userInfo[@"github"] = githubProfile[@"html_url"];
+    
+//    userInfo = @{
+//                  @"name": githubProfile[@"name"],
+//                  @"image": githubProfile[@"avatar_url"],
+//                  @"github": githubProfile[@"html_url"]
+//                  };
+//    
     
     return userInfo;
 }

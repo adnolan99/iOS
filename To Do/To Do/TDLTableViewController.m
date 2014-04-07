@@ -17,13 +17,29 @@
 {
     NSMutableArray *listItems;
     UITextField * nameField;
+    
 }
+
+-(void)toggleEdit
+{
+    [self.tableView setEditing:!self.tableView.editing animated:YES];
+    
+    //self.tableView.editing = !self.tableView.editing;
+    
+}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self)
     {
+    
+        
+        UIBarButtonItem * editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(toggleEdit)];
+        
+        self.navigationItem.rightBarButtonItem =editButton;
+        
     
         
 //        listItems = [@[
@@ -44,7 +60,18 @@
 //                      @{@"name" : @"Heidi Proske", @"image" : [UIImage imageNamed:@"justagirlcoding"], @"github":@"https://github.com/justagirlcoding"},
 //                      ]
         
-        listItems = [@[] mutableCopy];
+        listItems = [@[
+                       @{
+                           @"name" : @"Jo Albright",
+                           @"image" : @"https://avatars3.githubusercontent.com/u/1536630?s=400",
+                           @"github": @"https://github.com/joalbright"
+                           },
+                       @{
+                           @"name" : @"John Yam",
+                           @"image" : @"https://avatars1.githubusercontent.com/u/2688381?",
+                           @"github": @"https://github.com/yamski"
+                           }
+                       ] mutableCopy];
         
         
         
@@ -79,14 +106,14 @@
         [submitButton setTitle:@"New User" forState:UIControlStateNormal];
         submitButton.titleLabel.font = [UIFont fontWithName:@"Noteworthy-Bold" size:18];
         submitButton.backgroundColor = [UIColor colorWithRed:213/255.0 green:222/255.0 blue:217/255.0 alpha:1.0];
-        submitButton.titleLabel.textColor = [UIColor colorWithRed:122/255.0 green:106/255.0 blue:83/255.0 alpha:1.0];
+        submitButton.titleLabel.textColor = [UIColor colorWithRed:106/255.0 green:122/255.0 blue:83/255.0 alpha:1.0];
         submitButton.layer.cornerRadius = 6;
         [submitButton addTarget:self action:@selector(newUser) forControlEvents:UIControlEventTouchUpInside];
         [header addSubview:submitButton];
         
         
         UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
-        footer.backgroundColor = [UIColor colorWithRed:213/255.0 green:222/255.0 blue:217/255.0 alpha:1.0];
+        footer.backgroundColor = [UIColor colorWithRed:217/255.0 green:206/255.0 blue:178/255.0 alpha:1.0];
         UILabel * titleFooter = [[UILabel alloc] initWithFrame:CGRectMake(80, 10, 300, 30)];
         titleFooter.text = @"Atlanta 2014";
         titleFooter.textColor = [UIColor colorWithRed:106/255.0 green:122/255.0 blue:83/255.0 alpha:1.0];
@@ -94,17 +121,8 @@
         [footer addSubview:titleFooter];
         self.tableView.tableFooterView = footer;
         
-
     }
-        
-
-        //long way to create array
-        //listItems = [[NSArray alloc] initWithObjects:@"Monday", @"Tuesday", @"Wednesday",nil];
-
-{
-    //listItems = @[@"Ali Houshmand", @"Jeffery Moulds", @"Savitha Reddy", @"Jeff King", @"Derek Weber", @"Ashby", @"Austin Nolan", @"Austen Johnson", @"Jon Fox", @"Teddy Conyers", @"T.J. Mercer", @"Just a Girl Coding", @"John Yam", @"Ed Salter", @"Jisha Obukwelu"];
-    // NSLog(@"listItems : %@ .... %@",listItems, listItems[1]);
-}
+    
     
     return self;
 }
@@ -122,7 +140,9 @@
     
     NSDictionary * userInfo = [TDLGitHubRequest getUserWithUsername:username];
     
-    [listItems addObject:userInfo];
+    if([[userInfo allKeys]count] == 3) [listItems addObject:userInfo];
+    
+    else NSLog(@"Not enough data!");
     
     [nameField resignFirstResponder];
     [self.tableView reloadData];
@@ -219,12 +239,8 @@
     UIWebView * webView = [[UIWebView alloc] init];
     
     webController.view = webView;
-    
-    UIWindow * window = [[UIApplication sharedApplication].windows firstObject];
-    
-    UINavigationController * navController = (UINavigationController *)window.rootViewController;
-    
-    [navController pushViewController:webController animated:YES];
+  
+    [self.navigationController pushViewController:webController animated:YES];
     
     NSURL * url = [NSURL URLWithString:listItem[@"github"]];
     
@@ -232,11 +248,57 @@
     
     [webView loadRequest:request];
     
+
+}
+
+    
+    
+    - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+    
+{
+    return YES;
+}
+    
+    -(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+
+{
+    //[listItems removeObjectAtIndex:indexPath.row];
+    
+    NSDictionary * listItem = [self getListItem:indexPath.row];
+    
+    [listItems removeObjectIdenticalTo:listItem];
+    
+    [self.tableView reloadData];
+    
+    NSLog(@"%@", listItems);
+}
+                       
+                       
+    -(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+                       
+        {
+            return YES;
+        }
+    
+    - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+        {
+          
+            if (sourceIndexPath == destinationIndexPath) return;
+                        
+            NSDictionary * sourceItem = [self getListItem:sourceIndexPath.row];
+            
+            NSDictionary * toItem = [self getListItem:destinationIndexPath.row];
+            
+            [listItems removeObjectIdenticalTo:sourceItem];
+            
+            [listItems insertObject:sourceItem atIndex:[listItems indexOfObject:toItem]];
+            
+            
+            
+        }
     
 //    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:listItem[@"github"]]]];
-    
-    
-}
+
 
 - (NSDictionary *)getListItem: (NSInteger)row
 {
