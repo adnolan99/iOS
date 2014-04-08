@@ -35,18 +35,9 @@
 //        
 //        self.navigationItem.rightBarButtonItem =editButton;
         
-        listItems = [@[
-                       @{
-                           @"name" : @"Jo Albright",
-                           @"image" : @"https://avatars3.githubusercontent.com/u/1536630?s=400",
-                           @"github": @"https://github.com/joalbright"
-                           },
-                       @{
-                           @"name" : @"John Yam",
-                           @"image" : @"https://avatars1.githubusercontent.com/u/2688381?",
-                           @"github": @"https://github.com/yamski"
-                           }
-                       ] mutableCopy];
+        listItems = [@[] mutableCopy];
+        
+        [self loadListItems];
         
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
         self.tableView.rowHeight = 100;
@@ -99,10 +90,24 @@
     NSString * username = nameField.text;
     nameField.text = @"";
     NSDictionary * userInfo = [TDLGitHubRequest getUserWithUsername:username];
-    if([[userInfo allKeys]count] == 3) [listItems addObject:userInfo];
-    else NSLog(@"Not enough data!");
-    [nameField resignFirstResponder];
+    if([[userInfo allKeys]count] == 3)
+    {
+     [listItems addObject:userInfo];
+    }
+        
+    else
+    {
+        
+    NSLog(@"Not enough data!");
+    
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Bad Information" message:@"Unable to Add User" delegate:self cancelButtonTitle:@"Try Again" otherButtonTitles:nil];
+        
+        [alertView show];
+    }
+        [nameField resignFirstResponder];
     [self.tableView reloadData];
+    
+    [self saveData];
 }
 
 
@@ -185,8 +190,16 @@
 {
     NSDictionary * listItem = [self getListItem:indexPath.row];
     [listItems removeObjectIdenticalTo:listItem];
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
+    
+    TDLTableViewCell * cell = (TDLTableViewCell *) [tableView cellForRowAtIndexPath:indexPath];
+    cell.alpha = 0;
+    
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
     NSLog(@"%@", listItems);
+    
+    [self saveData];
 }
                        
                        
@@ -203,6 +216,8 @@
     NSDictionary * toItem = [self getListItem:destinationIndexPath.row];
     [listItems removeObjectIdenticalTo:sourceItem];
     [listItems insertObject:sourceItem atIndex:[listItems indexOfObject:toItem]];
+    [self saveData];
+
 }
 
 
@@ -210,8 +225,36 @@
 {
     NSArray * reverseArray = [[listItems reverseObjectEnumerator] allObjects];
     return reverseArray[row];
+}
+
+- (void) saveData
+{
+    NSString *path = [self listArchivePath];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:listItems];
+    [data writeToFile:path options:NSDataWritingAtomic error:nil];
+}
+
+
+- (NSString *) listArchivePath
+{
+    NSArray* documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString * documentDirectory = documentDirectories[0];
+    return [documentDirectory stringByAppendingString:@"listdata.data"];
+}
+
+
+- (void) loadListItems
+{
+    NSString *path = [self listArchivePath];
+    if([[NSFileManager defaultManager] fileExistsAtPath:path])
+    {
+        listItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    }
     
 }
+
+
+
 
 
 @end
