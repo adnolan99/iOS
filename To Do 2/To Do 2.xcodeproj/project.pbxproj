@@ -20,6 +20,7 @@
 		D5F9BB0718F44A7500E249DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5F9BB0518F44A7500E249DE /* InfoPlist.strings */; };
 		D5F9BB0918F44A7500E249DE /* To_Do_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BB0818F44A7500E249DE /* To_Do_2Tests.m */; };
 		D5F9BB1418F44ACB00E249DE /* TDLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BB1318F44ACB00E249DE /* TDLTableViewController.m */; };
+		D5F9BB1818F485E100E249DE /* TDLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BB1718F485E100E249DE /* TDLTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		D5F9BB0818F44A7500E249DE /* To_Do_2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = To_Do_2Tests.m; sourceTree = "<group>"; };
 		D5F9BB1218F44ACB00E249DE /* TDLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDLTableViewController.h; path = ../TDLTableViewController.h; sourceTree = "<group>"; };
 		D5F9BB1318F44ACB00E249DE /* TDLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDLTableViewController.m; path = ../TDLTableViewController.m; sourceTree = "<group>"; };
+		D5F9BB1618F485E100E249DE /* TDLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLTableViewCell.h; sourceTree = "<group>"; };
+		D5F9BB1718F485E100E249DE /* TDLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,7 @@
 		D5F9BAD718F44A7500E249DE = {
 			isa = PBXGroup;
 			children = (
+				D5F9BB1918F485EB00E249DE /* TDLTableViewCell */,
 				D5F9BB1518F44AF000E249DE /* TableViewControllers */,
 				D5F9BAE918F44A7500E249DE /* To Do 2 */,
 				D5F9BB0218F44A7500E249DE /* To Do 2Tests */,
@@ -156,6 +160,15 @@
 			);
 			name = TableViewControllers;
 			path = "To Do 2";
+			sourceTree = "<group>";
+		};
+		D5F9BB1918F485EB00E249DE /* TDLTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D5F9BB1618F485E100E249DE /* TDLTableViewCell.h */,
+				D5F9BB1718F485E100E249DE /* TDLTableViewCell.m */,
+			);
+			name = TDLTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F9BB1818F485E100E249DE /* TDLTableViewCell.m in Sources */,
 				D5F9BB1418F44ACB00E249DE /* TDLTableViewController.m in Sources */,
 				D5F9BAF018F44A7500E249DE /* main.m in Sources */,
 				D5F9BAF418F44A7500E249DE /* TDLAppDelegate.m in Sources */,

@@ -8,6 +8,8 @@
 
 #import "TDLTableViewController.h"
 
+#import "TDLTableViewCell.h"
+
 @interface TDLTableViewController ()
 
 @end
@@ -26,6 +28,8 @@
     self = [super initWithStyle:style];
     if (self) {
       
+        
+        listItems = [@[]mutableCopy];
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
         
@@ -66,7 +70,13 @@
     NSString * itemName = itemField.text;
     itemField.text = @"";
     
-    NSLog(@"%@", itemName);
+    [itemField resignFirstResponder];
+    
+    [listItems insertObject:itemName atIndex:0];
+    
+    NSLog(@"%@", listItems);
+    
+    [self.tableView reloadData];
 }
 - (BOOL) textFieldShouldReturn:(UITextField *) textField
 {
@@ -97,30 +107,36 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
+    
+    return [listItems count];
     // Return the number of rows in the section.
-    return 0;
+    
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
+- (UITableView *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    TDLTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    if (cell == nil) cell = [[ TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    
+    cell.textLabel.text = listItems[indexPath.row];
+    return cell;
+    
     
     // Configure the cell...
-    
-    return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
