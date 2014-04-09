@@ -21,6 +21,7 @@
 		D5F9BB0918F44A7500E249DE /* To_Do_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BB0818F44A7500E249DE /* To_Do_2Tests.m */; };
 		D5F9BB1418F44ACB00E249DE /* TDLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BB1318F44ACB00E249DE /* TDLTableViewController.m */; };
 		D5F9BB1818F485E100E249DE /* TDLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BB1718F485E100E249DE /* TDLTableViewCell.m */; };
+		D5F9BB1F18F5D7F100E249DE /* MOVE.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BB1E18F5D7F100E249DE /* MOVE.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		D5F9BB1318F44ACB00E249DE /* TDLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDLTableViewController.m; path = ../TDLTableViewController.m; sourceTree = "<group>"; };
 		D5F9BB1618F485E100E249DE /* TDLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLTableViewCell.h; sourceTree = "<group>"; };
 		D5F9BB1718F485E100E249DE /* TDLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLTableViewCell.m; sourceTree = "<group>"; };
+		D5F9BB1D18F5D7F100E249DE /* MOVE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOVE.h; sourceTree = "<group>"; };
+		D5F9BB1E18F5D7F100E249DE /* MOVE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOVE.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 		D5F9BAE918F44A7500E249DE /* To Do 2 */ = {
 			isa = PBXGroup;
 			children = (
+				D5F9BB1D18F5D7F100E249DE /* MOVE.h */,
+				D5F9BB1E18F5D7F100E249DE /* MOVE.m */,
 				D5F9BAF218F44A7500E249DE /* TDLAppDelegate.h */,
 				D5F9BAF318F44A7500E249DE /* TDLAppDelegate.m */,
 				D5F9BAF518F44A7500E249DE /* Images.xcassets */,
@@ -267,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F9BB1F18F5D7F100E249DE /* MOVE.m in Sources */,
 				D5F9BB1818F485E100E249DE /* TDLTableViewCell.m in Sources */,
 				D5F9BB1418F44ACB00E249DE /* TDLTableViewController.m in Sources */,
 				D5F9BAF018F44A7500E249DE /* main.m in Sources */,

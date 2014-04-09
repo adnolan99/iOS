@@ -10,6 +10,8 @@
 
 #import "TDLTableViewCell.h"
 
+#import "MOVE.h"
+
 @interface TDLTableViewController ()
 
 @end
@@ -182,9 +184,22 @@
     
     if (cell == nil) cell = [[ TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     NSDictionary * listItem = listItems[indexPath.row];
     
     cell.bgView.backgroundColor = priorityColors[[listItem[@"priority"] intValue]];
+    
+    if ([listItem[@"priority"] intValue]== 0)
+    {
+        cell.strikeThrough.alpha = 1;
+        cell.circleButton.alpha = 0;
+    } else {
+        cell.strikeThrough.alpha = 0;
+        cell.circleButton.alpha = 1;
+    }
+    
+    
     cell.nameLabel.text = listItem[@"name"];
     
     //cell.nameLabel.textColor = [UIColor whiteColor];
@@ -256,7 +271,33 @@
 */
 
 
-
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+ 
+    TDLTableViewCell *cell = (TDLTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    // if () return;
+    
+    //NSInteger index = [self.tableView indexPathForCell:cell].row;
+    
+    cell.bgView.backgroundColor = priorityColors [0];
+    cell.strikeThrough.alpha = 1;
+    cell.circleButton.alpha = 0;
+    
+    
+    
+    NSDictionary * updateListItem = @{@"name": listItems [indexPath.row][@"name"],
+                                      @"priority" : @0
+                                      };
+    
+    //remove old dictionary cell
+    [listItems removeObjectAtIndex:indexPath.row];
+    
+    // add new dictionary for cell
+    [listItems insertObject:updateListItem atIndex:indexPath.row];
+    
+    
+}
 
 
 
@@ -265,15 +306,21 @@
 {
     //NSLog(@"%@", gesture);
 
+    TDLTableViewCell * cell = (TDLTableViewCell *) gesture.view;
+    
     switch (gesture.direction){
         case 1: //right
             NSLog(@"swiping right");
             
+            [MOVE animateView:cell.bgView properties:@{@"x" : @10,@"duration" : @0.5}];
+        [cell hideCircleButtons];
             break;
             
         case 2: //left
-            
             NSLog(@"swiping left");
+            
+            [MOVE animateView:cell.bgView properties:@{@"x" : @-120,@"duration" : @0.5}];
+            [cell showCircleButtons];
             
             break;
             
@@ -282,6 +329,8 @@
     }
     
 }
+
+
 
 
 
