@@ -20,12 +20,18 @@ UILabel * taskName;
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-       
+        self.bgView = [[UIView alloc] initWithFrame:CGRectMake(10, 15, self.frame.size.width - 20, 40)];
         
-        taskName = [[UILabel alloc] initWithFrame:(CGRectMake(100, 20, 200, 30))];
-        taskName.backgroundColor = [UIColor greenColor];
-        [self.contentView addSubview:taskName];
+        self.bgView.layer.cornerRadius = 6;
         
+        [self.contentView addSubview:self.bgView];
+        
+        
+        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 5, 200, 300)];
+        self.nameLabel.textColor = [UIColor whiteColor];
+        self.nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:26];
+        
+        [self.contentView addSubview:self.nameLabel];
         // Initialization code
     }
     return self;

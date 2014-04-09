@@ -19,6 +19,11 @@
 {
     UITextField * itemField;
     NSMutableArray * listItems;
+    UIButton * button1;
+    UIButton * button2;
+    UIButton * button3;
+    NSArray * priorityColors;
+
 }
 
 
@@ -29,7 +34,23 @@
     if (self) {
       
         
-        listItems = [@[]mutableCopy];
+        
+        priorityColors = @[TAN_COLOR, YELLOW_COLOR, ORANGE_COLOR, RED_COLOR];
+        
+        
+        listItems = [@[
+                       
+                   @{@"name":@"Workshop",@"priority" : @3},
+                   @{@"name":@"Go to Blogging thing",@"priority" : @2},
+                   @{@"name":@"Learn objective C",@"priority" : @1},
+                   @{@"name":@"Finish Github app",@"priority" : @0}
+                   
+                   ] mutableCopy];
+        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+        self.tableView.rowHeight = 50;
+        
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
         
@@ -42,22 +63,28 @@
         
         [header addSubview:itemField];
         
-        UIButton * button1 = [[UIButton alloc] initWithFrame:CGRectMake(200, 20, 30, 30)];
-        button1.backgroundColor= [UIColor greenColor];
+        button1 = [[UIButton alloc] initWithFrame:CGRectMake(200, 20, 30, 30)];
+        [button1 setTitle:@"L" forState:UIControlStateNormal];
+        button1.tag = 1;
+        button1.backgroundColor= YELLOW_COLOR;
         button1.layer.cornerRadius = 15;
-        [button1 addTarget:self action:@selector(newItem) forControlEvents:UIControlEventTouchUpInside];
+        [button1 addTarget:self action:@selector(addNewListItem:) forControlEvents:UIControlEventTouchUpInside];
         [header addSubview:button1];
         
-        UIButton * button2 = [[UIButton alloc] initWithFrame:CGRectMake(240, 20, 30, 30)];
-        button2.backgroundColor= [UIColor yellowColor];
+        button2 = [[UIButton alloc] initWithFrame:CGRectMake(240, 20, 30, 30)];
+        [button2 setTitle:@"M" forState:UIControlStateNormal];
+        button2.tag = 2;
+        button2.backgroundColor= ORANGE_COLOR;
         button2.layer.cornerRadius = 15;
-        [button2 addTarget:self action:@selector(newItem) forControlEvents:UIControlEventTouchUpInside];
+        [button2 addTarget:self action:@selector(addNewListItem:) forControlEvents:UIControlEventTouchUpInside];
         [header addSubview:button2];
         
-        UIButton * button3 = [[UIButton alloc] initWithFrame:CGRectMake(280, 20, 30, 30)];
-        button3.backgroundColor= [UIColor redColor];
+        button3 = [[UIButton alloc] initWithFrame:CGRectMake(280, 20, 30, 30)];
+        [button3 setTitle:@"H" forState:UIControlStateNormal];
+        button3.tag = 3;
+        button3.backgroundColor= RED_COLOR;
         button3.layer.cornerRadius = 15;
-        [button3 addTarget:self action:@selector(newItem) forControlEvents:UIControlEventTouchUpInside];
+        [button3 addTarget:self action:@selector(addNewListItem:) forControlEvents:UIControlEventTouchUpInside];
         [header addSubview:button3];
 
     }
@@ -76,6 +103,8 @@
     
     NSLog(@"%@", listItems);
     
+    NSLog(@"Clicking");
+    
     [self.tableView reloadData];
 }
 - (BOOL) textFieldShouldReturn:(UITextField *) textField
@@ -86,6 +115,24 @@
 
 }
 
+
+- (void) addNewListItem: (id)sender
+{
+    
+    UIButton * button = (UIButton *) sender;
+    
+    NSString * name = itemField.text;
+    itemField.text = @" ";
+    
+    if(![name isEqualToString:@""])
+    {
+        [listItems insertObject:@{@"name":name,@"priority" : @(button.tag)} atIndex:0];
+    }
+    
+    NSLog(@"%@",sender);
+    
+    [self.tableView reloadData];
+}
 
 
 - (void)viewDidLoad
@@ -123,14 +170,17 @@
     
 }
 
-
-- (UITableView *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TDLTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     if (cell == nil) cell = [[ TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     
-    cell.textLabel.text = listItems[indexPath.row];
+    NSDictionary * listItem = listItems[indexPath.row];
+    
+    cell.bgView.backgroundColor = priorityColors[[listItem[@"priority"] intValue]];
+    cell.textLabel.text = listItem[@"name"];
+    
     return cell;
     
     

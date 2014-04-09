@@ -12,4 +12,8 @@
 
 @property (nonatomic) NSDictionary * taskInfo;
 
+@property (nonatomic) UILabel * nameLabel;
+@property (nonatomic) UIView * bgView;
+@property (nonatomic) UIButton * circleButton;
+
 @end
