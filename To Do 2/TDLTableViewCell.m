@@ -27,11 +27,19 @@ UILabel * taskName;
         [self.contentView addSubview:self.bgView];
         
         
-        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 5, 200, 300)];
+        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, -8, 200, 57)];
         self.nameLabel.textColor = [UIColor whiteColor];
-        self.nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:26];
+        self.nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:26];
         
-        [self.contentView addSubview:self.nameLabel];
+        [self.bgView addSubview:self.nameLabel];
+        
+        self.circleButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width -50,10,20,20)];
+        self.circleButton.layer.cornerRadius = 10;
+        self.circleButton.backgroundColor = [UIColor whiteColor];
+        
+        [self.bgView addSubview:self.circleButton];
+        
+        
         // Initialization code
     }
     return self;

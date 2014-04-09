@@ -52,38 +52,42 @@
         self.tableView.rowHeight = 50;
         
         
-        UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+        
+        UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
         
         header.backgroundColor = [UIColor whiteColor];
         self.tableView.tableHeaderView = header;
-        itemField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 160, 20)];
+        itemField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 160, 40)];
         itemField.backgroundColor = [UIColor colorWithWhite:0.0 alpha:.05];
         itemField.layer.cornerRadius = 6;
+        itemField.leftViewMode = UITextFieldViewModeAlways;
+        itemField.leftView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 40)];
         itemField.placeholder = @" To Do Item";
+        itemField.tintColor = RED_COLOR;
         
         [header addSubview:itemField];
         
-        button1 = [[UIButton alloc] initWithFrame:CGRectMake(200, 20, 30, 30)];
+        button1 = [[UIButton alloc] initWithFrame:CGRectMake(185, 20, 40, 40)];
         [button1 setTitle:@"L" forState:UIControlStateNormal];
         button1.tag = 1;
         button1.backgroundColor= YELLOW_COLOR;
-        button1.layer.cornerRadius = 15;
+        button1.layer.cornerRadius = 20;
         [button1 addTarget:self action:@selector(addNewListItem:) forControlEvents:UIControlEventTouchUpInside];
         [header addSubview:button1];
         
-        button2 = [[UIButton alloc] initWithFrame:CGRectMake(240, 20, 30, 30)];
+        button2 = [[UIButton alloc] initWithFrame:CGRectMake(230, 20, 40, 40)];
         [button2 setTitle:@"M" forState:UIControlStateNormal];
         button2.tag = 2;
         button2.backgroundColor= ORANGE_COLOR;
-        button2.layer.cornerRadius = 15;
+        button2.layer.cornerRadius = 20;
         [button2 addTarget:self action:@selector(addNewListItem:) forControlEvents:UIControlEventTouchUpInside];
         [header addSubview:button2];
         
-        button3 = [[UIButton alloc] initWithFrame:CGRectMake(280, 20, 30, 30)];
+        button3 = [[UIButton alloc] initWithFrame:CGRectMake(275, 20, 40, 40)];
         [button3 setTitle:@"H" forState:UIControlStateNormal];
         button3.tag = 3;
         button3.backgroundColor= RED_COLOR;
-        button3.layer.cornerRadius = 15;
+        button3.layer.cornerRadius = 20;
         [button3 addTarget:self action:@selector(addNewListItem:) forControlEvents:UIControlEventTouchUpInside];
         [header addSubview:button3];
 
@@ -107,6 +111,8 @@
     
     [self.tableView reloadData];
 }
+
+
 - (BOOL) textFieldShouldReturn:(UITextField *) textField
 {
 [self newItem];
@@ -179,8 +185,20 @@
     NSDictionary * listItem = listItems[indexPath.row];
     
     cell.bgView.backgroundColor = priorityColors[[listItem[@"priority"] intValue]];
-    cell.textLabel.text = listItem[@"name"];
+    cell.nameLabel.text = listItem[@"name"];
     
+    //cell.nameLabel.textColor = [UIColor whiteColor];
+    //cell.textLabel.textAlignment =
+    
+    
+    
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeCell:)];swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+                                           [cell addGestureRecognizer:swipeLeft];
+                                           
+                                           
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeCell:)];
+        swipeRight.direction = UISwipeGestureRecognizerDirectionRight; [cell addGestureRecognizer:swipeRight];
+                                           
     return cell;
     
     
@@ -236,5 +254,40 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
+
+
+
+-(void) swipeCell:(UISwipeGestureRecognizer *) gesture
+{
+    //NSLog(@"%@", gesture);
+
+    switch (gesture.direction){
+        case 1: //right
+            NSLog(@"swiping right");
+            
+            break;
+            
+        case 2: //left
+            
+            NSLog(@"swiping left");
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 
 @end
