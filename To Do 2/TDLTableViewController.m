@@ -25,9 +25,7 @@
     UIButton * button2;
     UIButton * button3;
     NSArray * priorityColors;
-
 }
-
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -35,10 +33,7 @@
     self = [super initWithStyle:style];
     if (self) {
       
-        
-        
         priorityColors = @[TAN_COLOR, YELLOW_COLOR, ORANGE_COLOR, RED_COLOR];
-        
         
         listItems = [@[
                        
@@ -102,15 +97,10 @@
 {
     NSString * itemName = itemField.text;
     itemField.text = @"";
-    
     [itemField resignFirstResponder];
-    
     [listItems insertObject:itemName atIndex:0];
-    
     NSLog(@"%@", listItems);
-    
     NSLog(@"Clicking");
-    
     [self.tableView reloadData];
 }
 
@@ -120,25 +110,20 @@
 [self newItem];
     
     return YES;
-
 }
 
 
 - (void) addNewListItem: (id)sender
 {
-    
     UIButton * button = (UIButton *) sender;
-    
     NSString * name = itemField.text;
     itemField.text = @" ";
-    
     if(![name isEqualToString:@""])
     {
         [listItems insertObject:@{@"name":name,@"priority" : @(button.tag)} atIndex:0];
     }
     
     NSLog(@"%@",sender);
-    
     [self.tableView reloadData];
 }
 
@@ -147,11 +132,6 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -194,18 +174,14 @@
     {
         cell.strikeThrough.alpha = 1;
         cell.circleButton.alpha = 0;
+        cell.struck = YES;
     } else {
         cell.strikeThrough.alpha = 0;
         cell.circleButton.alpha = 1;
+        cell.struck = NO;
     }
     
-    
     cell.nameLabel.text = listItem[@"name"];
-    
-    //cell.nameLabel.textColor = [UIColor whiteColor];
-    //cell.textLabel.textAlignment =
-    
-    
     
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeCell:)];swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
                                            [cell addGestureRecognizer:swipeLeft];
@@ -213,62 +189,11 @@
                                            
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeCell:)];
         swipeRight.direction = UISwipeGestureRecognizerDirectionRight; [cell addGestureRecognizer:swipeRight];
-                                           
+    
+    
     return cell;
-    
-    
-    // Configure the cell...
+
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -276,16 +201,23 @@
  
     TDLTableViewCell *cell = (TDLTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     
-    // if () return;
+    if (cell.swipped) return;
     
     //NSInteger index = [self.tableView indexPathForCell:cell].row;
     
     cell.bgView.backgroundColor = priorityColors [0];
-    cell.strikeThrough.alpha = 1;
+    //cell.strikeThrough.alpha = 1;
     cell.circleButton.alpha = 0;
     
     
     
+    if (cell.struck == YES)
+    {
+        cell.strikeThrough.alpha = 0;
+    }
+    
+    else cell.strikeThrough.alpha =1;
+        
     NSDictionary * updateListItem = @{@"name": listItems [indexPath.row][@"name"],
                                       @"priority" : @0
                                       };
@@ -311,14 +243,14 @@
     switch (gesture.direction){
         case 1: //right
             NSLog(@"swiping right");
-            
+            cell.swipped = NO;
             [MOVE animateView:cell.bgView properties:@{@"x" : @10,@"duration" : @0.5}];
         [cell hideCircleButtons];
             break;
             
         case 2: //left
             NSLog(@"swiping left");
-            
+            cell.swipped = YES;
             [MOVE animateView:cell.bgView properties:@{@"x" : @-120,@"duration" : @0.5}];
             [cell showCircleButtons];
             
