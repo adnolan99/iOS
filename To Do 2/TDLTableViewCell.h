@@ -8,24 +8,34 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TDLTableViewCellDelegate;
+
 @interface TDLTableViewCell : UITableViewCell
 
-@property (nonatomic) NSDictionary * taskInfo;
-
+@property (nonatomic,assign) id<TDLTableViewCellDelegate> delegate;
 @property (nonatomic) UILabel * nameLabel;
 @property (nonatomic) UIView * bgView;
 @property (nonatomic) UIButton * circleButton;
 @property (nonatomic) UIView * strikeThrough;
 @property (nonatomic) BOOL struck;
-
 @property (nonatomic) BOOL swiped;
 
 -(void)showCircleButtons;
-
 -(void)hideCircleButtons;
-
 -(void)showDeleteButton;
 -(void)hideDeleteButton;
-
+-(void)resetLayout;
 
 @end
+
+@protocol TDLTableViewCellDelegate <NSObject>
+
+-(void)deleteItem: (TDLTableViewCell *)cell;
+-(void)setItemPriority: (int)priority withItem:(TDLTableViewCell *)cell;
+
+@optional
+
+-(void)optionalMethod;
+
+@end
+

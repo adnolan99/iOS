@@ -93,6 +93,9 @@
 }
 
 
+
+
+
 - (void)newItem
 {
     NSString * itemName = itemField.text;
@@ -104,11 +107,52 @@
     [self.tableView reloadData];
 }
 
+//Make delete Button work
+-(void)deleteItem:(TDLTableViewCell *)cell
+{
+    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+    [listItems removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    NSLog(@"Delete");
+}
+
+
+-(void)setItemPriority:(int)priority withItem:(TDLTableViewCell *)cell
+{
+    
+    
+    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+
+    NSDictionary * listItem = listItems[indexPath.row];
+    
+    NSDictionary * updateListItem = @{
+                                      @"name": listItem [@"name"],
+                                      @"priority" : @(priority),
+                                      @"constant" : @(priority)
+                                      };
+                                      
+    //remove old dictionary cell
+    [listItems removeObjectAtIndex:indexPath.row];
+    
+    // add new dictionary for cell
+    [listItems insertObject:updateListItem atIndex:indexPath.row];
+    
+    cell.bgView.backgroundColor = priorityColors[priority];
+    
+    
+    [MOVE animateView:cell.bgView properties:@{@"x" : @10,@"duration" : @0.5}];
+    [cell hideCircleButtons];
+    cell.swiped = NO;
+
+    NSLog(@"Priority : %d",priority);
+}
+
 
 - (BOOL) textFieldShouldReturn:(UITextField *) textField
 {
-[self newItem];
-    
+
+    NSLog(@"Returned");
+    [textField resignFirstResponder];
     return YES;
 }
 
@@ -164,7 +208,11 @@
     
     if (cell == nil) cell = [[ TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     
+    [cell resetLayout];
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.delegate = self;
     
     NSDictionary * listItem = listItems[indexPath.row];
     
