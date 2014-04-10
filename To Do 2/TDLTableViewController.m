@@ -36,24 +36,20 @@
         priorityColors = @[TAN_COLOR, YELLOW_COLOR, ORANGE_COLOR, RED_COLOR];
         
         listItems = [@[
-                       
                    @{@"name":@"Workshop",@"priority" : @3, @"constant" : @3},
                    @{@"name":@"Go to Blogging thing",@"priority" : @2,@"constant" : @2},
                    @{@"name":@"Learn objective C",@"priority" : @1, @"constant" : @1},
                    @{@"name":@"Finish Github app",@"priority" : @0,@"constant" : @0}
-                   
                    ] mutableCopy];
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
         self.tableView.rowHeight = 50;
         
-        
-        
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
-        
         header.backgroundColor = [UIColor whiteColor];
         self.tableView.tableHeaderView = header;
+        
         itemField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 160, 40)];
         itemField.backgroundColor = [UIColor colorWithWhite:0.0 alpha:.05];
         itemField.layer.cornerRadius = 6;
@@ -61,7 +57,6 @@
         itemField.leftView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 40)];
         itemField.placeholder = @" To Do Item";
         itemField.tintColor = RED_COLOR;
-        
         [header addSubview:itemField];
         
         button1 = [[UIButton alloc] initWithFrame:CGRectMake(185, 20, 40, 40)];
@@ -87,13 +82,9 @@
         button3.layer.cornerRadius = 20;
         [button3 addTarget:self action:@selector(addNewListItem:) forControlEvents:UIControlEventTouchUpInside];
         [header addSubview:button3];
-
     }
     return self;
 }
-
-
-
 
 
 - (void)newItem
@@ -119,12 +110,8 @@
 
 -(void)setItemPriority:(int)priority withItem:(TDLTableViewCell *)cell
 {
-    
-    
     NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-
     NSDictionary * listItem = listItems[indexPath.row];
-    
     NSDictionary * updateListItem = @{
                                       @"name": listItem [@"name"],
                                       @"priority" : @(priority),
@@ -139,7 +126,6 @@
     
     cell.bgView.backgroundColor = priorityColors[priority];
     
-    
     [MOVE animateView:cell.bgView properties:@{@"x" : @10,@"duration" : @0.5}];
     [cell hideCircleButtons];
     cell.swiped = NO;
@@ -150,7 +136,6 @@
 
 - (BOOL) textFieldShouldReturn:(UITextField *) textField
 {
-
     NSLog(@"Returned");
     [textField resignFirstResponder];
     return YES;
