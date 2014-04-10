@@ -37,10 +37,10 @@
         
         listItems = [@[
                        
-                   @{@"name":@"Workshop",@"priority" : @3},
-                   @{@"name":@"Go to Blogging thing",@"priority" : @2},
-                   @{@"name":@"Learn objective C",@"priority" : @1},
-                   @{@"name":@"Finish Github app",@"priority" : @0}
+                   @{@"name":@"Workshop",@"priority" : @3, @"constant" : @3},
+                   @{@"name":@"Go to Blogging thing",@"priority" : @2,@"constant" : @2},
+                   @{@"name":@"Learn objective C",@"priority" : @1, @"constant" : @1},
+                   @{@"name":@"Finish Github app",@"priority" : @0,@"constant" : @0}
                    
                    ] mutableCopy];
         
@@ -120,7 +120,7 @@
     itemField.text = @" ";
     if(![name isEqualToString:@""])
     {
-        [listItems insertObject:@{@"name":name,@"priority" : @(button.tag)} atIndex:0];
+        [listItems insertObject:@{@"name":name,@"priority" : @(button.tag), @"constant" : @(button.tag)} atIndex:0];
     }
     
     NSLog(@"%@",sender);
@@ -174,11 +174,11 @@
     {
         cell.strikeThrough.alpha = 1;
         cell.circleButton.alpha = 0;
-        cell.struck = YES;
+        //cell.struck = YES;
     } else {
         cell.strikeThrough.alpha = 0;
         cell.circleButton.alpha = 1;
-        cell.struck = NO;
+        //cell.struck = NO;
     }
     
     cell.nameLabel.text = listItem[@"name"];
@@ -201,26 +201,32 @@
  
     TDLTableViewCell *cell = (TDLTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     
-    if (cell.swipped) return;
+    if (cell.swiped) return;
     
     //NSInteger index = [self.tableView indexPathForCell:cell].row;
     
-    cell.bgView.backgroundColor = priorityColors [0];
-    //cell.strikeThrough.alpha = 1;
-    cell.circleButton.alpha = 0;
     
+    NSDictionary * listItem = listItems[indexPath.row];
     
+    NSDictionary * updateListItem = listItem;
     
-    if (cell.struck == YES)
+    if ([listItem[@"priority"]  intValue] !=0)
     {
-        cell.strikeThrough.alpha = 0;
+    cell.bgView.backgroundColor = priorityColors [0];
+    cell.strikeThrough.alpha = 1;
+    cell.circleButton.alpha = 0;
+    updateListItem = @{@"name": listItem [ @"name"],@"priority" : @0, @"constant" :listItem [@"constant"]
+                       };
     }
     
-    else cell.strikeThrough.alpha =1;
-        
-    NSDictionary * updateListItem = @{@"name": listItems [indexPath.row][@"name"],
-                                      @"priority" : @0
-                                      };
+    else
+    {
+    cell.bgView.backgroundColor = priorityColors [[listItem[@"constant"]intValue]];
+    cell.strikeThrough.alpha = 0;
+    cell.circleButton.alpha = 1;
+    updateListItem = @{@"name": listItem [@"name"], @"priority" : listItem [@"constant"], @"constant" : listItem [@"constant"]
+                       };
+    }
     
     //remove old dictionary cell
     [listItems removeObjectAtIndex:indexPath.row];
@@ -229,9 +235,21 @@
     [listItems insertObject:updateListItem atIndex:indexPath.row];
     
     
+//    if (cell.struck == YES)
+//    {
+//        cell.strikeThrough.alpha = 0;
+//        cell.struck = NO;
+//    }
+//    
+//    else {
+//    cell.strikeThrough.alpha =1;
+//    cell.struck =YES;
+//    }
+//    NSDictionary * updateListItem = @{@"name": listItems [indexPath.row][@"name"],
+//                                      @"priority" : @0
+//                                      };
+   
 }
-
-
 
 
 -(void) swipeCell:(UISwipeGestureRecognizer *) gesture
@@ -240,20 +258,56 @@
 
     TDLTableViewCell * cell = (TDLTableViewCell *) gesture.view;
     
-    switch (gesture.direction){
+    NSInteger index = [self.tableView indexPathForCell:cell].row;
+
+    
+    NSDictionary * listItem = listItems[index];
+    
+    //gesture.direction == left : 2
+    //gesture.direction == right: 1
+    //gesture.direction == left && priority == 0 : 12
+    //gesture.direction == right && priority == 0 : 11
+    
+    int completed;
+    
+    if ([listItem[@"priority"] intValue] ==0)
+    {
+        completed = 1;
+    }
+    else
+    {
+        completed = 0;
+    }
+    
+    completed = ([listItem[@"priority"] intValue] ==0) ? 10 : 0;
+    
+
+    switch (gesture.direction + completed)
+    {
         case 1: //right
             NSLog(@"swiping right");
-            cell.swipped = NO;
+            cell.swiped = NO;
             [MOVE animateView:cell.bgView properties:@{@"x" : @10,@"duration" : @0.5}];
-        [cell hideCircleButtons];
+            [cell hideCircleButtons];
             break;
             
         case 2: //left
             NSLog(@"swiping left");
-            cell.swipped = YES;
+            cell.swiped = YES;
             [MOVE animateView:cell.bgView properties:@{@"x" : @-120,@"duration" : @0.5}];
             [cell showCircleButtons];
+            break;
             
+        case 11: //right
+            [MOVE animateView:cell.bgView properties:@{@"x" : @10,@"duration" : @0.3}];
+            cell.swiped = NO;
+            [cell hideDeleteButton];
+            break;
+            
+        case 12:
+            [MOVE animateView:cell.bgView properties:@{@"x" : @-33,@"duration" : @0.3}];
+            cell.swiped = YES;
+            [cell showDeleteButton];
             break;
             
         default:

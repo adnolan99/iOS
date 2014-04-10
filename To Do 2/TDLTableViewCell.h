@@ -18,12 +18,14 @@
 @property (nonatomic) UIView * strikeThrough;
 @property (nonatomic) BOOL struck;
 
-@property (nonatomic) BOOL swipped;
+@property (nonatomic) BOOL swiped;
 
 -(void)showCircleButtons;
 
 -(void)hideCircleButtons;
 
+-(void)showDeleteButton;
+-(void)hideDeleteButton;
 
 
 @end

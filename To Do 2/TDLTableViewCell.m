@@ -98,7 +98,28 @@ UILabel * taskName;
     [MOVE animateView: button3 properties:@{@"alpha":@0,@"duration":@0.2,@"delay":@0.2, @"remove":@YES}];
 }
 
+-(void)showDeleteButton
+{
+    button3 = [[UIButton alloc] initWithFrame:CGRectMake(275, 15, 40, 40)];
+    [button3 setTitle:@"H" forState:UIControlStateNormal];
+    button3.tag = 3;
+    button3.alpha = 0;
+    button3.backgroundColor= RED_COLOR;
+    button3.layer.cornerRadius = 20;
+    //[button3 addTarget:self action:@selector(addNewListItem:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:button3];
+    
+    [MOVE animateView: button3 properties:@{@"alpha":@1,@"duration":@0.2,@"delay":@0.3}];
+    
+}
 
+
+-(void)hideDeleteButton
+{
+
+    [MOVE animateView: button3 properties:@{@"alpha":@0,@"duration":@0.2,@"delay":@0.0, @"remove":@YES}];
+
+}
 
 
 - (void)awakeFromNib
