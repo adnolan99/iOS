@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DLAStage : UIView
+@interface DLAStageLines : UIView
 
 @end

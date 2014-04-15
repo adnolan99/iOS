@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5F869DB18FD7DB8007207DE /* DLAStageScribble.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F869DA18FD7DB8007207DE /* DLAStageScribble.m */; };
 		D5F9BBB118FD672F00E249DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F9BBB018FD672F00E249DE /* Foundation.framework */; };
 		D5F9BBB318FD672F00E249DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F9BBB218FD672F00E249DE /* CoreGraphics.framework */; };
 		D5F9BBB518FD672F00E249DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F9BBB418FD672F00E249DE /* UIKit.framework */; };
@@ -20,7 +21,7 @@
 		D5F9BBD418FD672F00E249DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5F9BBD218FD672F00E249DE /* InfoPlist.strings */; };
 		D5F9BBD618FD672F00E249DE /* DrawLinesAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BBD518FD672F00E249DE /* DrawLinesAppTests.m */; };
 		D5F9BBE118FD679000E249DE /* DLAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BBE018FD679000E249DE /* DLAViewController.m */; };
-		D5F9BBE418FD69B200E249DE /* DLAStage.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BBE318FD69B200E249DE /* DLAStage.m */; };
+		D5F9BBE418FD69B200E249DE /* DLAStageLines.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9BBE318FD69B200E249DE /* DLAStageLines.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D5F869D918FD7DB8007207DE /* DLAStageScribble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAStageScribble.h; sourceTree = "<group>"; };
+		D5F869DA18FD7DB8007207DE /* DLAStageScribble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAStageScribble.m; sourceTree = "<group>"; };
 		D5F9BBAD18FD672F00E249DE /* DrawLinesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawLinesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F9BBB018FD672F00E249DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D5F9BBB218FD672F00E249DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -52,8 +55,8 @@
 		D5F9BBD518FD672F00E249DE /* DrawLinesAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawLinesAppTests.m; sourceTree = "<group>"; };
 		D5F9BBDF18FD679000E249DE /* DLAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAViewController.h; sourceTree = "<group>"; };
 		D5F9BBE018FD679000E249DE /* DLAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAViewController.m; sourceTree = "<group>"; };
-		D5F9BBE218FD69B200E249DE /* DLAStage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAStage.h; sourceTree = "<group>"; };
-		D5F9BBE318FD69B200E249DE /* DLAStage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAStage.m; sourceTree = "<group>"; };
+		D5F9BBE218FD69B200E249DE /* DLAStageLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAStageLines.h; sourceTree = "<group>"; };
+		D5F9BBE318FD69B200E249DE /* DLAStageLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAStageLines.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +120,10 @@
 			children = (
 				D5F9BBBF18FD672F00E249DE /* DLAAppDelegate.h */,
 				D5F9BBC018FD672F00E249DE /* DLAAppDelegate.m */,
-				D5F9BBE218FD69B200E249DE /* DLAStage.h */,
-				D5F9BBE318FD69B200E249DE /* DLAStage.m */,
+				D5F9BBE218FD69B200E249DE /* DLAStageLines.h */,
+				D5F9BBE318FD69B200E249DE /* DLAStageLines.m */,
+				D5F869D918FD7DB8007207DE /* DLAStageScribble.h */,
+				D5F869DA18FD7DB8007207DE /* DLAStageScribble.m */,
 				D5F9BBC218FD672F00E249DE /* Images.xcassets */,
 				D5F9BBB718FD672F00E249DE /* Supporting Files */,
 			);
@@ -251,8 +256,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5F9BBC118FD672F00E249DE /* DLAAppDelegate.m in Sources */,
+				D5F869DB18FD7DB8007207DE /* DLAStageScribble.m in Sources */,
 				D5F9BBBD18FD672F00E249DE /* main.m in Sources */,
-				D5F9BBE418FD69B200E249DE /* DLAStage.m in Sources */,
+				D5F9BBE418FD69B200E249DE /* DLAStageLines.m in Sources */,
 				D5F9BBE118FD679000E249DE /* DLAViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +458,7 @@
 				D5F9BBDB18FD672F00E249DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D5F9BBDC18FD672F00E249DE /* Build configuration list for PBXNativeTarget "DrawLinesAppTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +467,7 @@
 				D5F9BBDE18FD672F00E249DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

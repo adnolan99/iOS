@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Austin Nolan. All rights reserved.
 //
 
-#import "DLAStage.h"
+#import "DLAStageLines.h"
 
-@implementation DLAStage
+@implementation DLAStageLines
 
 {
     NSMutableArray * lines;
     
-    UIButton * Undo;
+    UIButton * undoButton;
     
-    UIButton * Clear;
+    UIButton * clearButton;
 
 }
 
@@ -31,15 +31,30 @@
         lines = [@[] mutableCopy];
         
         
+//        undoButton = [[UIButton alloc] initWithFrame: CGRectMake(10, 10, 100, 20)];
+//        
+//        
+//        [undoButton addTarget:self
+//        
+//        
+//        [self addSubview:undoButton];
         
-        // Initialization code
+        
+        
     }
     return self;
 }
 
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
+
+//-(void)undoLastMove
+//{
+//
+//    
+//
+//}
+
+
 
 
 
