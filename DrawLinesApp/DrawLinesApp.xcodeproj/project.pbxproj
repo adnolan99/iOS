@@ -45,8 +45,8 @@
 		D5F9BBBA18FD672F00E249DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D5F9BBBC18FD672F00E249DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D5F9BBBE18FD672F00E249DE /* DrawLinesApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DrawLinesApp-Prefix.pch"; sourceTree = "<group>"; };
-		D5F9BBBF18FD672F00E249DE /* DLAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLAAppDelegate.h; sourceTree = "<group>"; };
-		D5F9BBC018FD672F00E249DE /* DLAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLAAppDelegate.m; sourceTree = "<group>"; };
+		D5F9BBBF18FD672F00E249DE /* DLAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DLAAppDelegate.h; path = DrawLinesApp/DLAAppDelegate.h; sourceTree = "<group>"; };
+		D5F9BBC018FD672F00E249DE /* DLAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DLAAppDelegate.m; path = DrawLinesApp/DLAAppDelegate.m; sourceTree = "<group>"; };
 		D5F9BBC218FD672F00E249DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D5F9BBC818FD672F00E249DE /* DrawLinesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawLinesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F9BBC918FD672F00E249DE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -83,11 +83,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D5F9BBA418FD672F00E249DE = {
+		D5F869DC18FEB849007207DE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D5F9BBDF18FD679000E249DE /* DLAViewController.h */,
 				D5F9BBE018FD679000E249DE /* DLAViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D5F869DD18FEB862007207DE /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				D5F9BBBF18FD672F00E249DE /* DLAAppDelegate.h */,
+				D5F9BBC018FD672F00E249DE /* DLAAppDelegate.m */,
+			);
+			name = Delegates;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D5F9BBA418FD672F00E249DE = {
+			isa = PBXGroup;
+			children = (
+				D5F869DC18FEB849007207DE /* Controllers */,
 				D5F9BBB618FD672F00E249DE /* DrawLinesApp */,
 				D5F9BBCF18FD672F00E249DE /* DrawLinesAppTests */,
 				D5F9BBAF18FD672F00E249DE /* Frameworks */,
@@ -118,8 +136,7 @@
 		D5F9BBB618FD672F00E249DE /* DrawLinesApp */ = {
 			isa = PBXGroup;
 			children = (
-				D5F9BBBF18FD672F00E249DE /* DLAAppDelegate.h */,
-				D5F9BBC018FD672F00E249DE /* DLAAppDelegate.m */,
+				D5F869DD18FEB862007207DE /* Delegates */,
 				D5F9BBE218FD69B200E249DE /* DLAStageLines.h */,
 				D5F9BBE318FD69B200E249DE /* DLAStageLines.m */,
 				D5F869D918FD7DB8007207DE /* DLAStageScribble.h */,

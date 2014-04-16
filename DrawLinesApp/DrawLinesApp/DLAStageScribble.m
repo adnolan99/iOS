@@ -11,33 +11,19 @@
 @implementation DLAStageScribble
 
 
-{
 
-    NSMutableArray * scribbles;
-    
-
-}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
-        scribbles = [@[] mutableCopy];
-        
+        self.lines = [@[] mutableCopy];
         
         self.backgroundColor = [UIColor whiteColor];
-
-        
         self.lineWidth = 2.0;
-        
         self.lineColor = [UIColor colorWithWhite:0.3 alpha:1.0];
-        
-        
-        
-        
     }
-    
     return self;
 }
 
@@ -50,10 +36,7 @@
     -3 buttons - should change line color property based on color of button
  3. Override setter method inside of UIView subclass. Run self set needs display after the color changes and the line width changes (automatic method)
  self.lineWidth property, self.color property.
-
-
 */
-
 
 
 - (void)drawRect:(CGRect)rect
@@ -65,7 +48,7 @@
     CGContextSetLineCap(context, kCGLineCapRound);
     
     
-    for (NSDictionary * scribble in scribbles)
+    for (NSDictionary * scribble in self.lines)
     {
         CGContextSetLineWidth(context, [scribble[@"width"]floatValue]);
         
@@ -93,6 +76,21 @@
 }
 
 
+-(void)clearStage
+{
+    [self.lines removeAllObjects];
+    
+    [self setNeedsDisplay];
+}
+
+
+-(void)undo
+{
+    [self.lines removeLastObject];
+    
+    [self setNeedsDisplay];
+}
+
 
 
 -(void)setLineWidth:(float)lineWidth;
@@ -107,14 +105,14 @@
 {
     
     for (UITouch * touch in touches)
-         
+        
          {
              CGPoint location = [touch locationInView:self];
              
-//             [scribbles addObject:[@[
+//             [self.lines addObject:[@[
 //                                    [NSValue valueWithCGPoint:location]
 //                                    ] mutableCopy]];
-             [scribbles addObject:[@{
+             [self.lines addObject:[@{
                                      @"color" : self.lineColor,
                                      @"width" : @(self.lineWidth),
                                      @"points" :[@[[NSValue valueWithCGPoint:location]] mutableCopy]
@@ -131,9 +129,9 @@
     {
         CGPoint location = [touch locationInView:self];
         
-        //[[scribbles lastObject] addObject:[NSValue valueWithCGPoint:location]];
+        //[[self.lines lastObject] addObject:[NSValue valueWithCGPoint:location]];
         
-        [[scribbles lastObject][@"points"] addObject:[NSValue valueWithCGPoint:location]];
+        [[self.lines lastObject][@"points"] addObject:[NSValue valueWithCGPoint:location]];
 
         [self setNeedsDisplay];
     
@@ -148,9 +146,9 @@
     {
         CGPoint location = [touch locationInView:self];
     
-        //[[scribbles lastObject] addObject:[NSValue valueWithCGPoint:location]];
+        //[[self.lines lastObject] addObject:[NSValue valueWithCGPoint:location]];
         
-        [[scribbles lastObject][@"points"] addObject:[NSValue valueWithCGPoint:location]];
+        [[self.lines lastObject][@"points"] addObject:[NSValue valueWithCGPoint:location]];
 
 
         [self setNeedsDisplay];
@@ -165,9 +163,6 @@
     
     [self setNeedsDisplay];
 }
-
-
-
 
 @end
     

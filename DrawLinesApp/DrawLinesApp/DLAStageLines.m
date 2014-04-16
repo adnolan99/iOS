@@ -11,14 +11,11 @@
 @implementation DLAStageLines
 
 {
-    NSMutableArray * lines;
     
     UIButton * undoButton;
     
     UIButton * clearButton;
-
 }
-
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -28,64 +25,58 @@
         
         self.backgroundColor = [UIColor whiteColor];
         
-        lines = [@[] mutableCopy];
-        
-        
-//        undoButton = [[UIButton alloc] initWithFrame: CGRectMake(10, 10, 100, 20)];
-//        
-//        
-//        [undoButton addTarget:self
-//        
-//        
-//        [self addSubview:undoButton];
-        
-        
+        self.lines = [@[] mutableCopy];
         
     }
     return self;
 }
 
 
-
-//-(void)undoLastMove
-//{
-//
-//    
-//
-//}
-
-
-
-
-
 - (void)drawRect:(CGRect)rect
 {
- 
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
     
     [[UIColor redColor]set];
     
-    CGContextSetLineWidth(context, 10.0);
+    CGContextSetLineWidth(context, self.lineWidth);
     CGContextSetLineCap(context, kCGLineCapRound);
     
+    [self.lineColor set];
     
-    for (NSArray * line in lines)
+    for (NSDictionary * line in self.lines)
     {
-     
-        CGPoint start = [line[0] CGPointValue];
-        CGPoint end = [line[1] CGPointValue];
+        CGContextSetLineWidth(context, [line[@"width"]floatValue]);
+        
+        [(UIColor *)line[@"color"] set];
+        
+        CGPoint start = [line[@"points"][0] CGPointValue];
+        CGPoint end = [line[@"points"][1] CGPointValue];
         
         CGContextMoveToPoint(context, start.x, start.y);
 
         CGContextAddLineToPoint(context, end.x, end.y);
         
-
         CGContextStrokePath(context);
-
     }
-    
 }
+
+-(void)clearStage
+{
+    [self.lines removeAllObjects];
+    
+    [self setNeedsDisplay];
+}
+
+
+-(void)undo
+{
+    [self.lines removeLastObject];
+    
+    [self setNeedsDisplay];
+}
+
+
+
 
 
 
@@ -95,21 +86,22 @@
     {
         CGPoint location = [touch locationInView:self];
         
+//        [self.lines addObject:[@[
+//                            [NSValue valueWithCGPoint:location],
+//                            [NSValue valueWithCGPoint:location],
+//                            ] mutableCopy]];
         
-        [lines addObject:[@[
-                            [NSValue valueWithCGPoint:location],
-                            [NSValue valueWithCGPoint:location],
-                            ] mutableCopy]];
-        
-        
-        
+        [self.lines addObject:[@{
+                                @"color" : self.lineColor,
+                                @"width" : @(self.lineWidth),
+                                @"points" :[@[[NSValue valueWithCGPoint:location],
+                                              [NSValue valueWithCGPoint:location]
+                                              ]mutableCopy]
+                                } mutableCopy]];
         
         NSLog(@"Touches X : %f Y %f,",location.x,location.y);
 
-    
         [self setNeedsDisplay];
-
-        
     }
 }
 
@@ -120,15 +112,11 @@
     {
         CGPoint location = [touch locationInView:self];
         
-        [lines lastObject][1] = [NSValue valueWithCGPoint:location];
-        
-        
+        [self.lines lastObject][@"points"][1] = [NSValue valueWithCGPoint:location];
         
         NSLog(@"Touches X : %f Y %f,",location.x,location.y);
     }
-    
     [self setNeedsDisplay];
-
 }
 
 
@@ -138,18 +126,11 @@
     {
         CGPoint location = [touch locationInView:self];
         
-        
-        [lines lastObject][1] = [NSValue valueWithCGPoint:location];
+        [self.lines lastObject][@"points"][1] = [NSValue valueWithCGPoint:location];
 
-        
         NSLog(@"Touches X : %f Y %f,",location.x,location.y);
     }
-    
-    
     [self setNeedsDisplay];
-
 }
-
-
 
 @end
