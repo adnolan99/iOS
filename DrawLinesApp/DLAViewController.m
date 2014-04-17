@@ -19,8 +19,6 @@
 @implementation DLAViewController
 
 {
-    
-    
     UIButton * undoButton;
     UIButton * redButton;
     UIButton * blueButton;
@@ -28,79 +26,16 @@
     UIColor * lineColor;
     UISlider * lineWidthSlider;
     UIView * colorsDrawer;
-    
     DLAStageScribble * scribbleView;
-    
-    
-
     float lineWidth;
-    
-    
 }
-
-
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-        
-        
-//        self.view = [[DLAStageLines alloc] initWithFrame:self.view.frame];
-//        self.view= [[DLAStageScribble alloc] initWithFrame:self.view.frame];
-        
-        
-//        undoButton = [[UIButton alloc] initWithFrame: CGRectMake(10, 10, 100, 20)];
-//        [undoButton addTarget:self]
-//         [[self.view addSubview:undoButton];
-//        
-//        
-//        redButton = [[UIButton alloc] initWithFrame: CGRectMake(20, 100, 30, 30)];
-//        redButton.backgroundColor= [UIColor redColor];
-//        [redButton setTitle:@"R" forState:UIControlStateNormal];
-//        redButton.layer.cornerRadius = 15;
-//        [redButton addTarget:self action:@selector(changeLineColorRed:) forControlEvents:UIControlEventTouchUpInside];
-//        [self.view addSubview:redButton];
-//        
-//        
-//        blueButton = [[UIButton alloc] initWithFrame: CGRectMake(20, 140, 30, 30)];
-//        blueButton.backgroundColor= [UIColor blueColor];
-//        [blueButton setTitle:@"B" forState:UIControlStateNormal];
-//        blueButton.layer.cornerRadius = 15;
-//        [blueButton addTarget:self action:@selector(changeLineColorBlue:) forControlEvents:UIControlEventTouchUpInside];
-//        [self.view addSubview:blueButton];
-//        
-//        greenButton = [[UIButton alloc] initWithFrame: CGRectMake(20, 180, 30, 30)];
-//        greenButton.backgroundColor= [UIColor greenColor];
-//        [greenButton setTitle:@"G" forState:UIControlStateNormal];
-//        greenButton.layer.cornerRadius = 15;
-//        [greenButton addTarget:self action:@selector(changeLineColorGreen:) forControlEvents:UIControlEventTouchUpInside];
-//        [self.view addSubview:greenButton];
-//        
-        
-        
-        lineColor = [UIColor purpleColor];
-        lineWidth = 5.0;
-        
-        
-        lineWidthSlider.maximumValue = 2.0;
-        lineWidthSlider.maximumValue = 20.0;
-        lineWidthSlider.value = lineWidth;
-        
-        
-        lineWidthSlider =[[UISlider alloc] initWithFrame:CGRectMake(10, 400, SCREEN_WIDTH-20, 30)];
-        lineWidthSlider.minimumValue = 2.0;
-        lineWidthSlider.maximumValue = 20.0;
-        lineWidthSlider.layer.cornerRadius = 15;
-        [lineWidthSlider addTarget:self action:@selector(changeSize:) forControlEvents:UIControlEventValueChanged];
-        lineWidthSlider.backgroundColor = [UIColor clearColor];
-        
-        [self.view addSubview:lineWidthSlider];
-        
-        
-        
+    if (self)
+    {
     }
     return self;
 }
@@ -111,9 +46,33 @@
     [super viewDidLoad];
   
     
-    scribbleView = [[DLAStageLines alloc] initWithFrame:self.view.frame];
+    lineColor = [UIColor purpleColor];
+    lineWidth = 5.0;
     
+    //scribbleView = [[DLAStageLines alloc] initWithFrame:self.view.frame];
+    
+    
+    
+    
+    [self toggleStage];
     [self.view addSubview:scribbleView];
+    
+    
+    
+    lineWidthSlider.maximumValue = 2.0;
+    lineWidthSlider.maximumValue = 20.0;
+    lineWidthSlider.value = lineWidth;
+    
+    
+    lineWidthSlider =[[UISlider alloc] initWithFrame:CGRectMake(10, 400, SCREEN_WIDTH-20, 30)];
+    lineWidthSlider.minimumValue = 2.0;
+    lineWidthSlider.maximumValue = 20.0;
+    lineWidthSlider.layer.cornerRadius = 15;
+    [lineWidthSlider addTarget:self action:@selector(changeSize:) forControlEvents:UIControlEventValueChanged];
+    lineWidthSlider.backgroundColor = [UIColor clearColor];
+    
+    [self.view addSubview:lineWidthSlider];
+
     
     colorsDrawer = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 320, 40)];
     
@@ -180,8 +139,10 @@
 
 
 -(void)toggleStage
-
 {
+    
+    NSMutableArray * lines = scribbleView.lines;
+    
     [scribbleView removeFromSuperview];
     
     if ([scribbleView isMemberOfClass:[DLAStageScribble class]])
@@ -196,6 +157,9 @@
     scribbleView.lineWidth = lineWidth;
     scribbleView.lineColor = lineColor;
     
+    if (lines != nil)scribbleView.lines = lines;
+    
+
     [self.view insertSubview:scribbleView atIndex:0];
 }
 
