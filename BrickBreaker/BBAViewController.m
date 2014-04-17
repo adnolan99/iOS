@@ -16,35 +16,59 @@
 
 @implementation BBAViewController
 
+{
+    BBALevelController * level;
+    
+
+    
+    UIButton * startButton;
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
         
-        BBALevelController * level = [[BBALevelController alloc] initWithNibName:nil bundle:nil];
+        level = [[BBALevelController alloc] initWithNibName:nil bundle:nil];
         
         [self.view addSubview:level.view];
         
         
-        [level resetLevel];
         
-        // Custom initialization
+        
+        startButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH / 3), (SCREEN_HEIGHT / 4), (SCREEN_WIDTH / 3), (SCREEN_WIDTH / 3))];
+        startButton.backgroundColor = [UIColor whiteColor];
+        startButton.tintColor =        startButton.layer.cornerRadius = (SCREEN_WIDTH / 6);
+        [startButton setTitle:@"Start" forState:UIControlStateNormal];
+        [startButton addTarget:self action:@selector(pressStartButton) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:startButton];
+        
+        
+
+        
     }
     return self;
 }
 
 
 
-
-
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    //[self.view addSubview:<#(UIView *)#>]
+    
+    
 }
+
+
+-(void)pressStartButton
+{
+    [startButton removeFromSuperview];
+    [level resetLevel];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
