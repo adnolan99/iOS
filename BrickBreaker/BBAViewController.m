@@ -27,13 +27,12 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        
         level = [[BBALevelController alloc] initWithNibName:nil bundle:nil];
         
-        [self.view addSubview:level.view];
+        self.view.backgroundColor = [UIColor colorWithWhite:1.0 alpha:1.0];
+
         
-        
-        
+        //[self.view addSubview:level.view];
         
         startButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH / 3), (SCREEN_HEIGHT / 4), (SCREEN_WIDTH / 3), (SCREEN_WIDTH / 3))];
         startButton.backgroundColor = [UIColor blackColor];
@@ -42,13 +41,19 @@
         [startButton setTitle:@"Start" forState:UIControlStateNormal];
         [startButton addTarget:self action:@selector(pressStartButton) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:startButton];
+//    
+//        UIView * header = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 1, SCREEN_WIDTH, 20)];
+//        header.backgroundColor = [UIColor greenColor];
+//        [self.view  addSubview:header];
+        
         
         
 
-        
     }
     return self;
 }
+
+
 
 
 
@@ -64,19 +69,18 @@
     
     level.delegate = self;
     
-    level.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    level.view.frame = CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT);
     [self.view addSubview:level.view];
-    
     
     [startButton removeFromSuperview];
     [level resetLevel];
 }
 
+
 -(void)gameDone
 {
     [level.view removeFromSuperview];
     [self.view addSubview:startButton];
-    
 }
 
 
@@ -97,5 +101,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+-(BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 
 @end

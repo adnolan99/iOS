@@ -33,18 +33,17 @@
 
 //@property (nonatomic) UILabel * pointLabel;
 
-
-
 @end
-
-
 
 @implementation BBALevelController
 
 {
     float paddleWidth;
     float ballWidth;
-    float points;
+    int points;
+    int ballCount;
+    
+    UILabel * score;
     
 }
 
@@ -57,16 +56,19 @@
         self.bricks = [@[] mutableCopy];
         self.balls = [@[] mutableCopy];
         
-        paddleWidth = 50;
+        paddleWidth = 450;
         
         ballWidth = 10;
         
         points= 0;
         
+        ballCount = 3;
+        
         self.view.backgroundColor = [UIColor colorWithWhite:0.3 alpha:1.0];
         
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen:)];
         [self.view addGestureRecognizer:tap];
+        
         
     }
     return self;
@@ -77,13 +79,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+
+    score = [[UILabel alloc] initWithFrame:CGRectMake(5, -20, 100, 20)];
+    
+    
+
 }
 
 
 -(void)resetLevel
 {
-
-    
     self.animator = [[UIDynamicAnimator alloc]initWithReferenceView:self.view];
 
     [self createPaddle];
@@ -94,21 +100,14 @@
     self.collider.collisionDelegate = self;
     self.collider.collisionMode = UICollisionBehaviorModeEverything;
     
-    //self.collider.translatesReferenceBoundsIntoBoundary = YES;
-    
-    
     int w = self.view.frame.size.width;
     int h = self.view.frame.size.height;
 
-    
-    
     [self.collider addBoundaryWithIdentifier:@"ceiling" fromPoint:CGPointMake(0, 0) toPoint:CGPointMake(w, 0)];
     [self.collider addBoundaryWithIdentifier:@"leftWall" fromPoint:CGPointMake(0, 0) toPoint:CGPointMake(0, h)];
     [self.collider addBoundaryWithIdentifier:@"rightWall" fromPoint:CGPointMake(w, 0) toPoint:CGPointMake(w, h)];
     [self.collider addBoundaryWithIdentifier:@"floor" fromPoint:CGPointMake(0, h + 10) toPoint:CGPointMake(w, h + 10)];
 
-    
-    
     [self.animator addBehavior:self.collider];
     
     
@@ -122,17 +121,19 @@
     self.paddleDynamicProperties.density = 100000;
     self.bricksDynamicProperties.density = 100000;
     
-    
     self.ballsDynamicProperties.elasticity = 1.0;
     self.ballsDynamicProperties.resistance = 0.0;
-
+    
+    
+    [self createHeader];
 }
+
+
+
 
 -(void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
 {
     UIView * tempBrick;
-    
-    
     
     for (UIView * brick in self.bricks)
     {
@@ -141,7 +142,6 @@
             
             if(brick.alpha == 0.5)
                {
-        
                    tempBrick = brick;
                    
                    UILabel * pointLabel = [[UILabel alloc] initWithFrame:CGRectMake(tempBrick.frame.origin.x, tempBrick.frame.origin.y, 50, 50)];
@@ -152,45 +152,94 @@
                    
                    points += brick.tag;
                    
-                   
                    [brick removeFromSuperview];
                    [self.collider removeItem:brick];
                    
                    [UIView animateWithDuration:0.4 animations:^{pointLabel.alpha = 0.0;}
                                     completion:^(BOOL finished) {[pointLabel removeFromSuperview];
                                                                 }];
+               
+               
+                   UILabel * pointScore = [[UILabel alloc] initWithFrame:CGRectMake(200, 130, 300, 100)];
+                   pointScore.textColor = [UIColor yellowColor];
+                   pointScore.alpha = 0.5;
+                   pointScore.text = [NSString stringWithFormat:@"SCORE %d", points];
+                   pointScore.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40];
+                   //pointScore.alpha = 0.5;
+                   [self.view addSubview:pointScore];
+                   
+                   
+                   [UIView animateWithDuration:0.8 animations:^{pointScore.alpha = 0.0;}
+                                    completion:^(BOOL finished) {[pointScore removeFromSuperview];
+                                    }];
+                   
+                   score.text = [NSString stringWithFormat:@"Score %d", points];
+                   [self.view addSubview:score];
+                   
+                   
                }
             brick.alpha = 0.5;
         }
     }
     
     
-    NSLog(@"Total Points = %f",points);
+    NSLog(@"Total Points = %d",points);
     
     if(tempBrick != nil) [self.bricks removeObjectIdenticalTo:tempBrick];
 }
+
+
+-(void)createHeader
+{
+    
+    UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, -40, SCREEN_WIDTH, 40)];
+    header.backgroundColor = [UIColor greenColor];
+    [self.view  addSubview:header];
+   
+    }
+
+
+
+-(void)keepScore
+{
+//    UILabel * score = [[UILabel alloc] initWithFrame:CGRectMake(5, -20, 100, 20)];
+//    score.text = [NSString stringWithFormat:@"Score %d", points];
+//    [self.view addSubview:score];
+
+}
+
+
+
 
 -(void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier atPoint:(CGPoint)p
 {
     if ([(NSString *)identifier isEqualToString:@"floor"])
     {
         UIView * ball =(UIView *)item;
+       // UILabel * lives = ballCount;
+
+        
         
         [ball removeFromSuperview];
         [self.collider removeItem:ball];
-    
-
-    if (
-        [self.delegate respondsToSelector:@selector(gameDone)])
+        ballCount -=1;
+        self.createBall;
+        //[self.collider addItem:ball];
+        
+        
+        
+        if (ballCount == 0)
+        {
+        [self.delegate respondsToSelector:@selector(gameDone)];
         [self.delegate gameDone];
-     
+        }
+    
     }
+    
+    //else (self.createBall);
 }
 
 
-    //[self.view removeFromeSuperview];
-    //
-    
 
 
 
@@ -223,7 +272,7 @@
 
 -(void)createPaddle
 {
-    self.paddle = [[UIView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - paddleWidth) / 2, SCREEN_HEIGHT - 15, paddleWidth, 6)];
+    self.paddle = [[UIView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - paddleWidth) / 2, SCREEN_HEIGHT - 55, paddleWidth, 6)];
     self.paddle.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.7];
     self.paddle.layer.cornerRadius = 3;
     [self.view addSubview:self.paddle];
@@ -279,7 +328,7 @@
     
     self.pusher =[[UIPushBehavior alloc] initWithItems:self.balls mode:UIPushBehaviorModeInstantaneous];
     
-    self.pusher.pushDirection = CGVectorMake(0.01, 0.01);
+    self.pusher.pushDirection = CGVectorMake(0.01, -0.01);
     
     self.pusher.active = YES;
     
