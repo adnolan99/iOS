@@ -10,7 +10,7 @@
 
 #import "BBALevelController.h"
 
-@interface BBAViewController ()
+@interface BBAViewController () <BBALevelDelegate>
 
 @end
 
@@ -18,9 +18,6 @@
 
 {
     BBALevelController * level;
-    
-
-    
     UIButton * startButton;
 }
 
@@ -39,8 +36,9 @@
         
         
         startButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH / 3), (SCREEN_HEIGHT / 4), (SCREEN_WIDTH / 3), (SCREEN_WIDTH / 3))];
-        startButton.backgroundColor = [UIColor whiteColor];
-        startButton.tintColor =        startButton.layer.cornerRadius = (SCREEN_WIDTH / 6);
+        startButton.backgroundColor = [UIColor blackColor];
+        //startButton.tintColor =
+        startButton.layer.cornerRadius = (SCREEN_WIDTH / 6);
         [startButton setTitle:@"Start" forState:UIControlStateNormal];
         [startButton addTarget:self action:@selector(pressStartButton) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:startButton];
@@ -57,17 +55,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[self.view addSubview:<#(UIView *)#>]
-    
-    
 }
 
 
 -(void)pressStartButton
 {
+    level = [[BBALevelController alloc]initWithNibName:nil bundle:nil];
+    
+    level.delegate = self;
+    
+    level.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    [self.view addSubview:level.view];
+    
+    
     [startButton removeFromSuperview];
     [level resetLevel];
 }
+
+-(void)gameDone
+{
+    [level.view removeFromSuperview];
+    [self.view addSubview:startButton];
+    
+}
+
 
 
 - (void)didReceiveMemoryWarning
