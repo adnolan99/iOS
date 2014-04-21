@@ -91,6 +91,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+[userDefaults setObject:@(topscore) forKey:@"topScore"];
+[userDefaults synchronize];
+
+
+NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+topScore = [[userDefaults objectForKey:@"topScore"]intValue];
+
 /*
 #pragma mark - Navigation
 
