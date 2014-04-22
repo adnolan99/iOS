@@ -10,6 +10,11 @@
 
 #import "SLFTableViewController.h"
 
+#import "SLFLoginController.h"
+
+#import <Parse/Parse.h>
+
+
 @implementation SLFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -20,9 +25,16 @@
     // Override point for customization after application launch.
     
     
-    SLFTableViewController *rootViewController = [[SLFTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    [Parse setApplicationId:@"H1JHLiA7kFRmIWvtbkHDcnA1Caj4UofHxRx6UZAB"
+                  clientKey:@"dKLyXccYHUy1MXNgrdR2Sq5b1fNQoTr4clSXVd3p"];
     
-    self.window.rootViewController = [[SLFTableViewController alloc]initWithStyle:UITableViewStylePlain];
+    [PFUser enableAutomaticUser];
+    
+   
+    
+    SLFLoginController * rootViewController = [[SLFLoginController alloc] initWithNibName:nil bundle:nil];
+    
+    self.window.rootViewController = rootViewController;
     
     
     

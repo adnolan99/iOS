@@ -10,24 +10,36 @@
 
 #import "SLFTableViewCell.h"
 
+#import "SLFSelfyViewController.h"
+
+#import <Parse/Parse.h>
 
 
-@interface SLFTableViewController ()
+
+@interface SLFTableViewController () <SLFSelfyViewControllerDelegate>
 
 @end
 
 @implementation SLFTableViewController
 
+
+
 {
     
     UIView * header;
-    
     UIButton * settingsButton;
     UIButton * addNewButton;
     UILabel * headerTitle;
-    
     NSMutableArray * profiles;
 }
+
+
+-(void)addNewSelfy: (NSDictionary *)newSelfy
+
+{
+    NSLog("New selfy, %@", newSelfy[@"caption"]);
+}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -61,10 +73,11 @@
         [header addSubview:addNewButton];
         
         profiles = [@[
-                     @{@"image":@"http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&docid=BE3N6zcqM53MEM&tbnid=Qx5tqsvrDU_pEM:&ved=0CAUQjRw&url=http%3A%2F%2Fwww.cnn.com%2F2013%2F05%2F28%2Ftravel%2F100-best-beaches%2F&ei=J4lVU76zKYvQsATk5YCIAg&bvm=bv.65177938,d.b2I&psig=AFQjCNFl3LTduYyQbOu24MU4X4AL1z2miA&ust=1398200998990913",
+                     @{@"image":@"https://pbs.twimg.com/media/BlWSbUeCAAAWfrY.jpg",
                        @"caption":@"Caption",
                        @"USER_ID":@"User1 ID",
-                       @"avatar":@"https://github.com/account"
+                       @"avatar":@"http://m.c.lnkd.licdn.com/mpr/pub/image-WdGsCMceaQX0Eo5wC8gTIjzkQeWPka-WddbNI12iQ5T9PAB7WdGNczreQJ6PkIAju9xd/austin-nolan.jpg",
+                       @"SELFY_ID": @""
                        },
                      @{@"image":@"URL",
                        @"caption":@"Caption",
@@ -78,8 +91,21 @@
                        }] mutableCopy];
                 
 
-       //[self loadprofiles];
+//        
+//        PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+//        testObject[@"foo"] = @"bar";
+//        [testObject saveInBackground];
+//        
+//        PFUser * user = [PFUser currentUser];
+//        
+//        user.username = @"AustinNolan";
+//        user.password = @"Password";
+//        
+//        [user saveInBackground];
         
+        
+       
+        self.tableView.rowHeight = self.tableView.frame.size.width;
         
         
     }
@@ -140,6 +166,8 @@
     
     SLFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if(cell == nil) cell =[[SLFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+    
+    
 //    cell.profiles = [self getListItem:indexPath.row];
     
     
