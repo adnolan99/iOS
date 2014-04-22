@@ -55,6 +55,7 @@
     
     userName = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 100, 20)];
     userName.backgroundColor = [UIColor colorWithWhite:0.1 alpha:.05];
+    userName.layer.cornerRadius = 10;
     userName.placeholder = @"Username";
     userName.tintColor = [UIColor lightGrayColor];
     [userName resignFirstResponder];
@@ -62,6 +63,8 @@
     
     password = [[UITextField alloc] initWithFrame:CGRectMake(20, 50, 100, 20)];
     password.backgroundColor = [UIColor colorWithWhite:0.1 alpha:.05];
+    password.layer.cornerRadius = 10;
+    password.secureTextEntry =YES;
     password.placeholder = @"Password";
     password.tintColor = [UIColor lightGrayColor];
     [self.view addSubview:password];
@@ -69,6 +72,7 @@
     
     submitButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 80, 100, 20)];
     submitButton.backgroundColor = [UIColor colorWithWhite:0.5 alpha:.05];
+    submitButton.layer.cornerRadius = 10;
     [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
     submitButton.tintColor = [UIColor lightGrayColor];
     [submitButton addTarget:self action:@selector(userLogin) forControlEvents:UIControlEventTouchUpInside];
@@ -87,7 +91,7 @@
          PFUser * user = [PFUser currentUser];
          
          user.username = userName.text;
-         user.password = @"%@",password.text;
+         user.password = password.text;
          
          [user saveInBackground];
          

@@ -12,6 +12,8 @@
 
 #import "SLFLoginController.h"
 
+#import "SLFSelfyViewController.h"
+
 #import <Parse/Parse.h>
 
 
@@ -32,7 +34,10 @@
     
    
     
-    SLFLoginController * rootViewController = [[SLFLoginController alloc] initWithNibName:nil bundle:nil];
+    //SLFLoginController * rootViewController = [[SLFLoginController alloc] initWithNibName:nil bundle:nil];
+    
+    SLFSelfyViewController * rootViewController = [[SLFSelfyViewController alloc] initWithNibName:nil bundle:nil];
+
     
     self.window.rootViewController = rootViewController;
     

@@ -37,7 +37,7 @@
 -(void)addNewSelfy: (NSDictionary *)newSelfy
 
 {
-    NSLog("New selfy, %@", newSelfy[@"caption"]);
+   //NSLog("New selfy, %@", newSelfy[@"caption"]);
 }
 
 
