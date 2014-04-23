@@ -23,6 +23,8 @@
     UITextField * password;
     
     UIButton * submitButton;
+    
+    UIView * loginForm;
 
 }
 
@@ -52,6 +54,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    loginForm = [[UIView alloc] initWithFrame:self.view.frame];
+    
+    [self.view addSubview:loginForm];
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 280, 280)];
+    imageView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
+    [loginForm addSubview:imageView];
     
     userName = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 100, 20)];
     userName.backgroundColor = [UIColor colorWithWhite:0.1 alpha:.05];
@@ -99,7 +109,17 @@
      }
      
      
-     
+
+- (BOOL)textFieldShouldBeginEditing:(UITextView *)textView
+{
+    [UIView animateWithDuration:0.4 animations:^{
+        loginForm.frame = CGRectMake(0, -150, 320, self.view.frame.size.height);
+    }];
+    return YES;
+}
+
+
+
      
 - (void)didReceiveMemoryWarning
 {

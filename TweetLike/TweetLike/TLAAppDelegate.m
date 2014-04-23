@@ -1,48 +1,30 @@
 //
-//  SLFAppDelegate.m
-//  Selfy
+//  TLAAppDelegate.m
+//  TweetLike
 //
-//  Created by Austin Nolan on 4/21/14.
+//  Created by Austin Nolan on 4/23/14.
 //  Copyright (c) 2014 Austin Nolan. All rights reserved.
 //
 
-#import "SLFAppDelegate.h"
+#import "TLAAppDelegate.h"
 
-#import "SLFTableViewController.h"
+#import "TLATableViewController.h"
 
-#import "SLFLoginController.h"
+#import "TLANavController.h"
 
-#import "SLFSelfyViewController.h"
-
-#import <Parse/Parse.h>
-
-
-@implementation SLFAppDelegate
+@implementation TLAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    //TLATableViewController * rootViewController = [[TLATableViewController alloc] init];
     
-    [Parse setApplicationId:@"H1JHLiA7kFRmIWvtbkHDcnA1Caj4UofHxRx6UZAB"
-                  clientKey:@"dKLyXccYHUy1MXNgrdR2Sq5b1fNQoTr4clSXVd3p"];
-    
-    [PFUser enableAutomaticUser];
-    
-   
-    
-    //SLFLoginController * rootViewController = [[SLFLoginController alloc] initWithNibName:nil bundle:nil];
-    
-    //SLFSelfyViewController * rootViewController = [[SLFSelfyViewController alloc] initWithNibName:nil bundle:nil];
-
-    SLFLoginController * rootViewController = [[SLFLoginController alloc] initWithNibName:nil bundle:nil];
-    
-    self.window.rootViewController = rootViewController;
+    //self.window.rootViewController = rootViewController;
     
     
+    self.window.rootViewController = [[TLANavController alloc] initWithRootViewController:[[TLATableViewController alloc] initWithStyle:UITableViewStylePlain]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
