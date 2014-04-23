@@ -23,6 +23,7 @@
 		D5EBA68B1907FFD400098B30 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA68A1907FFD400098B30 /* heart.png */; };
 		D5EBA69119080BAB00098B30 /* TLATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA69019080BAB00098B30 /* TLATableViewCell.m */; };
 		D5EBA6941908187F00098B30 /* TLANavController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA6931908187F00098B30 /* TLANavController.m */; };
+		D5EBA69619083B6C00098B30 /* tweetLikeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA69519083B6C00098B30 /* tweetLikeLogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		D5EBA69019080BAB00098B30 /* TLATableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLATableViewCell.m; sourceTree = "<group>"; };
 		D5EBA6921908187F00098B30 /* TLANavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLANavController.h; sourceTree = "<group>"; };
 		D5EBA6931908187F00098B30 /* TLANavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLANavController.m; sourceTree = "<group>"; };
+		D5EBA69519083B6C00098B30 /* tweetLikeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tweetLikeLogo.png; path = ../../../../../Desktop/tweetLikeLogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		D5EBA65F1907F64100098B30 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D5EBA69519083B6C00098B30 /* tweetLikeLogo.png */,
 				D5EBA68A1907FFD400098B30 /* heart.png */,
 				D5EBA6601907F64100098B30 /* TweetLike-Info.plist */,
 				D5EBA6611907F64100098B30 /* InfoPlist.strings */,
@@ -241,6 +244,7 @@
 				D5EBA6631907F64100098B30 /* InfoPlist.strings in Resources */,
 				D5EBA68B1907FFD400098B30 /* heart.png in Resources */,
 				D5EBA66B1907F64100098B30 /* Images.xcassets in Resources */,
+				D5EBA69619083B6C00098B30 /* tweetLikeLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

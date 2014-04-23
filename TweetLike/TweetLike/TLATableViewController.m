@@ -72,7 +72,7 @@
 //    header.backgroundColor = [UIColor blueColor];
 //    self.tableView.tableHeaderView = header;
     
-    UIButton * addNewButton = [[UIButton alloc] initWithFrame:CGRectMake(110, 25, 100, 25)];
+//    UIButton * addNewButton = [[UIButton alloc] initWithFrame:CGRectMake(110, 25, 100, 25)];
 //    headerTitle.text = @"Tweet Like";
 //    [header addSubview:headerTitle];
     
@@ -170,6 +170,7 @@
 }
 */
 
+- (BOOL)prefersStatusBarHidden { return YES; }
 
                       
 @end
