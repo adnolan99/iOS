@@ -18,7 +18,7 @@
 @implementation TLATableViewController
 
 {
-    NSMutableArray * tweetItems;
+   // NSMutableArray * tweetItems;
     
     UIView * tableScreen;
     
@@ -37,14 +37,14 @@
     if (self) {
         
         
-        tweetItems = [@[
+        self.tweetItems = [@[
                         @{
                             @"text": @"This is a tweet text",
-                            @"likes": @35,
+                            @"likes": @87,
                               },
                         @{
                             @"text": @"This is a tweet text",
-                            @"likes": @35,
+                            @"likes": @99,
                             
                         }] mutableCopy];
         
@@ -57,6 +57,31 @@
     }
     return self;
 }
+
+
+
+
+//Make Submit Button Work
+
+
+//-(void)submitEntry
+//{
+//    
+//    {
+//        NSString * tweet = tweetText.text;
+//        tweetText.text = @" ";
+//        if(![tweet isEqualToString:@""])
+//        {
+//            [tweetItems addObject:@{@"tweet":tweet,@"likes" : @0} atIndex:0];
+//        }
+//        
+//        NSLog(@"%@", tweet);
+//        [self.tableView reloadData];
+//    }
+//}
+
+
+
 
 - (void)viewDidLoad
 {
@@ -99,7 +124,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    return [tweetItems count];
+    return [self.tweetItems count];
 }
 
 
@@ -111,14 +136,41 @@
     {
         cell = [[TLATableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         
-        
-        cell.tweet = tweetItems[indexPath.row];
-        
     }
+    
+    cell.tweet = self.tweetItems[indexPath.row];
     
 
     return cell;
 }
+
+
+
+
+-(void)createNewTweet:(NSString *)tweets
+{
+    if ([tweets isEqualToString:@""]) return;
+    
+    [self.tweetItems insertObject:@{
+                                   @"likes":@0,
+                                   @"text": tweets
+                                   } atIndex:0];
+    
+    
+    [self.tableView reloadData];
+    
+   
+}
+
+
+
+-(BOOL)isTweetItemsEmpty
+{
+    return [self.tweetItems count] == 0;
+    
+}
+
+
 
 
 /*

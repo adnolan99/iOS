@@ -11,4 +11,12 @@
 
 @interface TLATableViewController : UITableViewController
 
+
+@property (nonatomic,getter = isTweetItemsEmpty,readonly) BOOL tweetItemsEmpty;
+
+@property (nonatomic) NSMutableArray * tweetItems;
+
+-(void)createNewTweet:(NSString *) tweets;
+
+
 @end

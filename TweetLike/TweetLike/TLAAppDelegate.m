@@ -24,7 +24,14 @@
     //self.window.rootViewController = rootViewController;
     
     
-    self.window.rootViewController = [[TLANavController alloc] initWithRootViewController:[[TLATableViewController alloc] initWithStyle:UITableViewStylePlain]];
+    TLANavController * nc = [[TLANavController alloc] init];
+    
+    self.window.rootViewController = nc;
+    
+    [nc addTableViewController:[[TLATableViewController alloc]initWithStyle:UITableViewStylePlain]];
+    
+    
+//    self.window.rootViewController = [[TLANavController alloc] initWithRootViewController:[[TLATableViewController alloc] initWithStyle:UITableViewStylePlain]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

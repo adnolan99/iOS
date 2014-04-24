@@ -8,7 +8,10 @@
 
 #import "TLANavController.h"
 
-@interface TLANavController ()
+
+#import "TLATableViewController.h"
+
+@interface TLANavController () <UITextViewDelegate>
 
 @end
 
@@ -20,7 +23,7 @@
     
     UIView * blueBox;
     
-    UITextField * tweetText;
+    UITextView * tweetText;
     
     UIImageView * tweetLikeLogo;
     
@@ -29,63 +32,37 @@
     UIButton * cancelButton;
     
     UIView * newForm;
+    
+    TLATableViewController * TVC;
+    
+    
 }
 
 
-- (id)initWithRootViewController:(UIViewController *)rootViewController
+- (void)keyboardReturn
+{
+    [tweetText resignFirstResponder];
+    [UIView animateWithDuration:0.2 animations:^{
+        newForm.frame = CGRectMake(0, 0, 320, self.view.frame.size.height);
+    }];
+    
+
+}
+
+
+-(BOOL)textViewShouldBeginEditing:(UITextView *) textView
 {
     
-    self = [super initWithRootViewController:rootViewController];
-    
-    if (self)
-    {
-        
-//        self.navigationBar.barTintColor = [UIColor blueColor];
-        
-        
-        blueBox = [[UIView alloc] initWithFrame:self.navigationBar.frame];
-        blueBox.backgroundColor = [UIColor blueColor];
-        
-        [self.view addSubview:blueBox];
-        
-        newForm = [[UIView alloc] initWithFrame:self.view.frame];
-        newForm.backgroundColor = [UIColor clearColor];
-        
-        [blueBox addSubview:newForm];
-        
-        addNewButton = [[UIButton alloc] initWithFrame:CGRectMake(85, 10, 150, 30)];
-        addNewButton.backgroundColor = [UIColor orangeColor];
-        addNewButton.layer.cornerRadius = 15;
-        [addNewButton setTitle:@"Add New" forState:UIControlStateNormal];
-        [addNewButton addTarget:self action:@selector(newItem:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [blueBox addSubview:addNewButton];
-    
-        tweetText = [[UITextField alloc] initWithFrame:CGRectMake(30, 180, 260, 150)];
-        tweetText.backgroundColor = [UIColor whiteColor];
-        tweetText.textColor = [UIColor blueColor];
-        tweetText.layer.cornerRadius = 20;
-        
-        tweetLikeLogo = [[UIImageView alloc] initWithFrame:CGRectMake(30, 70, 260, 70)];
-        tweetLikeLogo.image = [UIImage imageNamed:@"tweetLikeLogo"];
-        
-        submitButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 350,120, 20)];
-        submitButton.backgroundColor = [UIColor greenColor];
-        [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
-        submitButton.layer.cornerRadius = 10;
+    [UIView animateWithDuration:0.4 animations:^{
+        newForm.frame = CGRectMake(0, -100, 320, self.view.frame.size.height);
+     }];
+    return YES;
+}
 
-        cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(170, 350, 120, 20)];
-        cancelButton.backgroundColor = [UIColor redColor];
-        [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
-        cancelButton.layer.cornerRadius = 10;
-        [cancelButton addTarget:self action:@selector(cancelEntry) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        
-        // custom
-    }
+
+-(void)textViewDidChange:(UITextView *)textView
+{
     
-    return self;
 }
 
 
@@ -102,24 +79,16 @@
     
     //[self.navigationBar addSubview:blueBox];
     
-    //[blueBox addSubview:newForm];
+    [blueBox addSubview:newForm];
     
     addNewButton.alpha = 0.0;
-    
-    [newForm addSubview:tweetText];
-    
-    [newForm addSubview:tweetLikeLogo];
-    
-    [newForm addSubview:submitButton];
-    
-    [newForm addSubview:cancelButton];
     
 }
 
 
 - (void)cancelEntry
 {
-    
+    [newForm removeFromSuperview];
     [UIView animateWithDuration:0.4 animations:^{
         blueBox.frame = self.navigationBar.frame;
     } completion:^(BOOL finished){
@@ -133,14 +102,14 @@
     addNewButton.alpha = 1.0;
 
     
-    [cancelButton removeFromSuperview];
-    
-    [submitButton removeFromSuperview];
-    
-    [tweetLikeLogo removeFromSuperview];
-    
-    [tweetText removeFromSuperview];
-    
+//    [cancelButton removeFromSuperview];
+//    
+//    [submitButton removeFromSuperview];
+//    
+//    [tweetLikeLogo removeFromSuperview];
+//    
+//    [tweetText removeFromSuperview];
+//    
     
     
     //[self.view addSubview:self.navigationBar];
@@ -148,9 +117,99 @@
 
 
 
+
+//Make Submit Button Work
+
+-(void)submitEntry
+{
+//    if([tweetText.text isEqualToString:@""]) return;
+//    [self cancelEntry];
+//
+//    [TVC.tweetItems insertObject:@{
+//                                @"likes":@0,
+//                                @"text": tweetText.text
+//                                } atIndex:0];
+//                                
+    
+    [TVC createNewTweet: tweetText.text];
+    
+    tweetText.text = @"";
+    
+    [self cancelEntry];
+    
+    
+//    {
+//        NSString * tweet = tweetText.text;
+//        tweetText.text = @" ";
+//        if(![tweet isEqualToString:@""])
+//        {
+//            [tweetItems addObject:@{@"tweet":tweet,@"likes" : @int} atIndex:0];
+//        }
+//        
+//        NSLog(@"%@",);
+//        [self.tableView reloadData];
+//    }
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    blueBox = [[UIView alloc] initWithFrame:self.navigationBar.frame];
+    blueBox.backgroundColor = [UIColor blueColor];
+    
+    [self.view addSubview:blueBox];
+    
+    newForm = [[UIView alloc] initWithFrame:self.view.frame];
+    newForm.backgroundColor = [UIColor clearColor];
+    
+//    [blueBox addSubview:newForm];
+    
+    addNewButton = [[UIButton alloc] initWithFrame:CGRectMake(85, 10, 150, 30)];
+    addNewButton.backgroundColor = [UIColor orangeColor];
+    addNewButton.layer.cornerRadius = 15;
+    [addNewButton setTitle:@"Add New" forState:UIControlStateNormal];
+    [addNewButton addTarget:self action:@selector(newItem:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [blueBox addSubview:addNewButton];
+    
+    tweetText = [[UITextView alloc] initWithFrame:CGRectMake(30, 170, 260, 150)];
+    tweetText.backgroundColor = [UIColor whiteColor];
+    tweetText.textColor = [UIColor blueColor];
+    tweetText.layer.cornerRadius = 20;
+    tweetText.delegate = self;
+    
+    tweetLikeLogo = [[UIImageView alloc] initWithFrame:CGRectMake(30, 100, 260, 70)];
+    tweetLikeLogo.image = [UIImage imageNamed:@"tweetLikeLogo"];
+    
+    submitButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 330,120, 20)];
+    submitButton.backgroundColor = [UIColor greenColor];
+    [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+    submitButton.layer.cornerRadius = 10;
+    [submitButton addTarget:self action:@selector(submitEntry) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(170, 330, 120, 20)];
+    cancelButton.backgroundColor = [UIColor redColor];
+    [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    cancelButton.layer.cornerRadius = 10;
+    [cancelButton addTarget:self action:@selector(cancelEntry) forControlEvents:UIControlEventTouchUpInside];
+    
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardReturn)];
+    [self.view addGestureRecognizer:tap];
+
+    
+    
+    [newForm addSubview:tweetText];
+    
+    [newForm addSubview:tweetLikeLogo];
+    
+    [newForm addSubview:submitButton];
+    
+    [newForm addSubview:cancelButton];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -159,6 +218,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)addTableViewController:(TLATableViewController *)viewController
+{
+    
+    TVC = viewController;
+    
+    [self pushViewController:viewController animated:NO];
+    
+    if ([TVC isTweetItemsEmpty])
+    {
+        
+        [self submitEntry];
+    }
+    
+    
+}
+
+
 
 /*
 #pragma mark - Navigation
