@@ -129,7 +129,7 @@
     
     filterVC = [[PLAFilterController alloc] initWithNibName:nil bundle:nil];
     
-    //filterVC.delegate = self
+    filterVC.delegate = self;
     
     filterVC.view.frame = CGRectMake(0, 380, 320 , 100);
     

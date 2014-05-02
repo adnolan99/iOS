@@ -26,13 +26,9 @@
     NSMutableArray * filterButtons;
     
     
-    
-    
     float wh;
     
 }
-
-
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -64,26 +60,14 @@
         
         [self.view addSubview:scroller];
         
-        
-       
-
-        
         // Custom initialization
     }
     return self;
 }
 
 
-
-
-
-
-
-
-
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
     
     wh = self.view.frame.size.height - 20;
     
@@ -112,9 +96,103 @@
     
     
     scroller.contentSize = CGSizeMake((wh + 10) * [filterNames count] + 10, self.view.frame.size.height);
+    [super viewDidLoad];
 
     
     // Do any additional setup after loading the view.
+}
+
+//
+//- (void)setImageToFilter:(UIImage *)imageToFilter
+//{
+//    
+//    _imageToFilter = imageToFilter;
+//    
+//    for (UIButton * filterButton in filterButtons)
+//    {
+//        NSString * filterName = [filterNames objectAtIndex:filterButton.tag];
+//        
+//        
+//        UIImage * smallImage = [self shrinkImage:imageToFilter maxWH:wh];
+//        
+//        UIImage * image = [self filterImage:smallImage filterName:filterName];
+//        
+//        [filterButton setImage:image forState:UIControlStateNormal];
+//        filterButton.contentMode = UIViewContentModeScaleAspectFill;
+//    }
+//    
+//    
+//    
+//}
+
+
+//What does this method do?
+
+
+- (UIImage *)filterImage:(UIImage *)image filterName:(NSString *) filterName
+{
+    
+    CIImage * ciImage = [CIImage imageWithCGImage:image.CGImage];
+    CIFilter * filter = [CIFilter filterWithName:filterName];
+    
+    
+    [filter setValue:ciImage forKeyPath:kCIInputImageKey];
+    
+    CIContext * ciContext = [CIContext contextWithOptions:nil];
+    
+    CIImage * ciResult = [filter valueForKeyPath:kCIOutputImageKey];
+    
+    return [UIImage imageWithCGImage: [ciContext createCGImage:ciResult fromRect:[ciResult extent]]];
+    
+}
+
+
+
+
+
+-(void)switchFilter:(UIButton *)filterButton
+{
+    
+    
+    self.currentFilter = [filterNames objectAtIndex:filterButton.tag];
+    
+    NSLog(@"%@", self.currentFilter);
+    
+    UIImage * shrinkedImage = [self shrinkImage:self.imageToFilter maxWH:320];
+
+    
+    UIImage * image = [self filterImage:shrinkedImage filterName:self.currentFilter];
+
+    [self.delegate updateCurrentImageWithFilteredImage:image];
+//     
+//     
+//     
+//     [UIImage imageWithCGImage:[self filterImage:[self shrinkImage:self.imageToFilter maxWH:320 * 2] filterName:self.currentFilter]]];
+//    
+    
+}
+
+-(UIImage *)shrinkImage:(UIImage *)image maxWH:(int)widthHeight
+{
+    CGSize size = CGSizeMake(widthHeight, widthHeight / image.size.width * image.size.height);
+    
+    
+    if(image.size.height < image.size.width)
+    {
+        size = CGSizeMake(widthHeight / image.size.height * image.size.width, widthHeight);
+    }
+    
+  
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    
+    UIImage * destImage =UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    
+    return destImage;
+    
 }
 
 
@@ -128,89 +206,33 @@
         NSString * filterName = [filterNames objectAtIndex:filterButton.tag];
         
         
-        UIImage * smallImage = [self shrinkImage:imageToFilter maxWH:wh];
+        //UIImage * smallImage = [self shrinkImage:imageToFilter maxWH:wh];
         
-        UIImage * image = [self filterImage:smallImage filterName:filterName];
         
-        [filterButton setImage:image forState:UIControlStateNormal];
-        filterButton.contentMode = UIViewContentModeScaleAspectFill;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long) NULL), ^{
+           
+            
+           
+            UIImage * smallImage = [self shrinkImage:imageToFilter maxWH:wh];
+            UIImage * image = [self filterImage:smallImage filterName:filterName];
+
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+            
+           [filterButton setImage:image forState:UIControlStateNormal];
+           filterButton.contentMode = UIViewContentModeScaleAspectFill;
+            });
+        });
     }
-    
-    
-    
-}
-
-
-//What does this method do?
-
-
-- (UIImage *)filterImage:(UIImage *)image filterName:(NSString *) filterName
-{
-    CIImage * ciImage = [CIImage imageWithCGImage:image.CGImage];
-    
-    CIFilter * filter = [CIFilter filterWithName:filterName];
-    
-    [filter setValue:ciImage forKeyPath:kCIInputImageKey];
-    
-    CIContext * ciContext = [CIContext contextWithOptions:nil];
-    
-    CIImage * ciResult = [filter valueForKeyPath:kCIOutputImageKey];
-    
-    return [UIImage imageWithCGImage: [ciContext createCGImage:ciResult fromRect:[ciResult extent]]];
-    
-    
-    
 }
 
 
 
 
 
--(void)switchFilter:(UIButton *)filterButton
-{
-    
-    self.currentFilter = [filterNames objectAtIndex:filterButton.tag];
-    
-    UIImage * image = [self filterImage:self.imageToFilter filterName:self.currentFilter];
 
-    
-    
-    
-    
-    [self.delegate updateCurrentImageWithFilteredImage:image];
-//     
-//     
-//     
-//     [UIImage imageWithCGImage:[self filterImage:[self shrinkImage:self.imageToFilter maxWH:320 * 2] filterName:self.currentFilter]]];
-//    
-    
-}
 
--(UIImage *)shringImage:(UIImage *)image maxWH:(int)widthHeight
-{
-    CGSize size = CGSizeMake(widthHeight, widthHeight / image.size.width * image.size.height);
-    
-    
-    if(image.size.height < image.size.width)
-    {
-        size = CGSizeMake(widthHeight / image.size.height * image.size.width, widthHeight);
-    }
-    
-  
-    UIGraphicsBeginImageContext(size);
-    [image drawAtPoint:CGRectMake(0, 0, size.width, size.height)];
-    
-    UIImage * destImage =UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    
-    return destImage;
-    
-    
-    
-    
-}
+
+
 
 
 

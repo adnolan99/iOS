@@ -22,6 +22,9 @@
 
 @protocol PLAFilterControllerDelegate <NSObject>
 
+-(UIImage *)getFilterImage;
+
+
 -(void)updateCurrentImageWithFilteredImage:(UIImage *)image;
 
 

@@ -101,6 +101,7 @@
     
     addNewButton.alpha = 1.0;
 
+    newForm.frame = self.view.frame;
     
 //    [cancelButton removeFromSuperview];
 //    
