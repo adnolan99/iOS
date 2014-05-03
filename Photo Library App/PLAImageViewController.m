@@ -10,7 +10,13 @@
 
 #import "PLAFilterController.h"
 
-@interface PLAImageViewController () <UINavigationControllerDelegate,  UIImagePickerControllerDelegate, PLAFilterControllerDelegate>
+#import "HSBColorControlVC.h"
+
+#import "ControlsViewController.h"
+
+#import "BlurViewController.h"
+
+@interface PLAImageViewController () <UINavigationControllerDelegate,  UIImagePickerControllerDelegate, PLAFilterControllerDelegate, HSBColorControlVCDelegate,ControlsViewControllerDelegate, BlurViewControllerDelegate>
 
 @property (nonatomic) UIImage * originalImage;
 
@@ -40,6 +46,11 @@
     
     UIImagePickerController * photoLibrary;
     
+    
+    
+    HSBColorControlVC * hsbVC;
+    
+    BlurViewController * blurVC;
     
     PLAFilterController * filterVC;
     
@@ -76,10 +87,7 @@
 {
     
     _originalImage = originalImage;
-    
-    
     filterVC.imageToFilter = originalImage;
-    
     imageView.image = originalImage;
 }
 
@@ -103,7 +111,6 @@
     
     
     
-    
     libraryButton = [[UIButton alloc] initWithFrame:CGRectMake(50, 20, 30, 30)];
     
     libraryButton.backgroundColor= [UIColor blackColor];
@@ -111,10 +118,6 @@
     [libraryButton addTarget:self action:@selector(choosePhoto) forControlEvents:UIControlEventTouchUpInside];
     
     [navBar addSubview:libraryButton];
-    
-    
-    
-    
     
     
     footer = [[UIView alloc] initWithFrame:CGRectMake(0, 320, 320, 50)];
@@ -126,30 +129,33 @@
     [self.view addSubview:footer];
     
     
+    hsbVC = [[HSBColorControlVC alloc] initWithNibName:nil bundle:nil];
     
+    hsbVC.delegate = self;
+    
+    hsbVC.view.frame = CGRectMake(0, 380, 320 , 100);
+    
+    
+    
+    
+    blurVC = [[BlurViewController alloc]initWithNibName:nil bundle:nil];
+    
+    blurVC.delegate = self;
+    
+    blurVC.view.frame = CGRectMake(0, 380, 320, 100);
+    
+    
+
     filterVC = [[PLAFilterController alloc] initWithNibName:nil bundle:nil];
     
     filterVC.delegate = self;
     
     filterVC.view.frame = CGRectMake(0, 380, 320 , 100);
     
-    [self.view addSubview:filterVC.view];
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
 
     
 //    scroller = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 375, 320, 100)];
-//    
 //    scroller.backgroundColor = [UIColor blackColor];
-//    
 //    scroller.contentSize = CGSizeMake(2000, 100);
 //    scroller.scrollEnabled = YES;
 //    [self.view addSubview:scroller];
@@ -222,9 +228,10 @@
     
     photoLibrary.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
+    photoLibrary.allowsEditing = YES;
     photoLibrary.delegate = self;
     
-    //photoLibrary.allowsEditing = YES;
+    
 
     [self presentViewController:photoLibrary animated:YES completion:nil];
     
@@ -286,6 +293,44 @@
 //    [self.view addSubview:picDisplay];
     
 }
+
+- (void)updateCurrentImageWithHSB: (UIImage * )image;
+{
+    
+    
+    hsbVC.currentImage = image;
+    
+    blurVC.imageToFilter = image;
+    
+    filterVC.imageToFilter = image;
+    
+}
+
+
+
+-(void) selectHsbTool: (UIButton *) button2;
+{
+    [self.view addSubview:hsbVC.view];
+
+}
+
+-(void) selectBlurTool : (UIButton *) button3;
+{
+    [self.view addSubview:blurVC.view];
+
+}
+
+-(void) selectFilterTool: (UIButton *) button1;
+{
+    [self.view addSubview:filterVC.view];
+
+}
+
+
+
+
+
+
 
 
 - (void)didReceiveMemoryWarning

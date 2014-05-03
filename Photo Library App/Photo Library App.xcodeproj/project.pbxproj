@@ -20,9 +20,10 @@
 		D5EBA6E719116CB800098B30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA6E519116CB800098B30 /* InfoPlist.strings */; };
 		D5EBA6E919116CB800098B30 /* Photo_Library_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA6E819116CB800098B30 /* Photo_Library_AppTests.m */; };
 		D5EBA6F419116D3A00098B30 /* PLAImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA6F319116D3A00098B30 /* PLAImageViewController.m */; };
-		D5EBA6F719116D6300098B30 /* PLAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA6F619116D6300098B30 /* PLAImageView.m */; };
 		D5EBA6FA1912833600098B30 /* PLAFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA6F91912833600098B30 /* PLAFilterController.m */; };
 		D5EBA6FD19141C9300098B30 /* BlurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA6FC19141C9300098B30 /* BlurViewController.m */; };
+		D5EBA7001915689100098B30 /* ControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA6FF1915689100098B30 /* ControlsViewController.m */; };
+		D5EBA7031915697400098B30 /* HSBColorControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7021915697400098B30 /* HSBColorControlVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,12 +55,14 @@
 		D5EBA6E819116CB800098B30 /* Photo_Library_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Photo_Library_AppTests.m; sourceTree = "<group>"; };
 		D5EBA6F219116D3A00098B30 /* PLAImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAImageViewController.h; sourceTree = "<group>"; };
 		D5EBA6F319116D3A00098B30 /* PLAImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAImageViewController.m; sourceTree = "<group>"; };
-		D5EBA6F519116D6300098B30 /* PLAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAImageView.h; sourceTree = "<group>"; };
-		D5EBA6F619116D6300098B30 /* PLAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAImageView.m; sourceTree = "<group>"; };
 		D5EBA6F81912833600098B30 /* PLAFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAFilterController.h; sourceTree = "<group>"; };
 		D5EBA6F91912833600098B30 /* PLAFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAFilterController.m; sourceTree = "<group>"; };
 		D5EBA6FB19141C9300098B30 /* BlurViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlurViewController.h; path = "../../../../Library/Autosave Information/BlurViewController.h"; sourceTree = "<group>"; };
 		D5EBA6FC19141C9300098B30 /* BlurViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlurViewController.m; path = "../../../../Library/Autosave Information/BlurViewController.m"; sourceTree = "<group>"; };
+		D5EBA6FE1915681300098B30 /* ControlsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlsViewController.h; sourceTree = "<group>"; };
+		D5EBA6FF1915689100098B30 /* ControlsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlsViewController.m; sourceTree = "<group>"; };
+		D5EBA7011915697400098B30 /* HSBColorControlVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSBColorControlVC.h; sourceTree = "<group>"; };
+		D5EBA7021915697400098B30 /* HSBColorControlVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSBColorControlVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,12 +92,14 @@
 		D5EBA6B719116CB700098B30 = {
 			isa = PBXGroup;
 			children = (
-				D5EBA6FB19141C9300098B30 /* BlurViewController.h */,
-				D5EBA6FC19141C9300098B30 /* BlurViewController.m */,
-				D5EBA6F519116D6300098B30 /* PLAImageView.h */,
-				D5EBA6F619116D6300098B30 /* PLAImageView.m */,
 				D5EBA6F219116D3A00098B30 /* PLAImageViewController.h */,
 				D5EBA6F319116D3A00098B30 /* PLAImageViewController.m */,
+				D5EBA7011915697400098B30 /* HSBColorControlVC.h */,
+				D5EBA7021915697400098B30 /* HSBColorControlVC.m */,
+				D5EBA6FE1915681300098B30 /* ControlsViewController.h */,
+				D5EBA6FF1915689100098B30 /* ControlsViewController.m */,
+				D5EBA6FB19141C9300098B30 /* BlurViewController.h */,
+				D5EBA6FC19141C9300098B30 /* BlurViewController.m */,
 				D5EBA6F81912833600098B30 /* PLAFilterController.h */,
 				D5EBA6F91912833600098B30 /* PLAFilterController.m */,
 				D5EBA6C919116CB700098B30 /* Photo Library App */,
@@ -260,9 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5EBA6F719116D6300098B30 /* PLAImageView.m in Sources */,
 				D5EBA6FD19141C9300098B30 /* BlurViewController.m in Sources */,
 				D5EBA6FA1912833600098B30 /* PLAFilterController.m in Sources */,
+				D5EBA7001915689100098B30 /* ControlsViewController.m in Sources */,
+				D5EBA7031915697400098B30 /* HSBColorControlVC.m in Sources */,
 				D5EBA6D419116CB700098B30 /* PLAAppDelegate.m in Sources */,
 				D5EBA6F419116D3A00098B30 /* PLAImageViewController.m in Sources */,
 				D5EBA6D019116CB700098B30 /* main.m in Sources */,
