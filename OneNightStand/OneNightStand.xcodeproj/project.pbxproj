@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D5EBA7AB191A86A200098B30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7AA191A86A200098B30 /* Foundation.framework */; };
+		D5EBA7AD191A86A200098B30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7AC191A86A200098B30 /* CoreGraphics.framework */; };
+		D5EBA7AF191A86A200098B30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7AE191A86A200098B30 /* UIKit.framework */; };
+		D5EBA7B5191A86A200098B30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA7B3191A86A200098B30 /* InfoPlist.strings */; };
+		D5EBA7B7191A86A200098B30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7B6191A86A200098B30 /* main.m */; };
+		D5EBA7BB191A86A200098B30 /* ONSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7BA191A86A200098B30 /* ONSAppDelegate.m */; };
+		D5EBA7BD191A86A200098B30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA7BC191A86A200098B30 /* Images.xcassets */; };
+		D5EBA7C4191A86A200098B30 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7C3191A86A200098B30 /* XCTest.framework */; };
+		D5EBA7C5191A86A200098B30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7AA191A86A200098B30 /* Foundation.framework */; };
+		D5EBA7C6191A86A200098B30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7AE191A86A200098B30 /* UIKit.framework */; };
+		D5EBA7CE191A86A200098B30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA7CC191A86A200098B30 /* InfoPlist.strings */; };
+		D5EBA7D0191A86A200098B30 /* OneNightStandTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7CF191A86A200098B30 /* OneNightStandTests.m */; };
+		D5EBA7DB191A86C200098B30 /* ONSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7DA191A86C200098B30 /* ONSViewController.m */; };
+		D5EBA7DE191A874D00098B30 /* ONSData.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7DD191A874D00098B30 /* ONSData.m */; };
+		D5EBA7E1191A879800098B30 /* ONSSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7E0191A879800098B30 /* ONSSecondViewController.m */; };
+		D5EBA7E4191A87BC00098B30 /* ONSThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7E3191A87BC00098B30 /* ONSThirdViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5EBA7C7191A86A200098B30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5EBA79F191A86A200098B30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5EBA7A6191A86A200098B30;
+			remoteInfo = OneNightStand;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D5EBA7A7191A86A200098B30 /* OneNightStand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneNightStand.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5EBA7AA191A86A200098B30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D5EBA7AC191A86A200098B30 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D5EBA7AE191A86A200098B30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D5EBA7B2191A86A200098B30 /* OneNightStand-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OneNightStand-Info.plist"; sourceTree = "<group>"; };
+		D5EBA7B4191A86A200098B30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D5EBA7B6191A86A200098B30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D5EBA7B8191A86A200098B30 /* OneNightStand-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneNightStand-Prefix.pch"; sourceTree = "<group>"; };
+		D5EBA7B9191A86A200098B30 /* ONSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONSAppDelegate.h; sourceTree = "<group>"; };
+		D5EBA7BA191A86A200098B30 /* ONSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ONSAppDelegate.m; sourceTree = "<group>"; };
+		D5EBA7BC191A86A200098B30 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D5EBA7C2191A86A200098B30 /* OneNightStandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneNightStandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5EBA7C3191A86A200098B30 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D5EBA7CB191A86A200098B30 /* OneNightStandTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OneNightStandTests-Info.plist"; sourceTree = "<group>"; };
+		D5EBA7CD191A86A200098B30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D5EBA7CF191A86A200098B30 /* OneNightStandTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneNightStandTests.m; sourceTree = "<group>"; };
+		D5EBA7D9191A86C200098B30 /* ONSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ONSViewController.h; path = ../ONSViewController.h; sourceTree = "<group>"; };
+		D5EBA7DA191A86C200098B30 /* ONSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ONSViewController.m; path = ../ONSViewController.m; sourceTree = "<group>"; };
+		D5EBA7DC191A874D00098B30 /* ONSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSData.h; sourceTree = "<group>"; };
+		D5EBA7DD191A874D00098B30 /* ONSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSData.m; sourceTree = "<group>"; };
+		D5EBA7DF191A879800098B30 /* ONSSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSSecondViewController.h; sourceTree = "<group>"; };
+		D5EBA7E0191A879800098B30 /* ONSSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSSecondViewController.m; sourceTree = "<group>"; };
+		D5EBA7E2191A87BC00098B30 /* ONSThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSThirdViewController.h; sourceTree = "<group>"; };
+		D5EBA7E3191A87BC00098B30 /* ONSThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSThirdViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5EBA7A4191A86A200098B30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA7AD191A86A200098B30 /* CoreGraphics.framework in Frameworks */,
+				D5EBA7AF191A86A200098B30 /* UIKit.framework in Frameworks */,
+				D5EBA7AB191A86A200098B30 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5EBA7BF191A86A200098B30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA7C4191A86A200098B30 /* XCTest.framework in Frameworks */,
+				D5EBA7C6191A86A200098B30 /* UIKit.framework in Frameworks */,
+				D5EBA7C5191A86A200098B30 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5EBA79E191A86A200098B30 = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7B0191A86A200098B30 /* OneNightStand */,
+				D5EBA7C9191A86A200098B30 /* OneNightStandTests */,
+				D5EBA7A9191A86A200098B30 /* Frameworks */,
+				D5EBA7A8191A86A200098B30 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5EBA7A8191A86A200098B30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7A7191A86A200098B30 /* OneNightStand.app */,
+				D5EBA7C2191A86A200098B30 /* OneNightStandTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5EBA7A9191A86A200098B30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7AA191A86A200098B30 /* Foundation.framework */,
+				D5EBA7AC191A86A200098B30 /* CoreGraphics.framework */,
+				D5EBA7AE191A86A200098B30 /* UIKit.framework */,
+				D5EBA7C3191A86A200098B30 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5EBA7B0191A86A200098B30 /* OneNightStand */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7B9191A86A200098B30 /* ONSAppDelegate.h */,
+				D5EBA7BA191A86A200098B30 /* ONSAppDelegate.m */,
+				D5EBA7DC191A874D00098B30 /* ONSData.h */,
+				D5EBA7DD191A874D00098B30 /* ONSData.m */,
+				D5EBA7D9191A86C200098B30 /* ONSViewController.h */,
+				D5EBA7DA191A86C200098B30 /* ONSViewController.m */,
+				D5EBA7DF191A879800098B30 /* ONSSecondViewController.h */,
+				D5EBA7E0191A879800098B30 /* ONSSecondViewController.m */,
+				D5EBA7E2191A87BC00098B30 /* ONSThirdViewController.h */,
+				D5EBA7E3191A87BC00098B30 /* ONSThirdViewController.m */,
+				D5EBA7BC191A86A200098B30 /* Images.xcassets */,
+				D5EBA7B1191A86A200098B30 /* Supporting Files */,
+			);
+			path = OneNightStand;
+			sourceTree = "<group>";
+		};
+		D5EBA7B1191A86A200098B30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7B2191A86A200098B30 /* OneNightStand-Info.plist */,
+				D5EBA7B3191A86A200098B30 /* InfoPlist.strings */,
+				D5EBA7B6191A86A200098B30 /* main.m */,
+				D5EBA7B8191A86A200098B30 /* OneNightStand-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5EBA7C9191A86A200098B30 /* OneNightStandTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7CF191A86A200098B30 /* OneNightStandTests.m */,
+				D5EBA7CA191A86A200098B30 /* Supporting Files */,
+			);
+			path = OneNightStandTests;
+			sourceTree = "<group>";
+		};
+		D5EBA7CA191A86A200098B30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7CB191A86A200098B30 /* OneNightStandTests-Info.plist */,
+				D5EBA7CC191A86A200098B30 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5EBA7A6191A86A200098B30 /* OneNightStand */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5EBA7D3191A86A200098B30 /* Build configuration list for PBXNativeTarget "OneNightStand" */;
+			buildPhases = (
+				D5EBA7A3191A86A200098B30 /* Sources */,
+				D5EBA7A4191A86A200098B30 /* Frameworks */,
+				D5EBA7A5191A86A200098B30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneNightStand;
+			productName = OneNightStand;
+			productReference = D5EBA7A7191A86A200098B30 /* OneNightStand.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5EBA7C1191A86A200098B30 /* OneNightStandTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5EBA7D6191A86A200098B30 /* Build configuration list for PBXNativeTarget "OneNightStandTests" */;
+			buildPhases = (
+				D5EBA7BE191A86A200098B30 /* Sources */,
+				D5EBA7BF191A86A200098B30 /* Frameworks */,
+				D5EBA7C0191A86A200098B30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5EBA7C8191A86A200098B30 /* PBXTargetDependency */,
+			);
+			name = OneNightStandTests;
+			productName = OneNightStandTests;
+			productReference = D5EBA7C2191A86A200098B30 /* OneNightStandTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5EBA79F191A86A200098B30 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ONS;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Austin Nolan";
+				TargetAttributes = {
+					D5EBA7C1191A86A200098B30 = {
+						TestTargetID = D5EBA7A6191A86A200098B30;
+					};
+				};
+			};
+			buildConfigurationList = D5EBA7A2191A86A200098B30 /* Build configuration list for PBXProject "OneNightStand" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D5EBA79E191A86A200098B30;
+			productRefGroup = D5EBA7A8191A86A200098B30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5EBA7A6191A86A200098B30 /* OneNightStand */,
+				D5EBA7C1191A86A200098B30 /* OneNightStandTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5EBA7A5191A86A200098B30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA7B5191A86A200098B30 /* InfoPlist.strings in Resources */,
+				D5EBA7BD191A86A200098B30 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5EBA7C0191A86A200098B30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA7CE191A86A200098B30 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5EBA7A3191A86A200098B30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA7B7191A86A200098B30 /* main.m in Sources */,
+				D5EBA7DB191A86C200098B30 /* ONSViewController.m in Sources */,
+				D5EBA7DE191A874D00098B30 /* ONSData.m in Sources */,
+				D5EBA7E4191A87BC00098B30 /* ONSThirdViewController.m in Sources */,
+				D5EBA7BB191A86A200098B30 /* ONSAppDelegate.m in Sources */,
+				D5EBA7E1191A879800098B30 /* ONSSecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5EBA7BE191A86A200098B30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA7D0191A86A200098B30 /* OneNightStandTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5EBA7C8191A86A200098B30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5EBA7A6191A86A200098B30 /* OneNightStand */;
+			targetProxy = D5EBA7C7191A86A200098B30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D5EBA7B3191A86A200098B30 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5EBA7B4191A86A200098B30 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D5EBA7CC191A86A200098B30 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5EBA7CD191A86A200098B30 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D5EBA7D1191A86A200098B30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D5EBA7D2191A86A200098B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5EBA7D4191A86A200098B30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OneNightStand/OneNightStand-Prefix.pch";
+				INFOPLIST_FILE = "OneNightStand/OneNightStand-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D5EBA7D5191A86A200098B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OneNightStand/OneNightStand-Prefix.pch";
+				INFOPLIST_FILE = "OneNightStand/OneNightStand-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D5EBA7D7191A86A200098B30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OneNightStand.app/OneNightStand";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OneNightStand/OneNightStand-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OneNightStandTests/OneNightStandTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D5EBA7D8191A86A200098B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OneNightStand.app/OneNightStand";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OneNightStand/OneNightStand-Prefix.pch";
+				INFOPLIST_FILE = "OneNightStandTests/OneNightStandTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5EBA7A2191A86A200098B30 /* Build configuration list for PBXProject "OneNightStand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5EBA7D1191A86A200098B30 /* Debug */,
+				D5EBA7D2191A86A200098B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5EBA7D3191A86A200098B30 /* Build configuration list for PBXNativeTarget "OneNightStand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5EBA7D4191A86A200098B30 /* Debug */,
+				D5EBA7D5191A86A200098B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D5EBA7D6191A86A200098B30 /* Build configuration list for PBXNativeTarget "OneNightStandTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5EBA7D7191A86A200098B30 /* Debug */,
+				D5EBA7D8191A86A200098B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5EBA79F191A86A200098B30 /* Project object */;
+}

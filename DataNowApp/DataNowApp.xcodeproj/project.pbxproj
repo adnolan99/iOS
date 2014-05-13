@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D5EBA7611919313300098B30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7601919313300098B30 /* Foundation.framework */; };
+		D5EBA7631919313300098B30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7621919313300098B30 /* CoreGraphics.framework */; };
+		D5EBA7651919313300098B30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7641919313300098B30 /* UIKit.framework */; };
+		D5EBA76B1919313300098B30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA7691919313300098B30 /* InfoPlist.strings */; };
+		D5EBA76D1919313300098B30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA76C1919313300098B30 /* main.m */; };
+		D5EBA7711919313300098B30 /* DNAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7701919313300098B30 /* DNAAppDelegate.m */; };
+		D5EBA7731919313300098B30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA7721919313300098B30 /* Images.xcassets */; };
+		D5EBA77A1919313300098B30 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7791919313300098B30 /* XCTest.framework */; };
+		D5EBA77B1919313300098B30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7601919313300098B30 /* Foundation.framework */; };
+		D5EBA77C1919313300098B30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EBA7641919313300098B30 /* UIKit.framework */; };
+		D5EBA7841919313300098B30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA7821919313300098B30 /* InfoPlist.strings */; };
+		D5EBA7861919313300098B30 /* DataNowAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7851919313300098B30 /* DataNowAppTests.m */; };
+		D5EBA7911919316100098B30 /* DNATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7901919316100098B30 /* DNATableViewController.m */; };
+		D5EBA7941919343A00098B30 /* DNASingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA7931919343A00098B30 /* DNASingleton.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5EBA77D1919313300098B30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5EBA7551919313300098B30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5EBA75C1919313300098B30;
+			remoteInfo = DataNowApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D5EBA75D1919313300098B30 /* DataNowApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataNowApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5EBA7601919313300098B30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D5EBA7621919313300098B30 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D5EBA7641919313300098B30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D5EBA7681919313300098B30 /* DataNowApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DataNowApp-Info.plist"; sourceTree = "<group>"; };
+		D5EBA76A1919313300098B30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D5EBA76C1919313300098B30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D5EBA76E1919313300098B30 /* DataNowApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataNowApp-Prefix.pch"; sourceTree = "<group>"; };
+		D5EBA76F1919313300098B30 /* DNAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DNAAppDelegate.h; sourceTree = "<group>"; };
+		D5EBA7701919313300098B30 /* DNAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DNAAppDelegate.m; sourceTree = "<group>"; };
+		D5EBA7721919313300098B30 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D5EBA7781919313300098B30 /* DataNowAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataNowAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5EBA7791919313300098B30 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D5EBA7811919313300098B30 /* DataNowAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DataNowAppTests-Info.plist"; sourceTree = "<group>"; };
+		D5EBA7831919313300098B30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D5EBA7851919313300098B30 /* DataNowAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataNowAppTests.m; sourceTree = "<group>"; };
+		D5EBA78F1919316100098B30 /* DNATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNATableViewController.h; sourceTree = "<group>"; };
+		D5EBA7901919316100098B30 /* DNATableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNATableViewController.m; sourceTree = "<group>"; };
+		D5EBA7921919343A00098B30 /* DNASingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNASingleton.h; sourceTree = "<group>"; };
+		D5EBA7931919343A00098B30 /* DNASingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNASingleton.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5EBA75A1919313300098B30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA7631919313300098B30 /* CoreGraphics.framework in Frameworks */,
+				D5EBA7651919313300098B30 /* UIKit.framework in Frameworks */,
+				D5EBA7611919313300098B30 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5EBA7751919313300098B30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA77A1919313300098B30 /* XCTest.framework in Frameworks */,
+				D5EBA77C1919313300098B30 /* UIKit.framework in Frameworks */,
+				D5EBA77B1919313300098B30 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5EBA7541919313300098B30 = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7921919343A00098B30 /* DNASingleton.h */,
+				D5EBA7931919343A00098B30 /* DNASingleton.m */,
+				D5EBA78F1919316100098B30 /* DNATableViewController.h */,
+				D5EBA7901919316100098B30 /* DNATableViewController.m */,
+				D5EBA7661919313300098B30 /* DataNowApp */,
+				D5EBA77F1919313300098B30 /* DataNowAppTests */,
+				D5EBA75F1919313300098B30 /* Frameworks */,
+				D5EBA75E1919313300098B30 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5EBA75E1919313300098B30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA75D1919313300098B30 /* DataNowApp.app */,
+				D5EBA7781919313300098B30 /* DataNowAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5EBA75F1919313300098B30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7601919313300098B30 /* Foundation.framework */,
+				D5EBA7621919313300098B30 /* CoreGraphics.framework */,
+				D5EBA7641919313300098B30 /* UIKit.framework */,
+				D5EBA7791919313300098B30 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5EBA7661919313300098B30 /* DataNowApp */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA76F1919313300098B30 /* DNAAppDelegate.h */,
+				D5EBA7701919313300098B30 /* DNAAppDelegate.m */,
+				D5EBA7721919313300098B30 /* Images.xcassets */,
+				D5EBA7671919313300098B30 /* Supporting Files */,
+			);
+			path = DataNowApp;
+			sourceTree = "<group>";
+		};
+		D5EBA7671919313300098B30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7681919313300098B30 /* DataNowApp-Info.plist */,
+				D5EBA7691919313300098B30 /* InfoPlist.strings */,
+				D5EBA76C1919313300098B30 /* main.m */,
+				D5EBA76E1919313300098B30 /* DataNowApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5EBA77F1919313300098B30 /* DataNowAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7851919313300098B30 /* DataNowAppTests.m */,
+				D5EBA7801919313300098B30 /* Supporting Files */,
+			);
+			path = DataNowAppTests;
+			sourceTree = "<group>";
+		};
+		D5EBA7801919313300098B30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBA7811919313300098B30 /* DataNowAppTests-Info.plist */,
+				D5EBA7821919313300098B30 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5EBA75C1919313300098B30 /* DataNowApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5EBA7891919313300098B30 /* Build configuration list for PBXNativeTarget "DataNowApp" */;
+			buildPhases = (
+				D5EBA7591919313300098B30 /* Sources */,
+				D5EBA75A1919313300098B30 /* Frameworks */,
+				D5EBA75B1919313300098B30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DataNowApp;
+			productName = DataNowApp;
+			productReference = D5EBA75D1919313300098B30 /* DataNowApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5EBA7771919313300098B30 /* DataNowAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5EBA78C1919313300098B30 /* Build configuration list for PBXNativeTarget "DataNowAppTests" */;
+			buildPhases = (
+				D5EBA7741919313300098B30 /* Sources */,
+				D5EBA7751919313300098B30 /* Frameworks */,
+				D5EBA7761919313300098B30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5EBA77E1919313300098B30 /* PBXTargetDependency */,
+			);
+			name = DataNowAppTests;
+			productName = DataNowAppTests;
+			productReference = D5EBA7781919313300098B30 /* DataNowAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5EBA7551919313300098B30 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DNA;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Austin Nolan";
+				TargetAttributes = {
+					D5EBA7771919313300098B30 = {
+						TestTargetID = D5EBA75C1919313300098B30;
+					};
+				};
+			};
+			buildConfigurationList = D5EBA7581919313300098B30 /* Build configuration list for PBXProject "DataNowApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D5EBA7541919313300098B30;
+			productRefGroup = D5EBA75E1919313300098B30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5EBA75C1919313300098B30 /* DataNowApp */,
+				D5EBA7771919313300098B30 /* DataNowAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5EBA75B1919313300098B30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA76B1919313300098B30 /* InfoPlist.strings in Resources */,
+				D5EBA7731919313300098B30 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5EBA7761919313300098B30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA7841919313300098B30 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5EBA7591919313300098B30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA7711919313300098B30 /* DNAAppDelegate.m in Sources */,
+				D5EBA7911919316100098B30 /* DNATableViewController.m in Sources */,
+				D5EBA76D1919313300098B30 /* main.m in Sources */,
+				D5EBA7941919343A00098B30 /* DNASingleton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5EBA7741919313300098B30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EBA7861919313300098B30 /* DataNowAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5EBA77E1919313300098B30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5EBA75C1919313300098B30 /* DataNowApp */;
+			targetProxy = D5EBA77D1919313300098B30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D5EBA7691919313300098B30 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5EBA76A1919313300098B30 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D5EBA7821919313300098B30 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5EBA7831919313300098B30 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D5EBA7871919313300098B30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D5EBA7881919313300098B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5EBA78A1919313300098B30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DataNowApp/DataNowApp-Prefix.pch";
+				INFOPLIST_FILE = "DataNowApp/DataNowApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D5EBA78B1919313300098B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DataNowApp/DataNowApp-Prefix.pch";
+				INFOPLIST_FILE = "DataNowApp/DataNowApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D5EBA78D1919313300098B30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DataNowApp.app/DataNowApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DataNowApp/DataNowApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DataNowAppTests/DataNowAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D5EBA78E1919313300098B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DataNowApp.app/DataNowApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DataNowApp/DataNowApp-Prefix.pch";
+				INFOPLIST_FILE = "DataNowAppTests/DataNowAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5EBA7581919313300098B30 /* Build configuration list for PBXProject "DataNowApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5EBA7871919313300098B30 /* Debug */,
+				D5EBA7881919313300098B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5EBA7891919313300098B30 /* Build configuration list for PBXNativeTarget "DataNowApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5EBA78A1919313300098B30 /* Debug */,
+				D5EBA78B1919313300098B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D5EBA78C1919313300098B30 /* Build configuration list for PBXNativeTarget "DataNowAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5EBA78D1919313300098B30 /* Debug */,
+				D5EBA78E1919313300098B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5EBA7551919313300098B30 /* Project object */;
+}

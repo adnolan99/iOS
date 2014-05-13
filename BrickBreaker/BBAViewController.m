@@ -72,8 +72,13 @@
     level.view.frame = CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT);
     [self.view addSubview:level.view];
     
+    
+    
+    
     [startButton removeFromSuperview];
     [level resetLevel];
+    
+    
 }
 
 
@@ -92,13 +97,13 @@
 }
 
 
-NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
-[userDefaults setObject:@(topscore) forKey:@"topScore"];
-[userDefaults synchronize];
-
-
-NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
-topScore = [[userDefaults objectForKey:@"topScore"]intValue];
+//NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+//[userDefaults setObject:@(topscore) forKey:@"topScore"];
+//[userDefaults synchronize];
+//
+//
+//NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+//topScore = [[userDefaults objectForKey:@"topScore"]intValue];
 
 /*
 #pragma mark - Navigation

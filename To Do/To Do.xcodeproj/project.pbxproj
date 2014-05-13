@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5EBA79A19195C2800098B30 /* TDLSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA79919195C2800098B30 /* TDLSingleton.m */; };
+		D5EBA79D19199F2F00098B30 /* TDLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA79C19199F2F00098B30 /* TDLMainViewController.m */; };
 		D5F9BA7A18EC4ADA00E249DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F9BA7918EC4ADA00E249DE /* Foundation.framework */; };
 		D5F9BA7C18EC4ADA00E249DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F9BA7B18EC4ADA00E249DE /* CoreGraphics.framework */; };
 		D5F9BA7E18EC4ADA00E249DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F9BA7D18EC4ADA00E249DE /* UIKit.framework */; };
@@ -51,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D5EBA79819195C2800098B30 /* TDLSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLSingleton.h; sourceTree = "<group>"; };
+		D5EBA79919195C2800098B30 /* TDLSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLSingleton.m; sourceTree = "<group>"; };
+		D5EBA79B19199F2F00098B30 /* TDLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLMainViewController.h; sourceTree = "<group>"; };
+		D5EBA79C19199F2F00098B30 /* TDLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLMainViewController.m; sourceTree = "<group>"; };
 		D5F9BA7618EC4ADA00E249DE /* To Do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "To Do.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F9BA7918EC4ADA00E249DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D5F9BA7B18EC4ADA00E249DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -215,8 +221,12 @@
 		D5F9BACF18EDA7B700E249DE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D5EBA79B19199F2F00098B30 /* TDLMainViewController.h */,
+				D5EBA79C19199F2F00098B30 /* TDLMainViewController.m */,
 				D5F9BAA818EC4C7200E249DE /* TDLTableViewController.h */,
 				D5F9BAA918EC4C7200E249DE /* TDLTableViewController.m */,
+				D5EBA79819195C2800098B30 /* TDLSingleton.h */,
+				D5EBA79919195C2800098B30 /* TDLSingleton.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -351,8 +361,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5EBA79D19199F2F00098B30 /* TDLMainViewController.m in Sources */,
 				D5F9BACE18EDA73400E249DE /* TDLTableViewCell.m in Sources */,
 				D5F9BAAA18EC4C7200E249DE /* TDLTableViewController.m in Sources */,
+				D5EBA79A19195C2800098B30 /* TDLSingleton.m in Sources */,
 				D5F9BAD618F2F42D00E249DE /* TDLGitHubRequest.m in Sources */,
 				D5F9BA8618EC4ADA00E249DE /* main.m in Sources */,
 				D5F9BA8A18EC4ADA00E249DE /* TDLAppDelegate.m in Sources */,
@@ -554,6 +566,7 @@
 				D5F9BAA418EC4ADA00E249DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D5F9BAA518EC4ADA00E249DE /* Build configuration list for PBXNativeTarget "To DoTests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +575,7 @@
 				D5F9BAA718EC4ADA00E249DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

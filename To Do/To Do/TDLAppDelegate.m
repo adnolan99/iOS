@@ -7,6 +7,7 @@
 //
 
 #import "TDLAppDelegate.h"
+#import "TDLMainViewController.h"
 #import "TDLTableViewController.h"
 
 @implementation TDLAppDelegate
@@ -15,11 +16,24 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+//    
+//    TDLTableViewController * rootViewController = [[TDLTableViewController alloc] initWithStyle:UITableViewStylePlain];
+//    
+//    UINavigationController * navController = [[UINavigationController alloc] initWithNibName:nil bundle:nil];
+
+    
+    
+    
+    
     
     TDLTableViewController * rootViewController = [[TDLTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    
+
     UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
 
+    
+    
+    
+    
     
     self.window.rootViewController = navController;
     
@@ -27,7 +41,15 @@
     
     [self.window makeKeyAndVisible];
     return YES;
+    
+    
+    
+    
 }
+
+
+
+
 
 
 @end

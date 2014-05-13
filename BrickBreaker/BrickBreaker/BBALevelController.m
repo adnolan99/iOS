@@ -8,7 +8,19 @@
 
 #import "BBALevelController.h"
 
-@interface BBALevelController () <UICollisionBehaviorDelegate>
+#import "BBASingleton.h"
+
+#import <AVFoundation/AVFoundation.h>
+
+@interface BBALevelController () <UICollisionBehaviorDelegate, AVAudioPlayerDelegate>
+
+
+
+//@property (nonatomic) AVAudioPlayer * player;
+
+@property (nonatomic) NSMutableArray * players;
+
+
 
 @property (nonatomic) UIView * paddle;
 @property (nonatomic) NSMutableArray * balls;
@@ -69,10 +81,38 @@
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen:)];
         [self.view addGestureRecognizer:tap];
         
-        
     }
     return self;
 }
+
+
+-(void)playSoundWithName:(NSString *) soundName
+{
+    NSString * file = [[NSBundle mainBundle] pathForResource:soundName ofType:@"wav"];
+    
+    NSURL * url =[[NSURL alloc] initFileURLWithPath:file];
+    
+    
+    
+    AVAudioPlayer * player = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:nil];
+    
+    
+    player.delegate = self;
+    
+    //self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+
+    [self.players addObject:player];
+    
+    [player play];
+    
+}
+
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    
+    [self.players removeObjectIdenticalTo:player];
+}
+
 
 
 - (void)viewDidLoad
@@ -96,6 +136,7 @@
     [self createBall];
     [self createBricks];
     
+    
     self.collider = [[UICollisionBehavior alloc] initWithItems:[self allItems]];
     self.collider.collisionDelegate = self;
     self.collider.collisionMode = UICollisionBehaviorModeEverything;
@@ -109,6 +150,9 @@
     [self.collider addBoundaryWithIdentifier:@"floor" fromPoint:CGPointMake(0, h + 10) toPoint:CGPointMake(w, h + 10)];
 
     [self.animator addBehavior:self.collider];
+    
+    [BBASingleton mainData].currentScore = 0;
+    
     
     
    // self.ballsDynamicsProperties = [[UIDynamicItemBehavior alloc] initWithItems:self.balls];
@@ -133,6 +177,15 @@
 
 -(void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
 {
+    
+    
+    if([item1 isEqual:self.paddle] || [item2 isEqual:self.paddle])
+    {
+        [self playSoundWithName:@"triangle_alert"];
+    }
+    
+    
+    
     UIView * tempBrick;
     
     for (UIView * brick in self.bricks)
@@ -152,6 +205,15 @@
                    
                    points += brick.tag;
                    
+                   
+                   NSInteger currentScore = [BBASingleton mainData].currentScore;  //getter
+                   
+                   
+                   [BBASingleton mainData].currentScore = currentScore + brick.tag;  //setter
+                   
+                   
+                   
+                   
                    [brick removeFromSuperview];
                    [self.collider removeItem:brick];
                    
@@ -165,6 +227,8 @@
                    pointScore.alpha = 0.5;
                    pointScore.text = [NSString stringWithFormat:@"SCORE %d", points];
                    pointScore.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40];
+                   //pointScore.text = [BBASingleton mainData].topScore;
+                   
                    //pointScore.alpha = 0.5;
                    [self.view addSubview:pointScore];
                    
@@ -175,7 +239,7 @@
                    
                    score.text = [NSString stringWithFormat:@"Score %d", points];
                    [self.view addSubview:score];
-                   
+
                    
                }
             brick.alpha = 0.5;
@@ -185,7 +249,12 @@
     
     NSLog(@"Total Points = %d",points);
     
-    if(tempBrick != nil) [self.bricks removeObjectIdenticalTo:tempBrick];
+    if(tempBrick != nil)
+    {
+        [self.bricks removeObjectIdenticalTo:tempBrick];
+    
+    [self playSoundWithName:@"wobble_alert"];
+    }
 }
 
 

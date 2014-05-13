@@ -12,11 +12,14 @@
 
 #import "TDLGitHubRequest.h"
 
+#import "TDLSingleton.h"
+
 @implementation TDLTableViewController
 
 {
-    NSMutableArray *listItems;
-    UITextField * nameField;
+    //NSMutableArray *listItems;
+    //UITextField * nameField;
+    UITextView * textField;
 }
 
 
@@ -35,9 +38,13 @@
 //        
 //        self.navigationItem.rightBarButtonItem =editButton;
         
-        listItems = [@[] mutableCopy];
         
-        [self loadListItems];
+        //commented out because singleton now does this
+        //listItems = [@[] mutableCopy];
+        
+        
+        //deleted due to singleton
+        //[self loadListItems];
         
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
         self.tableView.rowHeight = 100;
@@ -52,16 +59,16 @@
         [header addSubview:titleHeader];
         self.tableView.tableHeaderView = header;
         
-        nameField = [[UITextField alloc] initWithFrame:(CGRectMake(20, 60, 160, 30))];
-        nameField.backgroundColor = [UIColor colorWithRed:213/255.0 green:222/255.0 blue:217/255.0 alpha:1.0];
-        nameField.layer.cornerRadius = 6;
-        nameField.textColor = [UIColor colorWithRed:122/255.0 green:106/255.0 blue:83/255.0 alpha:1.0];
-        nameField.font = [UIFont fontWithName:@"Noteworthy-Bold" size:20];
-        nameField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
-        nameField.leftViewMode = UITextFieldViewModeAlways;
-        [header addSubview:nameField];
-        nameField.delegate = self;
-        nameField.placeholder = @"Type Here..";
+//        nameField = [[UITextField alloc] initWithFrame:(CGRectMake(20, 60, 160, 30))];
+//        nameField.backgroundColor = [UIColor colorWithRed:213/255.0 green:222/255.0 blue:217/255.0 alpha:1.0];
+//        nameField.layer.cornerRadius = 6;
+//        nameField.textColor = [UIColor colorWithRed:122/255.0 green:106/255.0 blue:83/255.0 alpha:1.0];
+//        nameField.font = [UIFont fontWithName:@"Noteworthy-Bold" size:20];
+//        nameField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
+//        nameField.leftViewMode = UITextFieldViewModeAlways;
+//        [header addSubview:nameField];
+//        nameField.delegate = self;
+//        nameField.placeholder = @"Type Here..";
         
         UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 60, 90, 30)];
         [submitButton setTitle:@"New User" forState:UIControlStateNormal];
@@ -87,12 +94,14 @@
 
 - (void)newUser
 {
-    NSString * username = nameField.text;
-    nameField.text = @"";
+    NSString * username = textField.text;
+    textField.text = @"";
     NSDictionary * userInfo = [TDLGitHubRequest getUserWithUsername:username];
     if([[userInfo allKeys]count] == 3)
     {
-     [listItems addObject:userInfo];
+     
+        [[TDLSingleton sharedSingleton] addListItem:userInfo];
+    //[listItems addObject:userInfo];
     }
         
     else
@@ -104,10 +113,10 @@
         
         [alertView show];
     }
-        [nameField resignFirstResponder];
+        [textField resignFirstResponder];
     [self.tableView reloadData];
     
-    [self saveData];
+    
 }
 
 
@@ -118,16 +127,16 @@
 }
 
 
-- (void) textFieldDidBeginEditing:(UITextField *)textField
-{
-    textField.placeholder = @"";
-}
-
-
-- (void) textFieldDidEndEditing:(UITextField *)textField
-{
-    textField.placeholder = @"Type Here..";
-}
+//- (void) textFieldDidBeginEditing:(UITextField *)textField
+//{
+//    textField.placeholder = @"";
+//}
+//
+//
+//- (void) textFieldDidEndEditing:(UITextField *)textField
+//{
+//    textField.placeholder = @"Type Here..";
+//}
 
 
 - (void)viewDidLoad
@@ -136,7 +145,19 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+//    UIBarButtonItem * addNewUser = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newUser)];
+//    
+//    self.navigationItem.rightBarButtonItem = addNewUser;
+//    
+//    textField = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 170, 44)];
+//    self.navigationItem.titleView = textField;
+    
+    
+    
+    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 
@@ -153,7 +174,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [listItems count];
+    
+    
+    return [[[TDLSingleton sharedSingleton] allListItems] count];
+    
+    
+    //return [listItems count];
 }
 
 
@@ -161,14 +187,18 @@
 {
     TDLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) cell = [[ TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    cell.profileInfo = [self getListItem:indexPath.row];
+    
+    
+    
+    cell.index = indexPath.row;
+    //cell.profileInfo = [self getListItem:indexPath.row];
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary * listItem = [self getListItem:indexPath.row];
+    NSDictionary * listItem = [[TDLSingleton sharedSingleton] allListItems][indexPath.row ];
     NSLog(@"%@", listItem);
     UIViewController * webController = [[UIViewController alloc] init];
     UIWebView * webView = [[UIWebView alloc] init];
@@ -188,8 +218,16 @@
 
 -(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary * listItem = [self getListItem:indexPath.row];
-    [listItems removeObjectIdenticalTo:listItem];
+    
+    
+    
+    //commented this out because of singletons
+    //NSDictionary * listItem = [self getListItem:indexPath.row];
+    
+    
+    
+    [[TDLSingleton sharedSingleton] removeListItemAtIndex:indexPath.row];
+    //[listItems removeObjectIdenticalTo:listItem];
     //[self.tableView reloadData];
     
     TDLTableViewCell * cell = (TDLTableViewCell *) [tableView cellForRowAtIndexPath:indexPath];
@@ -197,9 +235,11 @@
     
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     
-    NSLog(@"%@", listItems);
     
-    [self saveData];
+    
+    //NSLog(@"%@", listItems);
+    
+    //[self saveData];
 }
                        
                        
@@ -209,49 +249,38 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
-{
-    if (sourceIndexPath == destinationIndexPath) return;
-    NSDictionary * sourceItem = [self getListItem:sourceIndexPath.row];
-    NSDictionary * toItem = [self getListItem:destinationIndexPath.row];
-    [listItems removeObjectIdenticalTo:sourceItem];
-    [listItems insertObject:sourceItem atIndex:[listItems indexOfObject:toItem]];
-    [self saveData];
-
-}
-
-
-- (NSDictionary *)getListItem: (NSInteger)row
-{
-    NSArray * reverseArray = [[listItems reverseObjectEnumerator] allObjects];
-    return reverseArray[row];
-}
-
-- (void) saveData
-{
-    NSString *path = [self listArchivePath];
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:listItems];
-    [data writeToFile:path options:NSDataWritingAtomic error:nil];
-}
+//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+//{
+//    if (sourceIndexPath == destinationIndexPath) return;
+//    NSDictionary * sourceItem = [self getListItem:sourceIndexPath.row];
+//    NSDictionary * toItem = [self getListItem:destinationIndexPath.row];
+//    
+//    
+//    
+//    
+//    [listItems removeObjectIdenticalTo:sourceItem];
+//    
+//    
+//    
+//    [listItems insertObject:sourceItem atIndex:[listItems indexOfObject:toItem]];
+//    [self saveData];
+//
+//}
 
 
-- (NSString *) listArchivePath
-{
-    NSArray* documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString * documentDirectory = documentDirectories[0];
-    return [documentDirectory stringByAppendingString:@"listdata.data"];
-}
+
+//Puts Array in reverse order
+//- (NSDictionary *)getListItem: (NSInteger)row
+//{
+//    NSArray * reverseArray = [[listItems reverseObjectEnumerator] allObjects];
+//    return reverseArray[row];
+//}
 
 
-- (void) loadListItems
-{
-    NSString *path = [self listArchivePath];
-    if([[NSFileManager defaultManager] fileExistsAtPath:path])
-    {
-        listItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    }
-    
-}
+
+
+
+
 
 
 

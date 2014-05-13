@@ -93,7 +93,7 @@
 
 
 
-- (void)viewDidLoad
+- (void)viewDidLayoutSubviews
 {
     [super viewDidLoad];
     

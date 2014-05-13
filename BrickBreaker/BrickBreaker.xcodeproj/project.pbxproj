@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		D5EBA5A519001BCD00098B30 /* BBAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA5A419001BCD00098B30 /* BBAViewController.m */; };
 		D5EBA5A819001D5200098B30 /* BBALevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA5A719001D5200098B30 /* BBALevelController.m */; };
+		D5EBA7491917D60700098B30 /* triangle_alert.wav in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA7481917D60700098B30 /* triangle_alert.wav */; };
+		D5EBA74B1917D61600098B30 /* wobble_alert.wav in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA74A1917D61600098B30 /* wobble_alert.wav */; };
+		D5EBA74D1917DD6F00098B30 /* electric_alert.wav in Resources */ = {isa = PBXBuildFile; fileRef = D5EBA74C1917DD6E00098B30 /* electric_alert.wav */; };
+		D5EBA79719195A6C00098B30 /* BBASingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBA79619195A6C00098B30 /* BBASingleton.m */; };
 		D5F869EB190019C5007207DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F869EA190019C5007207DE /* Foundation.framework */; };
 		D5F869ED190019C5007207DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F869EC190019C5007207DE /* CoreGraphics.framework */; };
 		D5F869EF190019C5007207DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F869EE190019C5007207DE /* UIKit.framework */; };
@@ -38,6 +42,11 @@
 		D5EBA5A419001BCD00098B30 /* BBAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAViewController.m; sourceTree = "<group>"; };
 		D5EBA5A619001D5200098B30 /* BBALevelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBALevelController.h; path = BrickBreaker/BBALevelController.h; sourceTree = "<group>"; };
 		D5EBA5A719001D5200098B30 /* BBALevelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBALevelController.m; path = BrickBreaker/BBALevelController.m; sourceTree = "<group>"; };
+		D5EBA7481917D60700098B30 /* triangle_alert.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = triangle_alert.wav; sourceTree = "<group>"; };
+		D5EBA74A1917D61600098B30 /* wobble_alert.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wobble_alert.wav; sourceTree = "<group>"; };
+		D5EBA74C1917DD6E00098B30 /* electric_alert.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = electric_alert.wav; sourceTree = "<group>"; };
+		D5EBA79519195A6C00098B30 /* BBASingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBASingleton.h; sourceTree = "<group>"; };
+		D5EBA79619195A6C00098B30 /* BBASingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBASingleton.m; sourceTree = "<group>"; };
 		D5F869E7190019C5007207DE /* BrickBreaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickBreaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F869EA190019C5007207DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D5F869EC190019C5007207DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,6 +96,8 @@
 				D5EBA5A419001BCD00098B30 /* BBAViewController.m */,
 				D5EBA5A619001D5200098B30 /* BBALevelController.h */,
 				D5EBA5A719001D5200098B30 /* BBALevelController.m */,
+				D5EBA79519195A6C00098B30 /* BBASingleton.h */,
+				D5EBA79619195A6C00098B30 /* BBASingleton.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -94,6 +105,9 @@
 		D5F869DE190019C5007207DE = {
 			isa = PBXGroup;
 			children = (
+				D5EBA74C1917DD6E00098B30 /* electric_alert.wav */,
+				D5EBA74A1917D61600098B30 /* wobble_alert.wav */,
+				D5EBA7481917D60700098B30 /* triangle_alert.wav */,
 				D5EBA5A919001D6400098B30 /* Controllers */,
 				D5F869F0190019C5007207DE /* BrickBreaker */,
 				D5F86A09190019C5007207DE /* BrickBreakerTests */,
@@ -238,7 +252,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5EBA74D1917DD6F00098B30 /* electric_alert.wav in Resources */,
+				D5EBA7491917D60700098B30 /* triangle_alert.wav in Resources */,
 				D5F869F5190019C5007207DE /* InfoPlist.strings in Resources */,
+				D5EBA74B1917D61600098B30 /* wobble_alert.wav in Resources */,
 				D5F869FD190019C5007207DE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +277,7 @@
 			files = (
 				D5EBA5A819001D5200098B30 /* BBALevelController.m in Sources */,
 				D5EBA5A519001BCD00098B30 /* BBAViewController.m in Sources */,
+				D5EBA79719195A6C00098B30 /* BBASingleton.m in Sources */,
 				D5F869FB190019C5007207DE /* BBAAppDelegate.m in Sources */,
 				D5F869F7190019C5007207DE /* main.m in Sources */,
 			);

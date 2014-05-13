@@ -84,7 +84,7 @@
 
 -(void) createGameBoard
 {
-    gameSize = 12;
+    gameSize = 6;
 
     float circleWidth = (SCREEN_WIDTH - 50) / gameSize;
     float squareWidth = circleWidth / 2;
@@ -106,7 +106,7 @@
             allSquares [key] = square;
             
             
-            [gameBoard addSubview:square];
+            //[gameBoard addSubview:square];
             
         }
     }
