@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D57CA584192278B300FCDB0D /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = D57CA583192278B300FCDB0D /* Play.png */; };
+		D57CA58819228DE900FCDB0D /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = D57CA58719228DE900FCDB0D /* pause.png */; };
+		D57CA58A19228E7400FCDB0D /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = D57CA58919228E7400FCDB0D /* stop.png */; };
+		D5D08C9E19225AA50026E317 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D08C9D19225AA50026E317 /* Foundation.framework */; };
+		D5D08CA019225AA50026E317 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D08C9F19225AA50026E317 /* CoreGraphics.framework */; };
+		D5D08CA219225AA50026E317 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D08CA119225AA50026E317 /* UIKit.framework */; };
+		D5D08CA819225AA50026E317 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5D08CA619225AA50026E317 /* InfoPlist.strings */; };
+		D5D08CAA19225AA50026E317 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D08CA919225AA50026E317 /* main.m */; };
+		D5D08CAE19225AA50026E317 /* LPAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D08CAD19225AA50026E317 /* LPAAppDelegate.m */; };
+		D5D08CB019225AA50026E317 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5D08CAF19225AA50026E317 /* Images.xcassets */; };
+		D5D08CB719225AA50026E317 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D08CB619225AA50026E317 /* XCTest.framework */; };
+		D5D08CB819225AA50026E317 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D08C9D19225AA50026E317 /* Foundation.framework */; };
+		D5D08CB919225AA50026E317 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D08CA119225AA50026E317 /* UIKit.framework */; };
+		D5D08CC119225AA60026E317 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5D08CBF19225AA60026E317 /* InfoPlist.strings */; };
+		D5D08CC319225AA60026E317 /* LilPlayATests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D08CC219225AA60026E317 /* LilPlayATests.m */; };
+		D5D08CCE19225AC50026E317 /* LPAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D08CCD19225AC50026E317 /* LPAViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5D08CBA19225AA50026E317 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5D08C9219225AA50026E317 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5D08C9919225AA50026E317;
+			remoteInfo = LilPlayA;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D57CA583192278B300FCDB0D /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
+		D57CA58719228DE900FCDB0D /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		D57CA58919228E7400FCDB0D /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
+		D5D08C9A19225AA50026E317 /* LilPlayA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LilPlayA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5D08C9D19225AA50026E317 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D5D08C9F19225AA50026E317 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D5D08CA119225AA50026E317 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D5D08CA519225AA50026E317 /* LilPlayA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LilPlayA-Info.plist"; sourceTree = "<group>"; };
+		D5D08CA719225AA50026E317 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D5D08CA919225AA50026E317 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D5D08CAB19225AA50026E317 /* LilPlayA-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LilPlayA-Prefix.pch"; sourceTree = "<group>"; };
+		D5D08CAC19225AA50026E317 /* LPAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPAAppDelegate.h; sourceTree = "<group>"; };
+		D5D08CAD19225AA50026E317 /* LPAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPAAppDelegate.m; sourceTree = "<group>"; };
+		D5D08CAF19225AA50026E317 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D5D08CB519225AA50026E317 /* LilPlayATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LilPlayATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5D08CB619225AA50026E317 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D5D08CBE19225AA60026E317 /* LilPlayATests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LilPlayATests-Info.plist"; sourceTree = "<group>"; };
+		D5D08CC019225AA60026E317 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D5D08CC219225AA60026E317 /* LilPlayATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LilPlayATests.m; sourceTree = "<group>"; };
+		D5D08CCC19225AC50026E317 /* LPAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPAViewController.h; sourceTree = "<group>"; };
+		D5D08CCD19225AC50026E317 /* LPAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPAViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5D08C9719225AA50026E317 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D08CA019225AA50026E317 /* CoreGraphics.framework in Frameworks */,
+				D5D08CA219225AA50026E317 /* UIKit.framework in Frameworks */,
+				D5D08C9E19225AA50026E317 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D08CB219225AA50026E317 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D08CB719225AA50026E317 /* XCTest.framework in Frameworks */,
+				D5D08CB919225AA50026E317 /* UIKit.framework in Frameworks */,
+				D5D08CB819225AA50026E317 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5D08C9119225AA50026E317 = {
+			isa = PBXGroup;
+			children = (
+				D57CA58919228E7400FCDB0D /* stop.png */,
+				D57CA58719228DE900FCDB0D /* pause.png */,
+				D57CA583192278B300FCDB0D /* Play.png */,
+				D5D08CCC19225AC50026E317 /* LPAViewController.h */,
+				D5D08CCD19225AC50026E317 /* LPAViewController.m */,
+				D5D08CA319225AA50026E317 /* LilPlayA */,
+				D5D08CBC19225AA50026E317 /* LilPlayATests */,
+				D5D08C9C19225AA50026E317 /* Frameworks */,
+				D5D08C9B19225AA50026E317 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5D08C9B19225AA50026E317 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5D08C9A19225AA50026E317 /* LilPlayA.app */,
+				D5D08CB519225AA50026E317 /* LilPlayATests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5D08C9C19225AA50026E317 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5D08C9D19225AA50026E317 /* Foundation.framework */,
+				D5D08C9F19225AA50026E317 /* CoreGraphics.framework */,
+				D5D08CA119225AA50026E317 /* UIKit.framework */,
+				D5D08CB619225AA50026E317 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5D08CA319225AA50026E317 /* LilPlayA */ = {
+			isa = PBXGroup;
+			children = (
+				D5D08CAC19225AA50026E317 /* LPAAppDelegate.h */,
+				D5D08CAD19225AA50026E317 /* LPAAppDelegate.m */,
+				D5D08CAF19225AA50026E317 /* Images.xcassets */,
+				D5D08CA419225AA50026E317 /* Supporting Files */,
+			);
+			path = LilPlayA;
+			sourceTree = "<group>";
+		};
+		D5D08CA419225AA50026E317 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5D08CA519225AA50026E317 /* LilPlayA-Info.plist */,
+				D5D08CA619225AA50026E317 /* InfoPlist.strings */,
+				D5D08CA919225AA50026E317 /* main.m */,
+				D5D08CAB19225AA50026E317 /* LilPlayA-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5D08CBC19225AA50026E317 /* LilPlayATests */ = {
+			isa = PBXGroup;
+			children = (
+				D5D08CC219225AA60026E317 /* LilPlayATests.m */,
+				D5D08CBD19225AA60026E317 /* Supporting Files */,
+			);
+			path = LilPlayATests;
+			sourceTree = "<group>";
+		};
+		D5D08CBD19225AA60026E317 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5D08CBE19225AA60026E317 /* LilPlayATests-Info.plist */,
+				D5D08CBF19225AA60026E317 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5D08C9919225AA50026E317 /* LilPlayA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5D08CC619225AA60026E317 /* Build configuration list for PBXNativeTarget "LilPlayA" */;
+			buildPhases = (
+				D5D08C9619225AA50026E317 /* Sources */,
+				D5D08C9719225AA50026E317 /* Frameworks */,
+				D5D08C9819225AA50026E317 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LilPlayA;
+			productName = LilPlayA;
+			productReference = D5D08C9A19225AA50026E317 /* LilPlayA.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5D08CB419225AA50026E317 /* LilPlayATests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5D08CC919225AA60026E317 /* Build configuration list for PBXNativeTarget "LilPlayATests" */;
+			buildPhases = (
+				D5D08CB119225AA50026E317 /* Sources */,
+				D5D08CB219225AA50026E317 /* Frameworks */,
+				D5D08CB319225AA50026E317 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5D08CBB19225AA50026E317 /* PBXTargetDependency */,
+			);
+			name = LilPlayATests;
+			productName = LilPlayATests;
+			productReference = D5D08CB519225AA50026E317 /* LilPlayATests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5D08C9219225AA50026E317 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LPA;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Austin Nolan";
+				TargetAttributes = {
+					D5D08CB419225AA50026E317 = {
+						TestTargetID = D5D08C9919225AA50026E317;
+					};
+				};
+			};
+			buildConfigurationList = D5D08C9519225AA50026E317 /* Build configuration list for PBXProject "LilPlayA" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D5D08C9119225AA50026E317;
+			productRefGroup = D5D08C9B19225AA50026E317 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5D08C9919225AA50026E317 /* LilPlayA */,
+				D5D08CB419225AA50026E317 /* LilPlayATests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5D08C9819225AA50026E317 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D57CA58A19228E7400FCDB0D /* stop.png in Resources */,
+				D57CA58819228DE900FCDB0D /* pause.png in Resources */,
+				D5D08CA819225AA50026E317 /* InfoPlist.strings in Resources */,
+				D5D08CB019225AA50026E317 /* Images.xcassets in Resources */,
+				D57CA584192278B300FCDB0D /* Play.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D08CB319225AA50026E317 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D08CC119225AA60026E317 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5D08C9619225AA50026E317 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D08CAE19225AA50026E317 /* LPAAppDelegate.m in Sources */,
+				D5D08CAA19225AA50026E317 /* main.m in Sources */,
+				D5D08CCE19225AC50026E317 /* LPAViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D08CB119225AA50026E317 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D08CC319225AA60026E317 /* LilPlayATests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5D08CBB19225AA50026E317 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5D08C9919225AA50026E317 /* LilPlayA */;
+			targetProxy = D5D08CBA19225AA50026E317 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D5D08CA619225AA50026E317 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5D08CA719225AA50026E317 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D5D08CBF19225AA60026E317 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5D08CC019225AA60026E317 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D5D08CC419225AA60026E317 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D5D08CC519225AA60026E317 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5D08CC719225AA60026E317 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LilPlayA/LilPlayA-Prefix.pch";
+				INFOPLIST_FILE = "LilPlayA/LilPlayA-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D5D08CC819225AA60026E317 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LilPlayA/LilPlayA-Prefix.pch";
+				INFOPLIST_FILE = "LilPlayA/LilPlayA-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D5D08CCA19225AA60026E317 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LilPlayA.app/LilPlayA";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LilPlayA/LilPlayA-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LilPlayATests/LilPlayATests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D5D08CCB19225AA60026E317 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LilPlayA.app/LilPlayA";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LilPlayA/LilPlayA-Prefix.pch";
+				INFOPLIST_FILE = "LilPlayATests/LilPlayATests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5D08C9519225AA50026E317 /* Build configuration list for PBXProject "LilPlayA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D08CC419225AA60026E317 /* Debug */,
+				D5D08CC519225AA60026E317 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5D08CC619225AA60026E317 /* Build configuration list for PBXNativeTarget "LilPlayA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D08CC719225AA60026E317 /* Debug */,
+				D5D08CC819225AA60026E317 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5D08CC919225AA60026E317 /* Build configuration list for PBXNativeTarget "LilPlayATests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D08CCA19225AA60026E317 /* Debug */,
+				D5D08CCB19225AA60026E317 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5D08C9219225AA50026E317 /* Project object */;
+}
