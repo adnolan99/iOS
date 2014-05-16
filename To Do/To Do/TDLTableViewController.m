@@ -18,7 +18,7 @@
 
 {
     //NSMutableArray *listItems;
-    //UITextField * nameField;
+    UITextField * nameField;
     UITextView * textField;
 }
 
@@ -59,16 +59,16 @@
         [header addSubview:titleHeader];
         self.tableView.tableHeaderView = header;
         
-//        nameField = [[UITextField alloc] initWithFrame:(CGRectMake(20, 60, 160, 30))];
-//        nameField.backgroundColor = [UIColor colorWithRed:213/255.0 green:222/255.0 blue:217/255.0 alpha:1.0];
-//        nameField.layer.cornerRadius = 6;
-//        nameField.textColor = [UIColor colorWithRed:122/255.0 green:106/255.0 blue:83/255.0 alpha:1.0];
-//        nameField.font = [UIFont fontWithName:@"Noteworthy-Bold" size:20];
-//        nameField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
-//        nameField.leftViewMode = UITextFieldViewModeAlways;
-//        [header addSubview:nameField];
-//        nameField.delegate = self;
-//        nameField.placeholder = @"Type Here..";
+        nameField = [[UITextField alloc] initWithFrame:(CGRectMake(20, 60, 160, 30))];
+        nameField.backgroundColor = [UIColor colorWithRed:213/255.0 green:222/255.0 blue:217/255.0 alpha:1.0];
+        nameField.layer.cornerRadius = 6;
+        nameField.textColor = [UIColor colorWithRed:122/255.0 green:106/255.0 blue:83/255.0 alpha:1.0];
+        nameField.font = [UIFont fontWithName:@"Noteworthy-Bold" size:20];
+        nameField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
+        nameField.leftViewMode = UITextFieldViewModeAlways;
+        [header addSubview:nameField];
+        nameField.delegate = self;
+        nameField.placeholder = @"Type Here..";
         
         UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 60, 90, 30)];
         [submitButton setTitle:@"New User" forState:UIControlStateNormal];
@@ -94,8 +94,8 @@
 
 - (void)newUser
 {
-    NSString * username = textField.text;
-    textField.text = @"";
+    NSString * username = nameField.text;
+    nameField.text = @"";
     NSDictionary * userInfo = [TDLGitHubRequest getUserWithUsername:username];
     if([[userInfo allKeys]count] == 3)
     {

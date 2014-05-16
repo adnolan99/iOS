@@ -112,13 +112,11 @@
 
 
 
-
 -(void)changeVolume: (UISlider *)slider
 {
     
     player.volume = slider.value;
 }
-
 
 
 -(void)pressPausePlay: (UIButton *)sender
@@ -144,9 +142,7 @@
     
     [player stop];
     player.currentTime = 0.0;
-    
     playButton.selected = NO;
-    
 }
 
 
@@ -158,25 +154,21 @@
     float x = progressBar.frame.origin.x + playtime -20; //* progressBar.frame.size.width;
     //float positionX = playtime/duration;
 
-    
     playedBar = [[UIView alloc]initWithFrame:CGRectMake(x, 0, 250, 10)];
     playedBar.backgroundColor =[UIColor redColor];
     [progressBar addSubview:playedBar];
     [playedBar addSubview:seekButton];
     NSLog(@"%f",x);
-    
-    
 }
-
 
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
     NSLog(@"touches Began");
     [player pause];
     [self.timer invalidate];
 }
+
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -189,6 +181,7 @@
         NSLog(@"touches move");
     }
 }
+
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -204,16 +197,12 @@
     }
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    
     // Do any additional setup after loading the view.
 }
-
-
-
 
 
 - (void)didReceiveMemoryWarning
