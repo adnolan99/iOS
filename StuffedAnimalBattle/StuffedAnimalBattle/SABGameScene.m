@@ -146,31 +146,31 @@ Homework--
         
         [self addChild:player2HPBar];
         
-        buttonA = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(40, 40)];
-        buttonA.position = CGPointMake(SCREEN_WIDTH - 40, 80);
-        [self addChild:buttonA];
-
-        buttonB = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(40, 40)];
-        buttonB.position = CGPointMake(SCREEN_WIDTH - 80, 40);
-        
-        
-        [self addChild:buttonB];
-        
-        
-        
-        
-        dpadDown = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(30, 30)];
-        dpadDown.position = CGPointMake(80, 40);
-        [self addChild:dpadDown];
-        dpadUp = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(30, 30)];
-        dpadUp.position = CGPointMake(80, 120);
-        [self addChild:dpadUp];
-        dpadRight = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(30, 30)];
-        dpadRight.position = CGPointMake(120, 80);
-        [self addChild:dpadRight];
-        dpadLeft = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(30, 30)];
-        dpadLeft.position = CGPointMake(40, 80);
-        [self addChild:dpadLeft];
+//        buttonA = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(40, 40)];
+//        buttonA.position = CGPointMake(SCREEN_WIDTH - 40, 80);
+//        [self addChild:buttonA];
+//
+//        buttonB = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(40, 40)];
+//        buttonB.position = CGPointMake(SCREEN_WIDTH - 80, 40);
+//        
+//        
+//        [self addChild:buttonB];
+//        
+//        
+//        
+//        
+//        dpadDown = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(30, 30)];
+//        dpadDown.position = CGPointMake(80, 40);
+//        [self addChild:dpadDown];
+//        dpadUp = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(30, 30)];
+//        dpadUp.position = CGPointMake(80, 120);
+//        [self addChild:dpadUp];
+//        dpadRight = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(30, 30)];
+//        dpadRight.position = CGPointMake(120, 80);
+//        [self addChild:dpadRight];
+//        dpadLeft = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(30, 30)];
+//        dpadLeft.position = CGPointMake(40, 80);
+//        [self addChild:dpadLeft];
         
         
         //player1 = [SKSpriteNode spriteNodeWithImageNamed:@"Popeye"];
@@ -286,130 +286,242 @@ Homework--
     
     
     
-    [self testButtonsWithLocation:location];
+    //[self testButtonsWithLocation:location];
     
 }
 
--(void)testButtonsWithLocation:(CGPoint)location
+
+- (void)buttonAClick: (UIButton *)sender;
 {
-    NSArray * buttons = @[buttonA, buttonB, dpadUp,dpadDown,dpadLeft, dpadRight];
     
-    for(SKNode * button in buttons)
+    NSLog(@"Punch");
+    
+    //                    SKSpriteNode * fireBall = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(10,10)];
+    
+    NSString * myParticlePath = [[NSBundle mainBundle] pathForResource:@"Fire" ofType:@"sks"];
+    
+    SKEmitterNode * fireBall = [NSKeyedUnarchiver unarchiveObjectWithFile:myParticlePath];
+    
+    fireBall.position = CGPointMake(player1.position.x +30, player1.position.y -10);
+    
+    SKPhysicsBody * fireBallPhysics = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(10,10)];
+    
+    fireBall.physicsBody = fireBallPhysics;
+    
+    fireBall.physicsBody.contactTestBitMask = 1;
+    
+    fireBall.userData = [@{@"type" : @"fireball"} mutableCopy];
+    
+    fireBallPhysics.affectedByGravity = NO;
+    
+    [self addChild:fireBall];
+    
+    [fireBall.physicsBody  applyImpulse:CGVectorMake(3.0, 0.0)];
+    
+
+    
+    
+    
+    
+    
+    
+    NSLog(@"%@",sender);
+}
+- (void)buttonBClick: (UIButton *)sender;
+{
+    
+    NSLog(@"%@",sender);
+}
+- (void)upClick: (UIButton *)sender;
+{
+    
+    NSMutableArray * textures = [@[] mutableCopy];
+    
+    for (int i = 1; i < charAtlas.textureNames.count; i++)
     {
-        if ([button containsPoint:location])
-        {
-            switch ([buttons indexOfObject:button])
-            {
-                case 0:
-                {
+        
+        [textures addObject:[charAtlas textureNamed:
+                             [NSString stringWithFormat:@"charframe%d",i]]];
+        
+        NSLog(@"charframe%d",i);
+    }
+    
+    
+    SKAction * setFrame2 = [SKAction animateWithTextures:textures timePerFrame:0.2];
+    [player1 runAction:setFrame2];
+    
+    
+    // SKAction * move = [SKAction moveToY:(player1.position.y + 200) duration:0.1];
+    //[player1 runAction:move];
+    
+    [player1.physicsBody applyImpulse:CGVectorMake(0.0, 150.0)];
+    
+    
+    
+    NSLog(@"%@",sender);
+}
+- (void)downClick: (UIButton *)sender;
+{
+    
+    NSLog(@"Duck");
+    SKAction * move = [SKAction moveToY:(player1.position.y - 20) duration:0.1];
+    [player1 runAction:move];
 
-                    NSLog(@"Punch");
-                    
-//                    SKSpriteNode * fireBall = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(10,10)];
-                    
-                    NSString * myParticlePath = [[NSBundle mainBundle] pathForResource:@"Fire" ofType:@"sks"];
-                    
-                    SKEmitterNode * fireBall = [NSKeyedUnarchiver unarchiveObjectWithFile:myParticlePath];
-                    
-                    fireBall.position = CGPointMake(player1.position.x +30, player1.position.y -10);
-                    
-                    SKPhysicsBody * fireBallPhysics = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(10,10)];
+    NSLog(@"%@",sender);
+}
+- (void)leftClick: (UIButton *)sender;
+{
+    
+    NSLog(@"Move Left");
+    //                    SKAction * move = [SKAction moveToX:(player1.position.x - 5) duration:0.1];
+    //                    [player1 runAction:move];
+    
+    
+    [player1.physicsBody applyImpulse:CGVectorMake(-20.0, 0.0)];
+    
+    
+    
+    NSLog(@"%@",sender);
+}
+- (void)rightClick: (UIButton *)sender;
+{
+    
+    
+    NSLog(@"Move Right");
+    
+    [player1.physicsBody applyImpulse:CGVectorMake(20.0, 0.0)];
+    
+    
+    
+    //                    SKAction * move = [SKAction moveToX:(player1.position.x + 5) duration:0.1];
+    //                    [player1 runAction:move];
+    
+    
+    NSLog(@"%@",sender);
+}
 
-                    fireBall.physicsBody = fireBallPhysics;
-                    
-                    fireBall.physicsBody.contactTestBitMask = 1;
 
-                    fireBall.userData = [@{@"type" : @"fireball"} mutableCopy];
-                    
-                    fireBallPhysics.affectedByGravity = NO;
-                    
-                    [self addChild:fireBall];
 
-                    [fireBall.physicsBody  applyImpulse:CGVectorMake(3.0, 0.0)];
-
-                    
-//                    SKAction * move = [SKAction moveToX:(fist.position.x + 20) duration:0.1];
-//                    SKAction * retract = [SKAction moveToX:(fist.position.x - 20) duration:0.1];
-//                    [fist runAction:move];
-//                    fist runAction:retract];
-                }
-                    break;
-                case 1:
-                {
-                    NSLog(@"Kick");
-                    [foot.physicsBody applyImpulse:CGVectorMake(50.0, 50.0)];
-
-                    
-                }
-                    break;
-                    
-                case 2:
-                {
-                    NSLog(@"Jump");
-                   
-//                    for (NSString * textureName in charAtlas.textureNames)
+//-(void)testButtonsWithLocation:(CGPoint)location
+//{
+//    NSArray * buttons = @[buttonA, buttonB, dpadUp,dpadDown,dpadLeft, dpadRight];
+//    
+//    for(SKNode * button in buttons)
+//    {
+//        if ([button containsPoint:location])
+//        {
+//            switch ([buttons indexOfObject:button])
+//            {
+//                case 0:
+//                {
+//
+////                    NSLog(@"Punch");
+////                    
+//////                    SKSpriteNode * fireBall = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(10,10)];
+////                    
+////                    NSString * myParticlePath = [[NSBundle mainBundle] pathForResource:@"Fire" ofType:@"sks"];
+////                    
+////                    SKEmitterNode * fireBall = [NSKeyedUnarchiver unarchiveObjectWithFile:myParticlePath];
+////                    
+////                    fireBall.position = CGPointMake(player1.position.x +30, player1.position.y -10);
+////                    
+////                    SKPhysicsBody * fireBallPhysics = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(10,10)];
+////
+////                    fireBall.physicsBody = fireBallPhysics;
+////                    
+////                    fireBall.physicsBody.contactTestBitMask = 1;
+////
+////                    fireBall.userData = [@{@"type" : @"fireball"} mutableCopy];
+////                    
+////                    fireBallPhysics.affectedByGravity = NO;
+////                    
+////                    [self addChild:fireBall];
+////
+////                    [fireBall.physicsBody  applyImpulse:CGVectorMake(3.0, 0.0)];
+////
+////                    
+//////                    SKAction * move = [SKAction moveToX:(fist.position.x + 20) duration:0.1];
+//////                    SKAction * retract = [SKAction moveToX:(fist.position.x - 20) duration:0.1];
+//////                    [fist runAction:move];
+//////                    fist runAction:retract];
+////                }
+//                    break;
+//                case 1:
+//                {
+//                    NSLog(@"Kick");
+//                    [foot.physicsBody applyImpulse:CGVectorMake(50.0, 50.0)];
+//
+//                    
+//                }
+//                    break;
+//                    
+//                case 2:
+//                {
+//                    NSLog(@"Jump");
+//                   
+////                    for (NSString * textureName in charAtlas.textureNames)
+////                    {
+////                        
+////                        NSLog(@"%@",textureName);
+////                    }
+//                    
+//                    
+//                    NSMutableArray * textures = [@[] mutableCopy];
+//                    
+//                    for (int i = 1; i < charAtlas.textureNames.count; i++)
 //                    {
 //                        
-//                        NSLog(@"%@",textureName);
+//                       [textures addObject:[charAtlas textureNamed:
+//                                            [NSString stringWithFormat:@"charframe%d",i]]];
+//                        
+//                        NSLog(@"charframe%d",i);
 //                    }
-                    
-                    
-                    NSMutableArray * textures = [@[] mutableCopy];
-                    
-                    for (int i = 1; i < charAtlas.textureNames.count; i++)
-                    {
-                        
-                       [textures addObject:[charAtlas textureNamed:
-                                            [NSString stringWithFormat:@"charframe%d",i]]];
-                        
-                        NSLog(@"charframe%d",i);
-                    }
-                    
-                    
-                    SKAction * setFrame2 = [SKAction animateWithTextures:textures timePerFrame:0.2];
-                    [player1 runAction:setFrame2];
-                    
-                    
-                    // SKAction * move = [SKAction moveToY:(player1.position.y + 200) duration:0.1];
-                    //[player1 runAction:move];
-                    
-                    [player1.physicsBody applyImpulse:CGVectorMake(0.0, 150.0)];
-                
-                }
-                    break;
-                case 3:
-                {
-                    NSLog(@"Duck");
-                    SKAction * move = [SKAction moveToY:(player1.position.y - 20) duration:0.1];
-                    [player1 runAction:move];
-                }
-                    break;
-                case 4:
-                {
-                    NSLog(@"Move Left");
-//                    SKAction * move = [SKAction moveToX:(player1.position.x - 5) duration:0.1];
+//                    
+//                    
+//                    SKAction * setFrame2 = [SKAction animateWithTextures:textures timePerFrame:0.2];
+//                    [player1 runAction:setFrame2];
+//                    
+//                    
+//                    // SKAction * move = [SKAction moveToY:(player1.position.y + 200) duration:0.1];
+//                    //[player1 runAction:move];
+//                    
+//                    [player1.physicsBody applyImpulse:CGVectorMake(0.0, 150.0)];
+//                
+//                }
+//                    break;
+//                case 3:
+//                {
+//                    NSLog(@"Duck");
+//                    SKAction * move = [SKAction moveToY:(player1.position.y - 20) duration:0.1];
 //                    [player1 runAction:move];
-                    
-                    
-                    [player1.physicsBody applyImpulse:CGVectorMake(-20.0, 0.0)];
-
-                }
-                    break;
-                case 5:
-                {
-                    NSLog(@"Move Right");
-                    
-                    [player1.physicsBody applyImpulse:CGVectorMake(20.0, 0.0)];
-
-                    
-                    
-//                    SKAction * move = [SKAction moveToX:(player1.position.x + 5) duration:0.1];
-//                    [player1 runAction:move];
-                }
-                    break;
-            }
-        }
-    }
-}
+//                }
+//                    break;
+//                case 4:
+//                {
+//                    NSLog(@"Move Left");
+////                    SKAction * move = [SKAction moveToX:(player1.position.x - 5) duration:0.1];
+////                    [player1 runAction:move];
+//                    
+//                    
+//                    [player1.physicsBody applyImpulse:CGVectorMake(-20.0, 0.0)];
+//
+//                }
+//                    break;
+//                case 5:
+//                {
+//                    NSLog(@"Move Right");
+//                    
+//                    [player1.physicsBody applyImpulse:CGVectorMake(20.0, 0.0)];
+//
+//                    
+//                    
+////                    SKAction * move = [SKAction moveToX:(player1.position.x + 5) duration:0.1];
+////                    [player1 runAction:move];
+//                }
+//                    break;
+//            }
+//        }
+//    }
+//}
 
 @end
