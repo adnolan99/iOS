@@ -36,6 +36,7 @@
 		D5932E89192BAFF800E7BC8C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5932E88192BAFF800E7BC8C /* Social.framework */; };
 		D5932E8B192BB00000E7BC8C /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5932E8A192BB00000E7BC8C /* Twitter.framework */; };
 		D5932E8E192BB04F00E7BC8C /* TPAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5932E8D192BB04F00E7BC8C /* TPAViewController.m */; };
+		D5932EDF192D29EC00E7BC8C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5932EDE192D29EC00E7BC8C /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		D5932E8A192BB00000E7BC8C /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		D5932E8C192BB04F00E7BC8C /* TPAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPAViewController.h; path = ../../../../GitHub/STTwitter/TPAViewController.h; sourceTree = "<group>"; };
 		D5932E8D192BB04F00E7BC8C /* TPAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPAViewController.m; path = ../../../../GitHub/STTwitter/TPAViewController.m; sourceTree = "<group>"; };
+		D5932EDE192D29EC00E7BC8C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5932EDF192D29EC00E7BC8C /* CoreLocation.framework in Frameworks */,
 				D5932E8B192BB00000E7BC8C /* Twitter.framework in Frameworks */,
 				D5932E89192BAFF800E7BC8C /* Social.framework in Frameworks */,
 				D5932E87192BAFF000E7BC8C /* Accounts.framework in Frameworks */,
@@ -150,6 +153,7 @@
 		D5932E2B192BAFBA00E7BC8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D5932EDE192D29EC00E7BC8C /* CoreLocation.framework */,
 				D5932E8A192BB00000E7BC8C /* Twitter.framework */,
 				D5932E88192BAFF800E7BC8C /* Social.framework */,
 				D5932E86192BAFF000E7BC8C /* Accounts.framework */,
